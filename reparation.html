@@ -8,7 +8,7 @@
 </head>
 <body>
 
-  <!-- NAV -->
+<!-- NAV -->
 <nav>
   <a href="index.html" class="logo">Aizen<span>Tech</span></a>
   <button class="nav-hamburger" id="navHamburger" onclick="toggleMobileNav()" aria-label="Menu">
@@ -19,28 +19,25 @@
     <a href="index.html#products">Téléphones</a>
     <a href="index.html#brands">Marques</a>
     <a href="index.html#promo">Promotions</a>
-    <a href="reparation.html"class="active">Réparation</a>
+    <a href="reparation.html">Réparation</a>
     <a href="contact.html">Contact</a>
-    <a href="troc.html" >♻️Troc</a>
-       <a href="cgv.html">Cgv</a>
+    <a href="troc.html">♻️ Troc</a>
+    <a href="cgv.html">CGV</a>
   </div>
   <div class="nav-right">
     <div class="lang-toggle">
       <button class="lang-btn active" onclick="setLang('fr')">FR</button>
       <button class="lang-btn" onclick="setLang('en')">EN</button>
     </div>
-    <a href="panier.html" class="cart-btn">
-      🛒 Panier
-      <div class="cart-count" id="cartCount">0</div>
-    </a>
+    <a href="panier.html" class="cart-btn">🛒 <span data-key="nav_cart">Panier</span><div class="cart-count" id="cartCount">0</div></a>
   </div>
 </nav>
 
 <!-- HEADER -->
 <div class="page-header">
-  <div class="hero-badge" style="display:inline-flex;margin-bottom:16px">⚡ Réparation Express</div>
-  <h1>Service <span>Réparation</span></h1>
-  <p>Experts certifiés, pièces d'origine, réparation en 1h à 24h. Devis gratuit sans engagement.</p>
+  <div class="hero-badge" style="display:inline-flex;margin-bottom:16px" data-key="rep_badge">⚡ Réparation Express</div>
+  <h1 data-key="rep_title">Service <span>Réparation</span></h1>
+  <p data-key="rep_subtitle">Experts certifiés, pièces d'origine, réparation en 1h à 24h. Devis gratuit sans engagement.</p>
 </div>
 
 <!-- POURQUOI NOUS -->
@@ -48,23 +45,23 @@
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:40px">
     <div style="background:var(--surface2);border:1px solid var(--border);border-radius:14px;padding:20px;text-align:center">
       <div style="font-size:32px;margin-bottom:10px">⚡</div>
-      <div style="font-family:'Syne',sans-serif;font-weight:700;margin-bottom:6px">Réparation Express</div>
-      <div style="font-size:13px;color:var(--text2)">Écrans remplacés en 30 minutes dans nos ateliers</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;margin-bottom:6px" data-key="rep_feat1_title">Réparation Express</div>
+      <div style="font-size:13px;color:var(--text2)" data-key="rep_feat1_desc">Écrans remplacés en 30 minutes dans nos ateliers</div>
     </div>
     <div style="background:var(--surface2);border:1px solid var(--border);border-radius:14px;padding:20px;text-align:center">
       <div style="font-size:32px;margin-bottom:10px">✅</div>
-      <div style="font-family:'Syne',sans-serif;font-weight:700;margin-bottom:6px">Garantie 6 mois</div>
-      <div style="font-size:13px;color:var(--text2)">Toutes les réparations couvertes 6 mois pièces et main d'œuvre</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;margin-bottom:6px" data-key="rep_feat2_title">Garantie 6 mois</div>
+      <div style="font-size:13px;color:var(--text2)" data-key="rep_feat2_desc">Toutes les réparations couvertes 6 mois pièces et main d'œuvre</div>
     </div>
     <div style="background:var(--surface2);border:1px solid var(--border);border-radius:14px;padding:20px;text-align:center">
       <div style="font-size:32px;margin-bottom:10px">🔧</div>
-      <div style="font-family:'Syne',sans-serif;font-weight:700;margin-bottom:6px">Pièces d'origine</div>
-      <div style="font-size:13px;color:var(--text2)">Écrans OEM, batteries certifiées, connecteurs officiels</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;margin-bottom:6px" data-key="rep_feat3_title">Pièces d'origine</div>
+      <div style="font-size:13px;color:var(--text2)" data-key="rep_feat3_desc">Écrans OEM, batteries certifiées, connecteurs officiels</div>
     </div>
     <div style="background:var(--surface2);border:1px solid var(--border);border-radius:14px;padding:20px;text-align:center">
       <div style="font-size:32px;margin-bottom:10px">💰</div>
-      <div style="font-family:'Syne',sans-serif;font-weight:700;margin-bottom:6px">Devis Gratuit</div>
-      <div style="font-size:13px;color:var(--text2)">Diagnostic complet sans frais, sans engagement de réparation</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;margin-bottom:6px" data-key="rep_feat4_title">Devis Gratuit</div>
+      <div style="font-size:13px;color:var(--text2)" data-key="rep_feat4_desc">Diagnostic complet sans frais, sans engagement de réparation</div>
     </div>
   </div>
 </div>
@@ -72,7 +69,7 @@
 <!-- SERVICES DE RÉPARATION -->
 <div class="section">
   <div class="section-header">
-    <h2 class="section-title">Nos Services de Réparation</h2>
+    <h2 class="section-title" data-key="rep_section_title">Nos Services de Réparation</h2>
   </div>
 
   <div class="repair-grid">
@@ -80,7 +77,7 @@
     <!-- ÉCRAN -->
     <div class="repair-card">
       <div class="repair-icon">📺</div>
-      <div class="repair-title">Remplacement d'Écran</div>
+      <div class="repair-title" data-key="rep_screen_title">Remplacement d'Écran</div>
       <div class="repair-brands">
         <span class="repair-brand-tag">Apple</span>
         <span class="repair-brand-tag">Samsung</span>
@@ -89,8 +86,8 @@
         <span class="repair-brand-tag">OnePlus</span>
         <span class="repair-brand-tag">Sony</span>
       </div>
-      <div class="repair-desc">Écran cassé, fissuré ou tactile défaillant ? Nous remplaçons votre écran avec des pièces d'origine en moins d'une heure.</div>
-      <div class="repair-price">À partir de 49€</div>
+      <div class="repair-desc" data-key="rep_screen_desc">Écran cassé, fissuré ou tactile défaillant ? Nous remplaçons votre écran avec des pièces d'origine en moins d'une heure.</div>
+      <div class="repair-price" data-key="rep_screen_price">À partir de 49€</div>
       <ul class="repair-items">
         <li>iPhone 15 / 16 <span>89€ – 149€</span></li>
         <li>iPhone 14 / 13 <span>69€ – 99€</span></li>
@@ -99,13 +96,13 @@
         <li>Pixel 9 Pro <span>89€ – 119€</span></li>
         <li>Xiaomi 14 / Redmi <span>49€ – 89€</span></li>
       </ul>
-      <button class="repair-book-btn" onclick="bookRepair('Écran')">📅 Prendre rendez-vous</button>
+      <button class="repair-book-btn" onclick="bookRepair('Écran')" data-key="rep_book_btn">📅 Prendre rendez-vous</button>
     </div>
 
     <!-- BATTERIE -->
     <div class="repair-card">
       <div class="repair-icon">🔋</div>
-      <div class="repair-title">Remplacement de Batterie</div>
+      <div class="repair-title" data-key="rep_bat_title">Remplacement de Batterie</div>
       <div class="repair-brands">
         <span class="repair-brand-tag">Apple</span>
         <span class="repair-brand-tag">Samsung</span>
@@ -114,8 +111,8 @@
         <span class="repair-brand-tag">OnePlus</span>
         <span class="repair-brand-tag">Motorola</span>
       </div>
-      <div class="repair-desc">Batterie qui ne tient plus la charge ? Gonflement ? Nous remplaçons votre batterie par une pièce certifiée garantissant jusqu'à 100% de capacité.</div>
-      <div class="repair-price">À partir de 29€</div>
+      <div class="repair-desc" data-key="rep_bat_desc">Batterie qui ne tient plus la charge ? Gonflement ? Nous remplaçons votre batterie par une pièce certifiée garantissant jusqu'à 100% de capacité.</div>
+      <div class="repair-price" data-key="rep_bat_price">À partir de 29€</div>
       <ul class="repair-items">
         <li>iPhone (tous modèles) <span>39€ – 69€</span></li>
         <li>Samsung Galaxy S <span>35€ – 59€</span></li>
@@ -124,20 +121,20 @@
         <li>Xiaomi / Redmi <span>29€ – 49€</span></li>
         <li>OnePlus / Sony <span>39€ – 65€</span></li>
       </ul>
-      <button class="repair-book-btn" onclick="bookRepair('Batterie')">📅 Prendre rendez-vous</button>
+      <button class="repair-book-btn" onclick="bookRepair('Batterie')" data-key="rep_book_btn">📅 Prendre rendez-vous</button>
     </div>
 
     <!-- CONNECTEUR -->
     <div class="repair-card">
       <div class="repair-icon">🔌</div>
-      <div class="repair-title">Connecteur de Charge</div>
+      <div class="repair-title" data-key="rep_plug_title">Connecteur de Charge</div>
       <div class="repair-brands">
         <span class="repair-brand-tag">USB-C</span>
         <span class="repair-brand-tag">Lightning</span>
         <span class="repair-brand-tag">MagSafe</span>
       </div>
-      <div class="repair-desc">Problème de charge, connecteur USB-C ou Lightning endommagé ? Remplacement rapide du port de charge avec test complet post-réparation.</div>
-      <div class="repair-price">À partir de 35€</div>
+      <div class="repair-desc" data-key="rep_plug_desc">Problème de charge, connecteur USB-C ou Lightning endommagé ? Remplacement rapide du port de charge avec test complet post-réparation.</div>
+      <div class="repair-price" data-key="rep_plug_price">À partir de 35€</div>
       <ul class="repair-items">
         <li>iPhone USB-C / Lightning <span>45€ – 75€</span></li>
         <li>Samsung USB-C <span>35€ – 55€</span></li>
@@ -145,20 +142,20 @@
         <li>Xiaomi / Redmi <span>35€ – 49€</span></li>
         <li>Sony / Motorola <span>39€ – 59€</span></li>
       </ul>
-      <button class="repair-book-btn" onclick="bookRepair('Connecteur')">📅 Prendre rendez-vous</button>
+      <button class="repair-book-btn" onclick="bookRepair('Connecteur')" data-key="rep_book_btn">📅 Prendre rendez-vous</button>
     </div>
 
     <!-- CAMÉRA -->
     <div class="repair-card">
       <div class="repair-icon">📷</div>
-      <div class="repair-title">Réparation Caméra</div>
+      <div class="repair-title" data-key="rep_cam_title">Réparation Caméra</div>
       <div class="repair-brands">
         <span class="repair-brand-tag">Caméra arrière</span>
         <span class="repair-brand-tag">Caméra avant</span>
         <span class="repair-brand-tag">Flash</span>
       </div>
-      <div class="repair-desc">Photos floues, caméra noire ou vitre cassée ? Nous réparons et remplaçons les modules caméra avant et arrière, flash et capteurs.</div>
-      <div class="repair-price">À partir de 45€</div>
+      <div class="repair-desc" data-key="rep_cam_desc">Photos floues, caméra noire ou vitre cassée ? Nous réparons et remplaçons les modules caméra avant et arrière, flash et capteurs.</div>
+      <div class="repair-price" data-key="rep_cam_price">À partir de 45€</div>
       <ul class="repair-items">
         <li>Vitre caméra arrière <span>19€ – 39€</span></li>
         <li>Module caméra avant <span>45€ – 79€</span></li>
@@ -166,61 +163,61 @@
         <li>Flash LED <span>29€ – 49€</span></li>
         <li>Face ID / capteur <span>79€ – 129€</span></li>
       </ul>
-      <button class="repair-book-btn" onclick="bookRepair('Caméra')">📅 Prendre rendez-vous</button>
+      <button class="repair-book-btn" onclick="bookRepair('Caméra')" data-key="rep_book_btn">📅 Prendre rendez-vous</button>
     </div>
 
     <!-- HAUT-PARLEUR / MICRO -->
     <div class="repair-card">
       <div class="repair-icon">🔊</div>
-      <div class="repair-title">Audio — Haut-parleur & Micro</div>
+      <div class="repair-title" data-key="rep_audio_title">Audio — Haut-parleur &amp; Micro</div>
       <div class="repair-brands">
         <span class="repair-brand-tag">Haut-parleur</span>
         <span class="repair-brand-tag">Écouteur</span>
         <span class="repair-brand-tag">Microphone</span>
       </div>
-      <div class="repair-desc">Son grésillant, micro qui ne capte plus, appels inaudibles ? Diagnostic et remplacement des composants audio de votre smartphone.</div>
-      <div class="repair-price">À partir de 29€</div>
+      <div class="repair-desc" data-key="rep_audio_desc">Son grésillant, micro qui ne capte plus, appels inaudibles ? Diagnostic et remplacement des composants audio de votre smartphone.</div>
+      <div class="repair-price" data-key="rep_audio_price">À partir de 29€</div>
       <ul class="repair-items">
         <li>Haut-parleur principal <span>29€ – 59€</span></li>
         <li>Écouteur d'appel <span>29€ – 55€</span></li>
         <li>Microphone principal <span>35€ – 65€</span></li>
         <li>Nappe audio complète <span>55€ – 89€</span></li>
       </ul>
-      <button class="repair-book-btn" onclick="bookRepair('Audio')">📅 Prendre rendez-vous</button>
+      <button class="repair-book-btn" onclick="bookRepair('Audio')" data-key="rep_book_btn">📅 Prendre rendez-vous</button>
     </div>
 
     <!-- BOUTONS -->
     <div class="repair-card">
       <div class="repair-icon">🔘</div>
-      <div class="repair-title">Boutons & Vibrations</div>
+      <div class="repair-title" data-key="rep_btn_title">Boutons &amp; Vibrations</div>
       <div class="repair-brands">
         <span class="repair-brand-tag">Power</span>
         <span class="repair-brand-tag">Volume</span>
         <span class="repair-brand-tag">Home</span>
         <span class="repair-brand-tag">Vibreur</span>
       </div>
-      <div class="repair-desc">Bouton power bloqué, volume qui ne répond plus, vibreur en panne ? Réparation et remplacement de tous les boutons et modules haptiques.</div>
-      <div class="repair-price">À partir de 25€</div>
+      <div class="repair-desc" data-key="rep_btn_desc">Bouton power bloqué, volume qui ne répond plus, vibreur en panne ? Réparation et remplacement de tous les boutons et modules haptiques.</div>
+      <div class="repair-price" data-key="rep_btn_price">À partir de 25€</div>
       <ul class="repair-items">
         <li>Bouton power / volume <span>25€ – 49€</span></li>
         <li>Bouton Home + Touch ID <span>45€ – 79€</span></li>
         <li>Module vibreur <span>29€ – 55€</span></li>
         <li>Lecteur d'empreintes <span>49€ – 89€</span></li>
       </ul>
-      <button class="repair-book-btn" onclick="bookRepair('Boutons')">📅 Prendre rendez-vous</button>
+      <button class="repair-book-btn" onclick="bookRepair('Boutons')" data-key="rep_book_btn">📅 Prendre rendez-vous</button>
     </div>
 
     <!-- LOGICIEL -->
     <div class="repair-card">
       <div class="repair-icon">💻</div>
-      <div class="repair-title">Dépannage Logiciel</div>
+      <div class="repair-title" data-key="rep_soft_title">Dépannage Logiciel</div>
       <div class="repair-brands">
         <span class="repair-brand-tag">iOS</span>
         <span class="repair-brand-tag">Android</span>
         <span class="repair-brand-tag">Récupération</span>
       </div>
-      <div class="repair-desc">Téléphone bloqué, réinitialisé par erreur, virus, mise à jour échouée ? Nos techniciens récupèrent vos données et remettent votre appareil en marche.</div>
-      <div class="repair-price">À partir de 19€</div>
+      <div class="repair-desc" data-key="rep_soft_desc">Téléphone bloqué, réinitialisé par erreur, virus, mise à jour échouée ? Nos techniciens récupèrent vos données et remettent votre appareil en marche.</div>
+      <div class="repair-price" data-key="rep_soft_price">À partir de 19€</div>
       <ul class="repair-items">
         <li>Réinitialisation / Déverrouillage <span>19€ – 39€</span></li>
         <li>Récupération de données <span>49€ – 99€</span></li>
@@ -228,27 +225,27 @@
         <li>Mise à jour forcée <span>19€ – 35€</span></li>
         <li>Configuration complète <span>25€ – 45€</span></li>
       </ul>
-      <button class="repair-book-btn" onclick="bookRepair('Logiciel')">📅 Prendre rendez-vous</button>
+      <button class="repair-book-btn" onclick="bookRepair('Logiciel')" data-key="rep_book_btn">📅 Prendre rendez-vous</button>
     </div>
 
     <!-- EAU -->
     <div class="repair-card">
       <div class="repair-icon">💧</div>
-      <div class="repair-title">Dégâts des Eaux</div>
+      <div class="repair-title" data-key="rep_water_title">Dégâts des Eaux</div>
       <div class="repair-brands">
         <span class="repair-brand-tag">Nettoyage</span>
         <span class="repair-brand-tag">Séchage</span>
         <span class="repair-brand-tag">Récupération</span>
       </div>
-      <div class="repair-desc">Tombé dans l'eau, mouillé sous la pluie ? Agissez vite ! Amenez votre appareil immédiatement pour un nettoyage professionnel aux ultrasons.</div>
-      <div class="repair-price">À partir de 59€</div>
+      <div class="repair-desc" data-key="rep_water_desc">Tombé dans l'eau, mouillé sous la pluie ? Agissez vite ! Amenez votre appareil immédiatement pour un nettoyage professionnel aux ultrasons.</div>
+      <div class="repair-price" data-key="rep_water_price">À partir de 59€</div>
       <ul class="repair-items">
         <li>Nettoyage ultrasons <span>59€ – 89€</span></li>
         <li>Remplacement composants oxydés <span>variable</span></li>
         <li>Récupération données <span>49€ – 99€</span></li>
         <li>Traitement anti-corrosion <span>39€ – 69€</span></li>
       </ul>
-      <button class="repair-book-btn" onclick="bookRepair('Dégats des eaux')">📅 Prendre rendez-vous</button>
+      <button class="repair-book-btn" onclick="bookRepair('Dégats des eaux')" data-key="rep_book_btn">📅 Prendre rendez-vous</button>
     </div>
 
   </div>
@@ -258,10 +255,10 @@
 <div class="section" style="padding-top:0">
   <div style="background:linear-gradient(135deg,var(--surface2) 0%,#0A1F0A 100%);border:1px solid rgba(0,230,118,0.2);border-radius:20px;padding:40px;text-align:center">
     <div style="font-size:40px;margin-bottom:16px">🔧</div>
-    <h2 style="font-family:'Syne',sans-serif;font-size:28px;font-weight:800;margin-bottom:12px">Votre problème n'est pas listé ?</h2>
-    <p style="color:var(--text2);margin-bottom:24px;font-size:15px">Contactez-nous pour un diagnostic gratuit. Nos techniciens peuvent réparer la grande majorité des pannes.</p>
+    <h2 style="font-family:'Syne',sans-serif;font-size:28px;font-weight:800;margin-bottom:12px" data-key="rep_cta_title">Votre problème n'est pas listé ?</h2>
+    <p style="color:var(--text2);margin-bottom:24px;font-size:15px" data-key="rep_cta_desc">Contactez-nous pour un diagnostic gratuit. Nos techniciens peuvent réparer la grande majorité des pannes.</p>
     <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-      <a href="contact.html" class="btn-primary">📧 Nous contacter</a>
+      <a href="contact.html" class="btn-primary" data-key="rep_cta_contact">📧 Nous contacter</a>
       <a href="https://wa.me/241062282798" class="btn-secondary" target="_blank">💬 WhatsApp</a>
       <a href="tel:+241062282798" class="btn-secondary">📞 Appeler</a>
     </div>
@@ -273,24 +270,24 @@
   <div class="footer-inner">
     <div class="footer-brand">
       <a href="index.html" class="logo">Aizen<span>Tech</span></a>
-      <p>Votre spécialiste en téléphonie depuis 2018. Qualité et confiance garanties.</p>
+      <p data-key="footer_about">Votre spécialiste en téléphonie depuis 2018. Qualité et confiance garanties.</p>
     </div>
     <div class="footer-col">
-      <h4>Boutique</h4>
+      <h4 data-key="footer_col1">Boutique</h4>
       <ul>
-        <li><a href="index.html#products">Téléphones neufs</a></li>
-        <li><a href="index.html#products">Reconditionnés</a></li>
-        <li><a href="index.html#products">Accessoires</a></li>
-        <li><a href="index.html#products">Promotions</a></li>
+        <li><a href="index.html#products" data-key="footer_c1_l1">Téléphones neufs</a></li>
+        <li><a href="index.html#products" data-key="footer_c1_l2">Reconditionnés</a></li>
+        <li><a href="index.html#products" data-key="footer_c1_l3">Accessoires</a></li>
+        <li><a href="index.html#promo" data-key="footer_c1_l4">Promotions</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Réparation</h4>
       <ul>
-        <li><a href="reparation.html">Écran</a></li>
-        <li><a href="reparation.html">Batterie</a></li>
-        <li><a href="reparation.html">Connecteur</a></li>
-        <li><a href="reparation.html">Logiciel</a></li>
+        <li><a href="reparation.html" data-key="rep_screen_title">Écran</a></li>
+        <li><a href="reparation.html" data-key="rep_bat_title">Batterie</a></li>
+        <li><a href="reparation.html" data-key="rep_plug_title">Connecteur</a></li>
+        <li><a href="reparation.html" data-key="rep_soft_title">Logiciel</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -298,28 +295,27 @@
       <ul>
         <li><a href="contact.html">Nous trouver</a></li>
         <li><a href="tel:+241062282798">062 28 27 98</a></li>
-        <li><a href="/cdn-cgi/l/email-protection#debab7babbacb1b5bfb3bbb9b0bbef9eb9b3bfb7b2f0bdb1b3">Email</a></li>
+        <li><a href="mailto:diderokamegne1@gmail.com">Email</a></li>
         <li><a href="https://wa.me/241062282798">WhatsApp</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2025 AizenTech. Tous droits réservés.</span>
-    <span>CGV · Confidentialité · Cookies</span>
+    <span data-key="footer_copy">© 2025 AizenTech. Tous droits réservés.</span>
+    <span data-key="footer_legal">CGV · Confidentialité · Cookies</span>
   </div>
 </footer>
 
-<!-- TOAST -->
-<div class="toast" id="toast">
-  <div class="toast-dot"></div>
-  <span id="toastMsg"></span>
-</div>
+<div class="toast" id="toast"><div class="toast-dot"></div><span id="toastMsg"></span></div>
+<a href="https://wa.me/241062282798" class="whatsapp-float" target="_blank">💬 WhatsApp</a>
 
-<!-- WHATSAPP -->
-<a href="https://wa.me/241062282798" class="whatsapp-float" target="_blank">
-  💬 WhatsApp
-</a>
-
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="i18n.js"></script>
+<script src="i18n.js"></script>
 <script src="products.js"></script>
-<script src="script.j
+<script src="script.js"></script>
+<script>
+function bookRepair(service) {
+  window.location.href = 'contact.html?service=' + encodeURIComponent(service);
+}
+</script>
+</body>
+</html>
