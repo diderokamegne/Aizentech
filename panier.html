@@ -613,23 +613,28 @@
 <!-- NAV -->
 <nav>
   <a href="index.html" class="logo">Aizen<span>Tech</span></a>
-  <div class="nav-links">
-    <a href="index.html">Accueil</a>
+  <button class="nav-hamburger" id="navHamburger" onclick="toggleMobileNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html" class="active">Accueil</a>
     <a href="index.html#products">Téléphones</a>
     <a href="index.html#brands">Marques</a>
-    <a href="index.html#products">Promotions</a>
+    <a href="index.html#promo">Promotions</a>
     <a href="reparation.html">Réparation</a>
     <a href="contact.html">Contact</a>
+    <a href="troc.html">♻️ Troc</a>
+     <a href="cgv.html">Cgv</a>
   </div>
   <div class="nav-right">
     <div class="lang-toggle">
       <button class="lang-btn active" onclick="setLang('fr')">FR</button>
       <button class="lang-btn" onclick="setLang('en')">EN</button>
     </div>
-    <div class="cart-btn" onclick="window.location.href='panier.html'" style="background:var(--accent);color:#000">
+    <a href="panier.html" class="cart-btn">
       🛒 Panier
-      <div class="cart-count" id="cartCount" style="background:#000;color:#fff">0</div>
-    </div>
+      <div class="cart-count" id="cartCount">0</div>
+    </a>
   </div>
 </nav>
 
@@ -1087,7 +1092,7 @@ function clearCart() {
 }
 
 // ── PROMO ──
-const PROMOS = { 'AIZEN10': 10, 'WELCOME': 50, 'GABON20': 20 };
+const PROMOS = { 'AIZEN10':200, 'WELCOME': 50, 'GABON20': 20 };
 
 function applyPromo() {
   const code = document.getElementById('promoInput').value.trim().toUpperCase();
