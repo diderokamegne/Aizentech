@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AizenTech — Smartphones & Réparation | Libreville, Gabon</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo">Aizen<span>Tech</span></a>
+  <button class="nav-hamburger" id="navHamburger" onclick="toggleMobileNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html" class="active">Accueil</a>
+    <a href="index.html#products">Téléphones</a>
+    <a href="index.html#brands">Marques</a>
+    <a href="index.html#promo">Promotions</a>
+    <a href="reparation.html">Réparation</a>
+    <a href="contact.html">Contact</a>
+    <a href="cgv.html">CGV</a>
+  </div>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+    <a href="panier.html" class="cart-btn">
+      🛒 Panier
+      <div class="cart-count" id="cartCount">0</div>
+    </a>
+  </div>
+</div>
+</nav>
+
+<!-- SOLDES FLASH EN HAUT -->
+<div class="flash-banner" id="promo">
+  <div class="flash-banner-inner">
+    <div class="flash-left">
+      <div class="flash-badge">⚡ SOLDES FLASH</div>
+      <div class="flash-text">
+        <h2 data-key="promo_title">Soldes flash — jusqu'à <span>40% de réduction</span></h2>
+        <p data-key="promo_desc">Profitez de prix exceptionnels sur une sélection de smartphones premium.</p>
+      </div>
+    </div>
+    <div class="flash-right">
+      <div class="flash-countdown">
+        <div class="flash-count-block">
+          <span class="flash-count-num" id="cd-h">08</span>
+          <span class="flash-count-label" data-key="cd_hours">Heures</span>
+        </div>
+        <div class="flash-sep">:</div>
+        <div class="flash-count-block">
+          <span class="flash-count-num" id="cd-m">34</span>
+          <span class="flash-count-label" data-key="cd_min">Min</span>
+        </div>
+        <div class="flash-sep">:</div>
+        <div class="flash-count-block">
+          <span class="flash-count-num" id="cd-s">12</span>
+          <span class="flash-count-label" data-key="cd_sec">Sec</span>
+        </div>
+      </div>
+      <a href="#products" class="btn-primary flash-cta" data-key="promo_cta">Profiter de l'offre</a>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge" data-key="hero_badge">Nouveautés 2025 disponibles</div>
+    <h1 data-key="hero_title">Le meilleur prix pour votre <em>prochain</em> smartphone</h1>
+    <p class="hero-intro">Bienvenue chez <strong>AizenTech</strong>, votre spécialiste en téléphonie à Libreville depuis 2018. Découvrez nos services :</p>
+    <ul class="hero-services-list">
+      <li><a href="#products">📱 Smartphones neufs &amp; reconditionnés — toutes marques</a></li>
+      <li><a href="reparation.html">🔧 Réparation express en 30 min à 24h — devis gratuit</a></li>
+      <li><a href="contact.html">🚚 Livraison à domicile sur Libreville en 24/48h</a></li>
+      <li><a href="contact.html">💳 Paiement Airtel Money, Moov Money &amp; espèces</a></li>
+      <li><a href="reparation.html">🛡️ Garantie 2 ans sur tous nos appareils</a></li>
+    </ul>
+    <div class="hero-actions">
+      <a href="#products" class="btn-primary" data-key="hero_cta1">Voir les offres</a>
+      <a href="reparation.html" class="btn-secondary" data-key="hero_cta2">Service réparation</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <a href="#products" class="hero-phone-img hero-phone-link" onclick="event.preventDefault();filterByBrand('Apple')">
+      <img src="image/17 PM2.JPG" alt="iPhone 17 Pro Max">
+      <div class="phone-price-tag">$1,199</div>
+      <div class="phone-hover-label">Apple →</div>
+    </a>
+    <a href="#products" class="hero-phone-img hero-phone-link large" onclick="event.preventDefault();filterByBrand('Samsung')">
+      <img src="image/S 26 ultra.JPG" alt="Samsung S26 Ultra">
+      <div class="phone-price-tag">$1,099</div>
+      <div class="phone-hover-label">Samsung →</div>
+    </a>
+    <a href="#products" class="hero-phone-img hero-phone-link" onclick="event.preventDefault();filterByBrand('Google')">
+      <img src="image/g 10 pro.JPG" alt="Pixel 10 pro">
+      <div class="phone-price-tag">$499</div>
+      <div class="phone-hover-label">Google →</div>
+    </a>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stats-inner">
+    <div class="stat"><div class="stat-num">500+</div><div class="stat-label" data-key="stat_products">Produits en stock</div></div>
+    <div class="stat"><div class="stat-num">50K+</div><div class="stat-label" data-key="stat_clients">Clients satisfaits</div></div>
+    <div class="stat"><div class="stat-num">48h</div><div class="stat-label" data-key="stat_delivery">Livraison rapide</div></div>
+    <div class="stat"><div class="stat-num">24/7</div><div class="stat-label" data-key="stat_support">Support client</div></div>
+  </div>
+</div>
+
+<!-- BRANDS -->
+<div class="brands-strip" id="brands">
+  <div class="brands-inner">
+    <div class="brand-name" onclick="filterByBrand('Apple')">Apple</div>
+    <div class="brand-name" onclick="filterByBrand('Samsung')">Samsung</div>
+    <div class="brand-name" onclick="filterByBrand('Google')">Google</div>
+    <div class="brand-name" onclick="filterByBrand('OnePlus')">OnePlus</div>
+    <div class="brand-name" onclick="filterByBrand('Xiaomi')">Xiaomi</div>
+    <div class="brand-name" onclick="filterByBrand('Sony')">Sony</div>
+    <div class="brand-name" onclick="filterByBrand('Motorola')">Motorola</div>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<div class="section" id="products">
+  <div class="section-header">
+    <h2 class="section-title" data-key="sec_featured">Smartphones populaires</h2>
+    <a href="#products" class="section-link" data-key="sec_viewall">Voir tout →</a>
+  </div>
+  <div class="filter-tabs" id="filterTabs"></div>
+  <div class="product-grid" id="productGrid"></div>
+</div>
+
+<!-- FEATURES -->
+<div class="features">
+  <div class="features-inner">
+    <div class="feature-item">
+      <div class="feature-icon">🚚</div>
+      <div><div class="feature-title" data-key="feat1_title">Livraison offerte</div><div class="feature-desc" data-key="feat1_desc">Gratuite à partir de 100€. Express 24h disponible.</div></div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">🔒</div>
+      <div><div class="feature-title" data-key="feat2_title">Paiement sécurisé</div><div class="feature-desc" data-key="feat2_desc">Mobile Money, CB, PayPal et paiement en plusieurs fois.</div></div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">↩️</div>
+      <div><div class="feature-title" data-key="feat3_title">Retour 30 jours</div><div class="feature-desc" data-key="feat3_desc">Pas satisfait ? Retournez votre produit facilement.</div></div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">💬</div>
+      <div><div class="feature-title" data-key="feat4_title">Support 24/7</div><div class="feature-desc" data-key="feat4_desc">Notre équipe disponible à tout moment pour vous aider.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">Aizen<span>Tech</span></a>
+      <p data-key="footer_about">Votre spécialiste en téléphonie depuis 2018. Qualité et confiance garanties.</p>
+      <div class="footer-notoriete">
+        <div class="notoriete-title">⭐ Notre notoriété</div>
+        <div class="notoriete-stars">★★★★★ <strong>4.9/5</strong> <span>— +50 000 clients</span></div>
+        <div class="notoriete-badges">
+          <span class="notoriete-badge">🏆 Meilleur revendeur Gabon 2024</span>
+          <span class="notoriete-badge">✅ Certifié Samsung</span>
+          <span class="notoriete-badge">🍎 Agréé Apple</span>
+        </div>
+        <div class="notoriete-presse">Mentionné par : <span>📰 Gabon Télécoms</span> · <span>📺 RTG</span> · <span>📻 Africa N°1</span></div>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4 data-key="footer_col1">Boutique</h4>
+      <ul>
+        <li><a href="index.html#products" data-key="footer_c1_l1">Téléphones neufs</a></li>
+        <li><a href="index.html#products" data-key="footer_c1_l2">Reconditionnés</a></li>
+        <li><a href="index.html#products" data-key="footer_c1_l3">Accessoires</a></li>
+        <li><a href="index.html#promo" data-key="footer_c1_l4">Promotions</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 data-key="footer_col2">Aide</h4>
+      <ul>
+        <li><a href="contact.html" data-key="footer_c2_l1">FAQ</a></li>
+        <li><a href="contact.html" data-key="footer_c2_l2">Livraison</a></li>
+        <li><a href="contact.html" data-key="footer_c2_l3">Retours</a></li>
+        <li><a href="contact.html" data-key="footer_c2_l4">Garantie</a></li>
+        <li><a href="cgv.html">CGV</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 data-key="footer_col3">Contact</h4>
+      <ul>
+        <li><a href="contact.html">Nous trouver</a></li>
+        <li><a href="tel:+241062282798">062 28 27 98</a></li>
+        <li><a href="mailto:diderokamegne1@gmail.com">Email</a></li>
+        <li><a href="https://wa.me/241062282798">WhatsApp</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span data-key="footer_copy">© 2025 AizenTech. Tous droits réservés.</span>
+    <span class="footer-legal-links">
+      <a href="cgv.html">CGV</a> ·
+      <a href="cgv.html#privacy">Confidentialité</a> ·
+      <a href="cgv.html#cookies">Cookies</a>
+    </span>
+  </div>
+</footer>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <div class="toast-dot"></div>
+  <span id="toastMsg"></span>
+</div>
+
+<!-- MODAL PRODUIT -->
+<div class="modal-overlay" id="productModal" onclick="if(event.target===this)closeModal()">
+  <div class="modal" id="modalContent"></div>
+</div>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/241062282798" class="whatsapp-float" target="_blank">
+  💬 WhatsApp
+</a>
+
+<script src="i18n.js"></script>
+<script src="products.js"></script>
+<script src="script.js"></script>
+<script>
+  function filterByBrand(brand) {
+    activeFilter = brand;
+    document.querySelectorAll('.filter-tab').forEach(b => {
+      b.classList.toggle('active', b.textContent === brand);
+    });
+    renderProducts();
+    document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function toggleMobileNav() {
+    const nav = document.getElementById('navLinks');
+    const btn = document.getElementById('navHamburger');
+    nav.classList.toggle('open');
+    btn.classList.toggle('open');
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AizenTech — Panier</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ===== CART PAGE STYLES ===== */
+    .cart-page { max-width: 1100px; margin: 0 auto; padding: 24px 20px 60px; }
+
+    .cart-layout {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 24px;
+      align-items: start;
+    }
+
+    /* ---- Cart Items ---- */
+    .cart-items-panel {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .cart-items-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .cart-items-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .cart-clear-btn {
+      font-size: 12px;
+      color: var(--text2);
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 6px 12px;
+      cursor: pointer;
+      transition: all .2s;
+    }
+
+    .cart-clear-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+    .cart-item {
+      display: flex;
+      gap: 16px;
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border);
+      align-items: center;
+      transition: background .2s;
+      animation: slideIn .3s ease;
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(-16px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    .cart-item:last-child { border-bottom: none; }
+    .cart-item:hover { background: var(--surface3); }
+
+    .cart-item-img {
+      width: 80px;
+      height: 80px;
+      border-radius: 12px;
+      object-fit: cover;
+      background: var(--surface3);
+      flex-shrink: 0;
+    }
+
+    .cart-item-info { flex: 1; min-width: 0; }
+
+    .cart-item-brand {
+      font-size: 11px;
+      color: var(--accent);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      margin-bottom: 4px;
+    }
+
+    .cart-item-name {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      margin-bottom: 6px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .cart-item-meta {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+
+    .cart-item-tag {
+      background: var(--surface3);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 2px 8px;
+      font-size: 11px;
+      color: var(--text2);
+    }
+
+    .cart-item-qty {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .qty-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--surface3);
+      color: var(--text);
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all .15s;
+    }
+
+    .qty-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+    .qty-val {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      min-width: 20px;
+      text-align: center;
+    }
+
+    .cart-item-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .cart-item-price {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 18px;
+      color: var(--accent);
+    }
+
+    .cart-item-remove {
+      background: none;
+      border: none;
+      color: var(--text2);
+      cursor: pointer;
+      font-size: 18px;
+      line-height: 1;
+      transition: color .2s;
+      padding: 0;
+    }
+
+    .cart-item-remove:hover { color: var(--accent); }
+
+    /* ---- Empty State ---- */
+    .cart-empty {
+      padding: 60px 24px;
+      text-align: center;
+      display: none;
+    }
+
+    .cart-empty-icon { font-size: 56px; margin-bottom: 16px; }
+
+    .cart-empty-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .cart-empty-desc { color: var(--text2); font-size: 14px; margin-bottom: 24px; }
+
+    /* ---- Summary Panel ---- */
+    .cart-summary {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      position: sticky;
+      top: 90px;
+    }
+
+    .cart-summary-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cart-summary-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .cart-summary-body { padding: 20px 24px; }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .summary-row .label { color: var(--text2); }
+
+    .summary-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 16px 0;
+    }
+
+    .summary-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .summary-total .label {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .summary-total .amount {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 22px;
+      color: var(--accent);
+    }
+
+    /* Promo code */
+    .promo-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .promo-input {
+      flex: 1;
+      background: var(--surface3);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 14px;
+      color: var(--text);
+      font-size: 13px;
+      outline: none;
+      transition: border-color .2s;
+    }
+
+    .promo-input:focus { border-color: var(--accent); }
+    .promo-input::placeholder { color: var(--text2); }
+
+    .promo-apply-btn {
+      background: var(--surface3);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 14px;
+      color: var(--text);
+      font-size: 13px;
+      cursor: pointer;
+      transition: all .2s;
+      white-space: nowrap;
+    }
+
+    .promo-apply-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+    .order-btn {
+      width: 100%;
+      background: linear-gradient(135deg, var(--accent), #00c896);
+      color: #fff;
+      border: none;
+      border-radius: 14px;
+      padding: 16px;
+      font-family: 'Syne', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all .25s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 20px rgba(0,230,118,.25);
+    }
+
+    .order-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,230,118,.35); }
+    .order-btn:active { transform: translateY(0); }
+    .order-btn:disabled { opacity: .4; cursor: not-allowed; transform: none; }
+
+    .whatsapp-note {
+      text-align: center;
+      font-size: 11px;
+      color: var(--text2);
+      margin-top: 12px;
+      line-height: 1.5;
+    }
+
+    .safe-badges {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      margin-top: 16px;
+    }
+
+    .safe-badge {
+      font-size: 11px;
+      color: var(--text2);
+      background: var(--surface3);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 5px 8px;
+    }
+
+    /* ===== MODAL COMMANDE ===== */
+    .order-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.7);
+      backdrop-filter: blur(8px);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .3s;
+    }
+
+    .order-modal-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .order-modal {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      width: 100%;
+      max-width: 480px;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 32px;
+      transform: scale(.92) translateY(20px);
+      transition: transform .35s cubic-bezier(.34,1.56,.64,1);
+    }
+
+    .order-modal-overlay.open .order-modal {
+      transform: scale(1) translateY(0);
+    }
+
+    .order-modal-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .order-modal-icon {
+      font-size: 48px;
+      margin-bottom: 12px;
+    }
+
+    .order-modal-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .order-modal-sub {
+      font-size: 13px;
+      color: var(--text2);
+      line-height: 1.5;
+    }
+
+    /* Order recap */
+    .order-recap {
+      background: var(--surface3);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 24px;
+    }
+
+    .order-recap-title {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text2);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 12px;
+    }
+
+    .recap-item {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    .recap-item-name { color: var(--text2); }
+    .recap-item-price { font-weight: 600; }
+    .recap-total {
+      border-top: 1px solid var(--border);
+      margin-top: 10px;
+      padding-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 15px;
+    }
+
+    .recap-total .t-amount { color: var(--accent); }
+
+    /* Form fields */
+    .order-form { display: flex; flex-direction: column; gap: 16px; }
+
+    .order-field label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text2);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    .order-field input,
+    .order-field select,
+    .order-field textarea {
+      width: 100%;
+      background: var(--surface3);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 16px;
+      color: var(--text);
+      font-size: 14px;
+      outline: none;
+      transition: border-color .2s;
+      box-sizing: border-box;
+      font-family: inherit;
+    }
+
+    .order-field input:focus,
+    .order-field select:focus,
+    .order-field textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(0,230,118,.08);
+    }
+
+    .order-field input::placeholder,
+    .order-field textarea::placeholder { color: var(--text2); }
+
+    .phone-flag-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    .phone-prefix {
+      background: var(--surface3);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-size: 14px;
+      color: var(--text2);
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .confirm-order-btn {
+      width: 100%;
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      color: #fff;
+      border: none;
+      border-radius: 14px;
+      padding: 16px;
+      font-family: 'Syne', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all .25s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 8px;
+      box-shadow: 0 4px 20px rgba(37,211,102,.25);
+    }
+
+    .confirm-order-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,.35); }
+
+    .cancel-order-btn {
+      width: 100%;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px;
+      font-size: 14px;
+      color: var(--text2);
+      cursor: pointer;
+      transition: all .2s;
+      margin-top: 8px;
+    }
+
+    .cancel-order-btn:hover { border-color: var(--text2); color: var(--text); }
+
+    .field-required { color: var(--accent); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .cart-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .cart-summary {
+        position: static;
+      }
+
+      .cart-item-name {
+        font-size: 13px;
+      }
+    }
+
+    /* ===== MODAL MODIFICATION ===== */
+    .edit-modal-overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,.8);
+      backdrop-filter: blur(10px);
+      z-index: 3000;
+      display: flex; align-items: center; justify-content: center;
+      padding: 20px;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s;
+    }
+    .edit-modal-overlay.open { opacity: 1; pointer-events: all; }
+    .edit-modal {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      width: 100%; max-width: 440px;
+      overflow: hidden;
+      transform: scale(.9) translateY(24px);
+      transition: transform .35s cubic-bezier(.34,1.56,.64,1);
+    }
+    .edit-modal-overlay.open .edit-modal { transform: scale(1) translateY(0); }
+    .edit-modal-header {
+      padding: 20px 20px 16px;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 14px;
+    }
+    .edit-modal-phone-img { width: 60px; height: 60px; border-radius: 12px; object-fit: cover; background: var(--surface3); flex-shrink: 0; }
+    .edit-modal-phone-brand { font-size: 11px; color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 3px; }
+    .edit-modal-phone-name { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 15px; line-height: 1.2; }
+    .edit-modal-close {
+      margin-left: auto; background: var(--surface3); border: 1px solid var(--border);
+      border-radius: 50%; width: 32px; height: 32px; font-size: 15px;
+      cursor: pointer; color: var(--text2); flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; transition: all .2s;
+    }
+    .edit-modal-close:hover { border-color: var(--accent); color: var(--accent); }
+    .edit-modal-body { padding: 20px; }
+    .edit-section-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: var(--text2); margin-bottom: 12px; }
+    .edit-color-grid { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
+    .edit-color-item { display: flex; flex-direction: column; align-items: center; gap: 6px; cursor: pointer; transition: transform .15s; }
+    .edit-color-item:hover { transform: translateY(-2px); }
+    .edit-color-swatch { width: 38px; height: 38px; border-radius: 50%; border: 3px solid transparent; transition: all .15s; box-shadow: 0 2px 8px rgba(0,0,0,.35); }
+    .edit-color-item.selected .edit-color-swatch { border-color: var(--accent); box-shadow: 0 0 0 4px rgba(0,230,118,.2); }
+    .edit-color-name { font-size: 10px; color: var(--text2); text-align: center; max-width: 58px; line-height: 1.2; }
+    .edit-color-item.selected .edit-color-name { color: var(--accent); font-weight: 600; }
+    .edit-mem-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+    .edit-mem-btn { background: var(--surface3); border: 1px solid var(--border); border-radius: 10px; padding: 10px 20px; font-size: 14px; font-weight: 600; color: var(--text); cursor: pointer; transition: all .15s; }
+    .edit-mem-btn:hover { border-color: var(--accent); }
+    .edit-mem-btn.selected { background: var(--accent); border-color: var(--accent); color: #000; }
+    .edit-preview { background: var(--surface3); border: 1px solid rgba(0,230,118,.2); border-radius: 12px; padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; font-size: 13px; }
+    .edit-preview-label { color: var(--text2); }
+    .edit-preview-val { font-weight: 700; display: flex; align-items: center; gap: 8px; }
+    .edit-modal-footer { padding: 16px 20px 20px; display: flex; gap: 10px; }
+    .edit-confirm-btn { flex: 1; background: var(--accent); color: #000; border: none; border-radius: 12px; padding: 14px; font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; transition: all .2s; }
+    .edit-confirm-btn:hover { opacity: .85; transform: translateY(-1px); }
+    .edit-cancel-modal-btn { background: none; border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; font-size: 14px; color: var(--text2); cursor: pointer; transition: all .2s; }
+    .edit-cancel-modal-btn:hover { border-color: var(--text2); color: var(--text); }
+    .cart-edit-btn { background: none; border: 1px solid var(--border); border-radius: 8px; padding: 5px 12px; font-size: 12px; color: var(--text2); cursor: pointer; transition: all .2s; margin-top: 8px; display: inline-flex; align-items: center; gap: 5px; }
+    .cart-edit-btn:hover { border-color: var(--accent); color: var(--accent); background: rgba(0,230,118,.06); }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo">Aizen<span>Tech</span></a>
+  <div class="nav-links">
+    <a href="index.html">Accueil</a>
+    <a href="index.html#products">Téléphones</a>
+    <a href="index.html#brands">Marques</a>
+    <a href="index.html#products">Promotions</a>
+    <a href="reparation.html">Réparation</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+    <div class="cart-btn" onclick="window.location.href='panier.html'" style="background:var(--accent);color:#000">
+      🛒 Panier
+      <div class="cart-count" id="cartCount" style="background:#000;color:#fff">0</div>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="hero-badge" style="display:inline-flex;margin-bottom:16px">🛒 Mon Panier</div>
+  <h1>Votre <span>Panier</span></h1>
+  <p>Vérifiez vos articles et passez commande via WhatsApp.</p>
+</div>
+
+<!-- CART PAGE -->
+<div class="cart-page">
+  <div class="cart-layout" id="cartLayout">
+
+    <!-- ITEMS -->
+    <div class="cart-items-panel">
+      <div class="cart-items-header">
+        <div class="cart-items-title">Articles (<span id="itemCount">0</span>)</div>
+        <button class="cart-clear-btn" onclick="clearCart()">🗑️ Vider le panier</button>
+      </div>
+
+      <div id="cartItemsList"></div>
+
+      <div class="cart-empty" id="cartEmpty">
+        <div class="cart-empty-icon">🛒</div>
+        <div class="cart-empty-title">Votre panier est vide</div>
+        <div class="cart-empty-desc">Découvrez notre sélection de smartphones et accessoires.</div>
+        <a href="index.html#products" class="btn-primary" style="display:inline-block">Voir les produits</a>
+      </div>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="cart-summary">
+      <div class="cart-summary-header">
+        <div class="cart-summary-title">Résumé de la commande</div>
+      </div>
+      <div class="cart-summary-body">
+
+        <div class="summary-row">
+          <span class="label">Sous-total</span>
+          <span id="subtotal">$0</span>
+        </div>
+        <div class="summary-row">
+          <span class="label">Livraison</span>
+          <span id="shipping" style="color:var(--green)">À calculer</span>
+        </div>
+        <div class="summary-row" id="discountRow" style="display:none">
+          <span class="label">Réduction</span>
+          <span id="discountAmt" style="color:var(--green)">-$0</span>
+        </div>
+
+        <div class="promo-row">
+          <input class="promo-input" type="text" id="promoInput" placeholder="Code promo…">
+          <button class="promo-apply-btn" onclick="applyPromo()">Appliquer</button>
+        </div>
+
+        <div class="summary-divider"></div>
+
+        <div class="summary-total">
+          <span class="label">Total estimé</span>
+          <span class="amount" id="totalAmt">$0</span>
+        </div>
+
+        <button class="order-btn" id="orderBtn" onclick="openOrderModal()" disabled>
+          💬 Commander via WhatsApp
+        </button>
+
+        <div class="whatsapp-note">
+          Votre commande sera envoyée sur WhatsApp.<br>Un conseiller vous contactera pour confirmer.
+        </div>
+
+        <div class="safe-badges">
+          <span class="safe-badge">🔒 Sécurisé</span>
+          <span class="safe-badge">✅ Garanti 2 ans</span>
+          <span class="safe-badge">🚚 Livraison rapide</span>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- MODAL COMMANDE -->
+<div class="order-modal-overlay" id="orderModal" onclick="if(event.target===this)closeOrderModal()">
+  <div class="order-modal">
+
+    <div class="order-modal-header">
+      <div class="order-modal-icon">📋</div>
+      <div class="order-modal-title">Valider la commande</div>
+      <div class="order-modal-sub">Renseignez vos coordonnées pour que nous puissions vous contacter et livrer votre commande.</div>
+    </div>
+
+    <!-- RECAP COMMANDE -->
+    <div class="order-recap">
+      <div class="order-recap-title">📦 Récapitulatif</div>
+      <div id="modalRecapItems"></div>
+      <div class="recap-total">
+        <span>Total</span>
+        <span class="t-amount" id="modalTotalAmt">$0</span>
+      </div>
+    </div>
+
+    <!-- FORMULAIRE -->
+    <div class="order-form">
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div class="order-field">
+          <label>Prénom <span class="field-required">*</span></label>
+          <input type="text" id="orderFirstName" placeholder="Didero">
+        </div>
+        <div class="order-field">
+          <label>Nom <span class="field-required">*</span></label>
+          <input type="text" id="orderLastName" placeholder="Kamegne">
+        </div>
+      </div>
+
+      <div class="order-field">
+        <label>Numéro WhatsApp <span class="field-required">*</span></label>
+        <div class="phone-flag-row">
+          <div class="phone-prefix">🇬🇦 +241</div>
+          <input type="tel" id="orderPhone" placeholder="062 XX XX XX" style="flex:1;min-width:0">
+        </div>
+      </div>
+
+      <div class="order-field">
+        <label>Email (optionnel)</label>
+        <input type="email" id="orderEmail" placeholder="votre@email.com">
+      </div>
+
+      <div class="order-field">
+        <label>Adresse de livraison <span class="field-required">*</span></label>
+        <input type="text" id="orderAddress" placeholder="Ex: Libreville, Quartier Louis, Immeuble…">
+      </div>
+
+      <div class="order-field">
+        <label>Mode de paiement <span class="field-required">*</span></label>
+        <select id="orderPayment">
+          <option value="">-- Choisir --</option>
+          <option value="Airtel Money">📱 Airtel Money</option>
+          <option value="Moov Money">📱 Moov Money</option>
+          <option value="Espèces">💵 Espèces à la livraison</option>
+          <option value="Virement bancaire">🏦 Virement bancaire</option>
+        </select>
+      </div>
+
+      <div class="order-field">
+        <label>Notes / Instructions (optionnel)</label>
+        <textarea id="orderNotes" rows="3" placeholder="Précisions de livraison, heure préférée…"></textarea>
+      </div>
+
+      <button class="confirm-order-btn" onclick="sendOrderWhatsApp()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Envoyer la commande sur WhatsApp
+      </button>
+
+      <button class="cancel-order-btn" onclick="closeOrderModal()">Annuler</button>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- MODAL MODIFICATION ARTICLE -->
+<div class="edit-modal-overlay" id="editModalOverlay" onclick="if(event.target===this)closeEditModal()">
+  <div class="edit-modal">
+
+    <div class="edit-modal-header">
+      <img class="edit-modal-phone-img" id="editModalImg" src="" alt="">
+      <div>
+        <div class="edit-modal-phone-brand" id="editModalBrand"></div>
+        <div class="edit-modal-phone-name"  id="editModalName"></div>
+      </div>
+      <button class="edit-modal-close" onclick="closeEditModal()">✕</button>
+    </div>
+
+    <div class="edit-modal-body">
+
+      <div class="edit-section-title">🎨 Couleur</div>
+      <div class="edit-color-grid" id="editColorGrid"></div>
+
+      <div class="edit-section-title">💾 Stockage</div>
+      <div class="edit-mem-grid" id="editMemGrid"></div>
+
+      <div class="edit-preview">
+        <span class="edit-preview-label">Votre sélection</span>
+        <span class="edit-preview-val">
+          <span id="editPreviewColor"></span>
+          &nbsp;·&nbsp;
+          <span id="editPreviewMem"></span>
+        </span>
+      </div>
+
+    </div>
+
+    <div class="edit-modal-footer">
+      <button class="edit-confirm-btn" onclick="confirmEdit()">✅ Enregistrer les modifications</button>
+      <button class="edit-cancel-modal-btn" onclick="closeEditModal()">Annuler</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <div class="toast-dot"></div>
+  <span id="toastMsg"></span>
+</div>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/241062282798" class="whatsapp-float" target="_blank">
+  💬 WhatsApp
+</a>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">Aizen<span>Tech</span></a>
+      <p>Votre spécialiste en téléphonie depuis 2018. Qualité et confiance garanties.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Boutique</h4>
+      <ul>
+        <li><a href="index.html#products">Téléphones neufs</a></li>
+        <li><a href="index.html#products">Reconditionnés</a></li>
+        <li><a href="index.html#products">Accessoires</a></li>
+        <li><a href="index.html#products">Promotions</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Réparation</h4>
+      <ul>
+        <li><a href="reparation.html">Écran</a></li>
+        <li><a href="reparation.html">Batterie</a></li>
+        <li><a href="reparation.html">Connecteur</a></li>
+        <li><a href="reparation.html">Logiciel</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="contact.html">Nous trouver</a></li>
+        <li><a href="tel:+241062282798">062 28 27 98</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#1e7a777a7b6c71757f737b79707b2f5e79737f7772307d7173">Email</a></li>
+        <li><a href="https://wa.me/241062282798">WhatsApp</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 AizenTech. Tous droits réservés.</span>
+    <span>CGV · Confidentialité · Cookies</span>
+  </div>
+</footer>
+
+<script src="i18n.js"></script>
+<script src="products.js"></script>
+
+<script>
+// ============================================================
+// PANIER — AizenTech
+// ============================================================
+
+let lang = 'fr';
+let cart = [];
+let promoDiscount = 0;
+let toastTimeout;
+
+// ── LOAD CART FROM localStorage ──
+function loadCart() {
+  try {
+    const saved = localStorage.getItem('aizentech_cart');
+    cart = saved ? JSON.parse(saved) : [];
+  } catch(e) {
+    cart = [];
+  }
+  renderCart();
+}
+
+function saveCart() {
+  try {
+    localStorage.setItem('aizentech_cart', JSON.stringify(cart));
+  } catch(e) {}
+}
+
+// ── RENDER ──
+function renderCart() {
+  const list = document.getElementById('cartItemsList');
+  const empty = document.getElementById('cartEmpty');
+  const orderBtn = document.getElementById('orderBtn');
+  const itemCount = document.getElementById('itemCount');
+
+  const totalItems = cart.reduce((s, i) => s + i.qty, 0);
+  itemCount.textContent = totalItems;
+  document.getElementById('cartCount').textContent = totalItems;
+
+  if (cart.length === 0) {
+    list.innerHTML = '';
+    empty.style.display = 'block';
+    orderBtn.disabled = true;
+    updateSummary();
+    return;
+  }
+
+  empty.style.display = 'none';
+  orderBtn.disabled = false;
+
+  list.innerHTML = cart.map((item, i) => `
+    <div class="cart-item" id="cartItem${i}">
+      <img class="cart-item-img"
+        src="${item.img}"
+        alt="${item.name}"
+        onerror="this.src='https://via.placeholder.com/80x80/1A1A24/9090A8?text=📱'">
+      <div class="cart-item-info">
+        <div class="cart-item-brand">${item.brand}</div>
+        <div class="cart-item-name">${item.name}</div>
+        <div class="cart-item-meta">
+          <span class="cart-item-tag" style="background:${item.colorHex}22;border-color:${item.colorHex}44">
+            <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${item.colorHex};vertical-align:middle;margin-right:4px"></span>${item.color}
+          </span>
+          <span class="cart-item-tag">💾 ${item.memory}</span>
+        </div>
+        <div class="cart-item-qty">
+          <button class="qty-btn" onclick="changeQty(${i},-1)">−</button>
+          <span class="qty-val">${item.qty}</span>
+          <button class="qty-btn" onclick="changeQty(${i},1)">+</button>
+        </div>
+        <button class="cart-edit-btn" onclick="openEditModal(${i})">✏️ Modifier les options</button>
+      </div>
+      <div class="cart-item-right">
+        <div class="cart-item-price">$${(item.price * item.qty).toLocaleString()}</div>
+        <button class="cart-item-remove" onclick="removeItem(${i})" title="Supprimer">✕</button>
+      </div>
+    </div>
+  `).join('');
+
+  updateSummary();
+}
+
+// ── MODAL MODIFICATION ──
+let editIdx = -1;
+let editTempColor = {};
+let editTempMem   = '';
+
+function openEditModal(idx) {
+  editIdx = idx;
+  const item = cart[idx];
+  // Recherche fiable: par idx stocké, puis par nom exact, puis par nom partiel
+  let src = null;
+  if (typeof products !== 'undefined') {
+    if (item.idx !== undefined && products[item.idx]) {
+      src = products[item.idx];
+    } else {
+      src = products.find(p => p.name === item.name)
+         || products.find(p => item.name.includes(p.name) || p.name.includes(item.name));
+    }
+  }
+  const colors   = (src && src.colors && src.colors.length) ? src.colors : [{ name: item.color, hex: item.colorHex }];
+  const memories = (src && src.memory && src.memory.length) ? src.memory : [item.memory];
+
+  editTempColor = { hex: item.colorHex, name: item.color };
+  editTempMem   = item.memory;
+
+  document.getElementById('editModalImg').src = item.img;
+  document.getElementById('editModalImg').onerror = function(){ this.src='https://via.placeholder.com/60x60/1A1A24/9090A8?text=📱'; };
+  document.getElementById('editModalBrand').textContent = item.brand;
+  document.getElementById('editModalName').textContent  = item.name;
+
+  document.getElementById('editColorGrid').innerHTML = colors.map(c => `
+    <div class="edit-color-item ${c.hex === item.colorHex ? 'selected' : ''}"
+      onclick="editPickColor(this,'${c.hex}','${c.name.replace(/'/g, "\\'")}')">
+      <div class="edit-color-swatch" style="background:${c.hex}"></div>
+      <div class="edit-color-name">${c.name}</div>
+    </div>
+  `).join('');
+
+  document.getElementById('editMemGrid').innerHTML = memories.map(m => `
+    <button class="edit-mem-btn ${m === item.memory ? 'selected' : ''}"
+      onclick="editPickMem(this,'${m}')">${m}</button>
+  `).join('');
+
+  updateEditPreview();
+  document.getElementById('editModalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeEditModal() {
+  document.getElementById('editModalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function editPickColor(el, hex, name) {
+  editTempColor = { hex, name };
+  document.querySelectorAll('#editColorGrid .edit-color-item').forEach(d => d.classList.remove('selected'));
+  el.classList.add('selected');
+  updateEditPreview();
+}
+
+function editPickMem(el, mem) {
+  editTempMem = mem;
+  document.querySelectorAll('#editMemGrid .edit-mem-btn').forEach(b => b.classList.remove('selected'));
+  el.classList.add('selected');
+  updateEditPreview();
+}
+
+function updateEditPreview() {
+  document.getElementById('editPreviewColor').innerHTML =
+    '<span style="display:inline-block;width:12px;height:12px;border-radius:50%;background:' + editTempColor.hex + ';vertical-align:middle;margin-right:6px"></span>' + editTempColor.name;
+  document.getElementById('editPreviewMem').textContent = editTempMem;
+}
+
+function confirmEdit() {
+  if (editIdx < 0) return;
+  cart[editIdx].colorHex = editTempColor.hex;
+  cart[editIdx].color    = editTempColor.name;
+  cart[editIdx].memory   = editTempMem;
+  saveCart();
+  closeEditModal();
+  showToast('✅ Modifications enregistrées !');
+  renderCart();
+}
+
+function updateSummary() {
+  const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
+  const total = subtotal - promoDiscount;
+
+  document.getElementById('subtotal').textContent = '$' + subtotal.toLocaleString();
+  document.getElementById('totalAmt').textContent = '$' + Math.max(0, total).toLocaleString();
+
+  if (promoDiscount > 0) {
+    document.getElementById('discountRow').style.display = 'flex';
+    document.getElementById('discountAmt').textContent = '-$' + promoDiscount.toLocaleString();
+  } else {
+    document.getElementById('discountRow').style.display = 'none';
+  }
+}
+
+function changeQty(idx, delta) {
+  cart[idx].qty = Math.max(1, cart[idx].qty + delta);
+  saveCart();
+  renderCart();
+}
+
+function removeItem(idx) {
+  const el = document.getElementById('cartItem' + idx);
+  if (el) { el.style.opacity = '0'; el.style.transform = 'translateX(40px)'; el.style.transition = 'all .25s'; }
+  setTimeout(() => { cart.splice(idx, 1); saveCart(); renderCart(); }, 250);
+}
+
+function clearCart() {
+  if (!confirm('Vider le panier ?')) return;
+  cart = [];
+  saveCart();
+  renderCart();
+}
+
+// ── PROMO ──
+const PROMOS = { 'AIZEN10': 10, 'WELCOME': 50, 'GABON20': 20 };
+
+function applyPromo() {
+  const code = document.getElementById('promoInput').value.trim().toUpperCase();
+  if (PROMOS[code]) {
+    promoDiscount = PROMOS[code];
+    showToast('✅ Code promo appliqué ! -$' + promoDiscount);
+    updateSummary();
+  } else {
+    showToast('❌ Code promo invalide');
+  }
+}
+
+// ── MODAL COMMANDE ──
+function openOrderModal() {
+  if (cart.length === 0) return;
+
+  // Remplir récap
+  const recapEl = document.getElementById('modalRecapItems');
+  const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
+  const total = subtotal - promoDiscount;
+
+  recapEl.innerHTML = cart.map(item => `
+    <div class="recap-item">
+      <span class="recap-item-name">${item.name} ×${item.qty} (${item.memory})</span>
+      <span class="recap-item-price">$${(item.price * item.qty).toLocaleString()}</span>
+    </div>
+  `).join('') + (promoDiscount > 0 ? `
+    <div class="recap-item" style="color:var(--green)">
+      <span>Code promo</span>
+      <span>-$${promoDiscount}</span>
+    </div>
+  ` : '');
+
+  document.getElementById('modalTotalAmt').textContent = '$' + Math.max(0, total).toLocaleString();
+
+  document.getElementById('orderModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeOrderModal() {
+  document.getElementById('orderModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// ── SEND TO WHATSAPP ──
+function sendOrderWhatsApp() {
+  const firstName = document.getElementById('orderFirstName').value.trim();
+  const lastName  = document.getElementById('orderLastName').value.trim();
+  const phone     = document.getElementById('orderPhone').value.trim();
+  const email     = document.getElementById('orderEmail').value.trim();
+  const address   = document.getElementById('orderAddress').value.trim();
+  const payment   = document.getElementById('orderPayment').value;
+  const notes     = document.getElementById('orderNotes').value.trim();
+
+  if (!firstName || !phone || !address || !payment) {
+    showToast('⚠️ Veuillez remplir tous les champs obligatoires');
+    return;
+  }
+
+  // Construire le message
+  const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
+  const total    = Math.max(0, subtotal - promoDiscount);
+
+  const divider = '──────────────────';
+
+  let msg = `🛒 *NOUVELLE COMMANDE — AizenTech*\n`;
+  msg += `${divider}\n\n`;
+
+  msg += `👤 *CLIENT*\n`;
+  msg += `• Nom : ${firstName} ${lastName}\n`;
+  msg += `• WhatsApp : +241 ${phone}\n`;
+  if (email) msg += `• Email : ${email}\n`;
+  msg += `\n`;
+
+  msg += `📦 *ARTICLES COMMANDÉS*\n`;
+  cart.forEach(item => {
+    msg += `• ${item.brand} ${item.name}\n`;
+    msg += `  └ Couleur : ${item.color} | Stockage : ${item.memory}\n`;
+    msg += `  └ Qté : ${item.qty} × $${item.price.toLocaleString()} = *$${(item.price * item.qty).toLocaleString()}*\n`;
+  });
+  msg += `\n`;
+
+  msg += `${divider}\n`;
+  if (promoDiscount > 0) {
+    msg += `🏷️ Sous-total : $${subtotal.toLocaleString()}\n`;
+    msg += `🎁 Réduction : -$${promoDiscount}\n`;
+  }
+  msg += `💰 *TOTAL : $${total.toLocaleString()}*\n`;
+  msg += `${divider}\n\n`;
+
+  msg += `📍 *LIVRAISON*\n`;
+  msg += `• Adresse : ${address}\n`;
+  msg += `• Paiement : ${payment}\n`;
+  if (notes) msg += `• Notes : ${notes}\n`;
+
+  msg += `\n_Commande passée via AizenTech – ${new Date().toLocaleString('fr-FR')}_`;
+
+  const waUrl = `https://wa.me/241062282798?text=${encodeURIComponent(msg)}`;
+  window.open(waUrl, '_blank');
+
+  closeOrderModal();
+  showToast('✅ Commande envoyée sur WhatsApp !');
+}
+
+// ── TOAST ──
+function showToast(msg) {
+  document.getElementById('toastMsg').textContent = msg;
+  const toast = document.getElementById('toast');
+  toast.classList.add('show');
+  clearTimeout(toastTimeout);
+  toastTimeout = setTimeout(() => toast.classList.remove('show'), 3000);
+}
+
+// ── LANG ──
+function setLang(l) {
+  lang = l;
+  document.querySelectorAll('.lang-btn').forEach(b =>
+    b.classList.toggle('active', b.textContent.toLowerCase() === l)
+  );
+  renderCart();
+}
+
+// ── INIT ──
+document.addEventListener('DOMContentLoaded', loadCart);
+
+</script>
+</body>
+</html>
