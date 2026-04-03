@@ -11,21 +11,25 @@
 <!-- NAV -->
 <nav>
   <a href="index.html" class="logo">Aizen<span>Tech</span></a>
-  <div class="nav-links">
-    <a href="index.html">Accueil</a>
+  <button class="nav-hamburger" id="navHamburger" onclick="toggleMobileNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html" class="active">Accueil</a>
     <a href="index.html#products">Téléphones</a>
     <a href="index.html#brands">Marques</a>
-    <a href="index.html#products">Promotions</a>
+    <a href="index.html#promo">Promotions</a>
     <a href="reparation.html">Réparation</a>
-    <a href="contact.html" class="active">Contact</a>
-    <a href="cgv.html">CGV</a>
+    <a href="contact.html"class="active">Contact</a>
+    <a href="troc.html">♻️ Troc</a>
+     <a href="cgv.html">Cgv</a>
   </div>
   <div class="nav-right">
     <div class="lang-toggle">
       <button class="lang-btn active" onclick="setLang('fr')">FR</button>
       <button class="lang-btn" onclick="setLang('en')">EN</button>
     </div>
-    <a href="index.html" class="cart-btn">
+    <a href="panier.html" class="cart-btn">
       🛒 Panier
       <div class="cart-count" id="cartCount">0</div>
     </a>
@@ -72,7 +76,7 @@
           <div>
             <div class="contact-method-label">Email</div>
             <div class="contact-method-value">
-              <a href="mailto:diderokamegne1@gmail.com">diderokamegne1@gmail.com</a>
+              <a href="diderokamegne1@gmail.com"><span class="__cf_email__" data-cfemail="5b3f323f3e2934303a363e3c353e6a1b3c363a323775383436">diderokamegne1@gmail.com</span></a>
             </div>
           </div>
         </div>
@@ -103,7 +107,7 @@
           <a href="https://wa.me/241062282798" target="_blank" style="display:flex;align-items:center;gap:6px;background:#25D366;color:white;border-radius:8px;padding:8px 14px;font-size:13px;font-weight:500;text-decoration:none">
             💬 WhatsApp
           </a>
-          <a href="mailto:diderokamegne1@gmail.com" style="display:flex;align-items:center;gap:6px;background:#EA4335;color:white;border-radius:8px;padding:8px 14px;font-size:13px;font-weight:500;text-decoration:none">
+          <a href="/cdn-cgi/l/email-protection#e98d808d8c9b868288848c8e878cd8a98e84888085c78a8684" style="display:flex;align-items:center;gap:6px;background:#EA4335;color:white;border-radius:8px;padding:8px 14px;font-size:13px;font-weight:500;text-decoration:none">
             📧 Gmail
           </a>
           <a href="tel:+241062282798" style="display:flex;align-items:center;gap:6px;background:var(--surface3);color:var(--text);border:1px solid var(--border);border-radius:8px;padding:8px 14px;font-size:13px;font-weight:500;text-decoration:none">
@@ -251,7 +255,7 @@
       <ul>
         <li><a href="contact.html">Nous trouver</a></li>
         <li><a href="tel:+241062282798">062 28 27 98</a></li>
-        <li><a href="mailto:diderokamegne1@gmail.com">Email</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#4f2b262b2a3d20242e222a28212a7e0f28222e2623612c2022">Email</a></li>
         <li><a href="https://wa.me/241062282798">WhatsApp</a></li>
       </ul>
     </div>
@@ -273,7 +277,7 @@
   💬 WhatsApp
 </a>
 
-<script src="i18n.js"></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="i18n.js"></script>
 <script src="products.js"></script>
 <script src="script.js"></script>
 <script>
@@ -306,15 +310,4 @@ function submitForm() {
   );
   window.location.href = `mailto:diderokamegne1@gmail.com?subject=${subject}&body=${body}`;
 
-  document.getElementById('formSuccess').style.display = 'block';
-  setTimeout(() => {
-    document.getElementById('firstName').value = '';
-    document.getElementById('lastName').value = '';
-    document.getElementById('email').value = '';
-    document.getElementById('phone').value = '';
-    document.getElementById('message').value = '';
-  }, 1000);
-}
-</script>
-</body>
-</html>
+  document.getElementById('formSuc
