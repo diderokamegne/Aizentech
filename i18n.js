@@ -12,7 +12,7 @@ const i18n = {
     nav_support: 'Contact',
     nav_cart: 'Panier',
 
-    hero_badge: 'Nouveautés 2025 disponibles',
+    hero_badge: 'Nouveautés 2026 disponibles',
     hero_title: 'Le meilleur prix pour votre <em>prochain</em> smartphone',
     hero_desc: 'Découvrez notre sélection premium de téléphones reconditionnés et neufs. Livraison rapide, garantie 2 ans, paiement sécurisé.',
     hero_cta1: 'Voir les offres',
