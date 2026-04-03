@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function highlightCurrentNav() {
   const page = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-links a').forEach(a => {
-    a.classList.remove('active');
+    a.classList.remove('');
     if (a.getAttribute('href') === page) a.classList.add('active');
   });
 }
@@ -207,23 +207,40 @@ function toggleWish(el) {
 }
 
 // ——— MODAL PRODUIT ———
+let modalCurrentImgIdx = 0;
+
+function switchModalImg(idx) {
+  const p = products[modalProduct];
+  const allImgs = p.images ? p.images : [p.img];
+  modalCurrentImgIdx = idx;
+  const mainImg = document.getElementById('modalImg');
+  if (mainImg) mainImg.src = allImgs[idx];
+  document.querySelectorAll('.modal-thumb').forEach((t,i) => t.classList.toggle('active', i === idx));
+}
+
 function openModal(idx) {
   const p = products[idx];
   modalProduct = idx;
   modalColorIdx = 0;
   modalMemIdx = 0;
+  modalCurrentImgIdx = 0;
 
   const t = i18n[lang];
   const modal = document.getElementById('productModal');
   if (!modal) return;
 
+  const allImgs = p.images ? p.images : [p.img];
   const stockKey = p.stock === 'in' ? 'in_stock' : p.stock === 'low' ? 'low_stock' : 'out_stock';
   const stockColor = p.stock === 'in' ? 'var(--green)' : p.stock === 'low' ? 'var(--gold)' : 'var(--accent2)';
   const basePrice = getProductPrice(p, p.memory[0], p.colors[0].hex);
 
   document.getElementById('modalContent').innerHTML = `
     <div class="modal-img">
-      <img id="modalImg" src="${p.img}" alt="${p.name}" onerror="this.src='https://via.placeholder.com/200x300/22222E/9090A8?text=${encodeURIComponent(p.name)}'">
+      <img id="modalImg" src="${allImgs[0]}" alt="${p.name}" onerror="this.src='https://via.placeholder.com/200x260/F5F5F7/2563EB?text=${encodeURIComponent(p.name)}'">
+      ${allImgs.length > 1 ? `
+      <div class="modal-thumbs">
+        ${allImgs.map((img,i) => `<img class="modal-thumb ${i===0?'active':''}" src="${img}" alt="Vue ${i+1}" onclick="switchModalImg(${i})" onerror="this.style.display='none'">`).join('')}
+      </div>` : ''}
     </div>
     <div class="modal-body">
       <button class="modal-close" onclick="closeModal()">✕</button>
@@ -389,3 +406,23 @@ function startCountdown() {
     sEl.textContent = String(secs % 60).padStart(2, '0');
   }, 1000);
 }
+// ——— MOBILE NAV TOGGLE ———
+function toggleMobileNav() {
+  const nav = document.getElementById('navLinks');
+  const btn = document.getElementById('navHamburger');
+  if (!nav || !btn) return;
+  nav.classList.toggle('open');
+  btn.classList.toggle('open');
+}
+
+// Close nav when clicking a link
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => {
+      const nav = document.getElementById('navLinks');
+      const btn = document.getElementById('navHamburger');
+      if (nav) nav.classList.remove('open');
+      if (btn) btn.classList.remove('open');
+    });
+  });
+});
