@@ -1,13 +1,13 @@
 // ============================================================
-// SCRIPT PRINCIPAL — AizenTech
+// SCRIPT PRINCIPAL — AizenTech 2026
 // ============================================================
 
-let lang = 'fr';
+let lang = localStorage.getItem('aizentech_lang') || 'fr';
 let cartCount = 0;
 let activeFilter = 'Tous';
 let toastTimeout;
-let selectedColors = {};   // productIndex -> colorHex
-let selectedMemory = {};   // productIndex -> memory string
+let selectedColors = {};
+let selectedMemory = {};
 let modalProduct = null;
 let modalColorIdx = 0;
 let modalMemIdx = 0;
@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderProducts();
   startCountdown();
   highlightCurrentNav();
+  syncLangButtons();
   // Synchroniser le compteur panier depuis localStorage
   try {
     const saved = JSON.parse(localStorage.getItem('aizentech_cart')) || [];
@@ -37,15 +38,20 @@ function highlightCurrentNav() {
   });
 }
 
-// ——— LANGUE ———
+// ——— LANGUE (fonctionne sur TOUS les onglets) ———
 function setLang(l) {
   lang = l;
-  document.querySelectorAll('.lang-btn').forEach(b =>
-    b.classList.toggle('active', b.textContent.toLowerCase() === l)
-  );
+  localStorage.setItem('aizentech_lang', l);
+  syncLangButtons();
   applyTranslations();
   renderFilterTabs();
   renderProducts();
+}
+
+function syncLangButtons() {
+  document.querySelectorAll('.lang-btn').forEach(b =>
+    b.classList.toggle('active', b.textContent.trim().toLowerCase() === lang)
+  );
 }
 
 function applyTranslations() {
@@ -94,13 +100,17 @@ function renderProducts() {
     else filtered = products.filter(p => p.cat === activeFilter);
   }
 
-  filtered.forEach((p, idx) => {
+  filtered.forEach((p) => {
     const globalIdx = products.indexOf(p);
     if (!selectedColors[globalIdx]) selectedColors[globalIdx] = p.colors[0].hex;
     if (!selectedMemory[globalIdx]) selectedMemory[globalIdx] = p.memory[0];
 
+    const curColor = selectedColors[globalIdx];
+    const curMem   = selectedMemory[globalIdx];
+    const curPrice = getProductPrice(p, curMem, curColor);
+
     const stockKey = p.stock === 'in' ? 'in_stock' : p.stock === 'low' ? 'low_stock' : 'out_stock';
-    const stockColor = p.stock === 'in' ? 'var(--green)' : p.stock === 'low' ? 'var(--gold)' : 'var(--accent)';
+    const stockColor = p.stock === 'in' ? 'var(--green)' : p.stock === 'low' ? 'var(--gold)' : 'var(--accent2)';
     const badgeLabel = p.badge === 'new' ? (lang === 'fr' ? 'NOUVEAU' : 'NEW') : (lang === 'fr' ? 'PROMO' : 'SALE');
 
     const card = document.createElement('div');
@@ -112,9 +122,7 @@ function renderProducts() {
         ${p.badge ? `<div class="card-badge ${p.badge}">${badgeLabel}</div>` : ''}
         <button class="card-wish" onclick="event.stopPropagation();toggleWish(this)">♡</button>
         <img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.src='https://via.placeholder.com/220x200/1A1A24/9090A8?text=${encodeURIComponent(p.name)}'">
-        <div class="card-overlay">
-          <button class="quick-add" onclick="event.stopPropagation();addToCart(null,'${p.name}',${globalIdx})">${t.btn_add}</button>
-        </div>
+
       </div>
 
       <div class="card-options">
@@ -123,18 +131,20 @@ function renderProducts() {
           ${p.colors.map((c,ci) => `
             <div class="color-dot ${ci===0?'selected':''}"
               style="background:${c.hex}"
-              title="${c.name}"
+              title="${c.name}${c.priceBonus > 0 ? ' (+$'+c.priceBonus+')' : ''}"
               onclick="event.stopPropagation();selectColor(${globalIdx},${ci},'${c.hex}',this)"
             ></div>
           `).join('')}
         </div>
         <div class="option-label" style="margin-top:10px">${t.memory_label}</div>
         <div class="memory-pills" id="memory-${globalIdx}">
-          ${p.memory.map((m,mi) => `
-            <button class="memory-pill ${mi===0?'selected':''}"
+          ${p.memory.map((m,mi) => {
+            const mp = getProductPrice(p, m, curColor);
+            return `<button class="memory-pill ${mi===0?'selected':''}"
               onclick="event.stopPropagation();selectMemory(${globalIdx},${mi},'${m}',this)"
-            >${m}</button>
-          `).join('')}
+              data-price="${mp}"
+            >${m}</button>`;
+          }).join('')}
         </div>
       </div>
 
@@ -150,7 +160,7 @@ function renderProducts() {
         </div>
         <div class="card-footer">
           <div>
-            <span class="price">$${p.price.toLocaleString()}</span>
+            <span class="price" id="cardPrice-${globalIdx}">$${curPrice.toLocaleString()}</span>
             ${p.oldPrice ? `<span class="price-old">$${p.oldPrice.toLocaleString()}</span>` : ''}
           </div>
           <div>
@@ -158,6 +168,10 @@ function renderProducts() {
             <span class="rating-count">(${p.reviews.toLocaleString()})</span>
           </div>
         </div>
+      </div>
+      <div class="card-actions">
+        <button class="card-action-add" onclick="event.stopPropagation();addToCart(null,'${p.name}',${globalIdx})">${t.btn_add}</button>
+        <button class="card-action-buy" onclick="event.stopPropagation();buyNow('${p.name}',${globalIdx})">${t.btn_buy}</button>
       </div>
     `;
     grid.appendChild(card);
@@ -169,18 +183,27 @@ function selectColor(globalIdx, ci, hex, el) {
   selectedColors[globalIdx] = hex;
   document.querySelectorAll(`#colors-${globalIdx} .color-dot`).forEach(d => d.classList.remove('selected'));
   el.classList.add('selected');
+  updateCardPrice(globalIdx);
 }
 
 function selectMemory(globalIdx, mi, mem, el) {
   selectedMemory[globalIdx] = mem;
   document.querySelectorAll(`#memory-${globalIdx} .memory-pill`).forEach(d => d.classList.remove('selected'));
   el.classList.add('selected');
+  updateCardPrice(globalIdx);
+}
+
+function updateCardPrice(globalIdx) {
+  const p = products[globalIdx];
+  const price = getProductPrice(p, selectedMemory[globalIdx], selectedColors[globalIdx]);
+  const el = document.getElementById(`cardPrice-${globalIdx}`);
+  if (el) el.textContent = `$${price.toLocaleString()}`;
 }
 
 // ——— WISHLIST ———
 function toggleWish(el) {
   el.textContent = el.textContent === '♡' ? '♥' : '♡';
-  el.style.color = el.textContent === '♥' ? 'var(--accent)' : '';
+  el.style.color = el.textContent === '♥' ? 'var(--accent2)' : '';
 }
 
 // ——— MODAL PRODUIT ———
@@ -192,8 +215,11 @@ function openModal(idx) {
 
   const t = i18n[lang];
   const modal = document.getElementById('productModal');
+  if (!modal) return;
+
   const stockKey = p.stock === 'in' ? 'in_stock' : p.stock === 'low' ? 'low_stock' : 'out_stock';
-  const stockColor = p.stock === 'in' ? 'var(--green)' : p.stock === 'low' ? 'var(--gold)' : 'var(--accent)';
+  const stockColor = p.stock === 'in' ? 'var(--green)' : p.stock === 'low' ? 'var(--gold)' : 'var(--accent2)';
+  const basePrice = getProductPrice(p, p.memory[0], p.colors[0].hex);
 
   document.getElementById('modalContent').innerHTML = `
     <div class="modal-img">
@@ -203,7 +229,8 @@ function openModal(idx) {
       <button class="modal-close" onclick="closeModal()">✕</button>
       <div class="modal-brand">${p.brand}</div>
       <div class="modal-name">${p.name}</div>
-      <div class="modal-price">$${p.price.toLocaleString()} ${p.oldPrice ? `<span style="font-size:18px;color:var(--text2);text-decoration:line-through">$${p.oldPrice.toLocaleString()}</span>` : ''}</div>
+      <div class="modal-price" id="modalPrice">$${basePrice.toLocaleString()}</div>
+      ${p.memoryPrices ? `<div class="modal-price-note">💡 ${lang === 'fr' ? 'Le prix varie selon la mémoire et la couleur' : 'Price varies by storage and color'}</div>` : ''}
 
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:20px">
         <span style="width:8px;height:8px;background:${stockColor};border-radius:50%;display:inline-block"></span>
@@ -211,21 +238,24 @@ function openModal(idx) {
         <span style="font-size:12px;color:var(--text2);margin-left:8px">${'★'.repeat(Math.floor(p.rating))}${'☆'.repeat(5-Math.floor(p.rating))} (${p.reviews.toLocaleString()})</span>
       </div>
 
-      <p style="font-size:13px;color:var(--text2);line-height:1.6;margin-bottom:20px">${p.desc}</p>
+      <p style="font-size:13px;color:var(--text2);line-height:1.65;margin-bottom:20px">${p.desc}</p>
 
       <div class="modal-section-title">${t.color_label} — <span id="selectedColorName" style="color:var(--text)">${p.colors[0].name}</span></div>
       <div class="modal-colors" id="modalColors">
         ${p.colors.map((c,i) => `
-          <div class="modal-color-dot ${i===0?'selected':''}" style="background:${c.hex}" title="${c.name}"
+          <div class="modal-color-dot ${i===0?'selected':''}" style="background:${c.hex}" title="${c.name}${c.priceBonus > 0 ? ' (+$'+c.priceBonus+')' : ''}"
             onclick="modalSelectColor(${i},'${c.name}',this)"></div>
         `).join('')}
       </div>
 
       <div class="modal-section-title">${t.memory_label}</div>
       <div class="modal-memory" id="modalMemory">
-        ${p.memory.map((m,i) => `
-          <button class="modal-mem-btn ${i===0?'selected':''}" onclick="modalSelectMem(${i},this)">${m}</button>
-        `).join('')}
+        ${p.memory.map((m,i) => {
+          const mp = getProductPrice(p, m, p.colors[0].hex);
+          return `<button class="modal-mem-btn ${i===0?'selected':''}" onclick="modalSelectMem(${i},this)" data-mem="${m}">
+            ${m}<br><span style="font-size:11px;color:var(--text3);font-weight:400">$${mp.toLocaleString()}</span>
+          </button>`;
+        }).join('')}
       </div>
 
       <div class="modal-section-title">Caractéristiques</div>
@@ -238,7 +268,10 @@ function openModal(idx) {
         `).join('')}
       </div>
 
-      <button class="modal-add-btn" onclick="addToCart(null,'${p.name}',${idx})">${t.btn_add}</button>
+      <div class="modal-buttons">
+        <button class="modal-add-btn-split" onclick="addToCart(null,'${p.name}',${idx})">${t.btn_add}</button>
+        <button class="modal-buy-btn" onclick="buyNow('${p.name}',${idx})">${t.btn_buy}</button>
+      </div>
     </div>
   `;
 
@@ -247,8 +280,24 @@ function openModal(idx) {
 }
 
 function closeModal() {
-  document.getElementById('productModal').classList.remove('open');
+  const m = document.getElementById('productModal');
+  if (m) { m.classList.remove('open'); }
   document.body.style.overflow = '';
+}
+
+function updateModalPrice() {
+  const p = products[modalProduct];
+  const colorHex = p.colors[modalColorIdx].hex;
+  const mem      = p.memory[modalMemIdx];
+  const price    = getProductPrice(p, mem, colorHex);
+  const el       = document.getElementById('modalPrice');
+  if (el) el.textContent = `$${price.toLocaleString()}`;
+  // update mem button prices
+  document.querySelectorAll('#modalMemory .modal-mem-btn').forEach((btn, i) => {
+    const m = p.memory[i];
+    const mp = getProductPrice(p, m, colorHex);
+    btn.innerHTML = `${m}<br><span style="font-size:11px;color:var(--text3);font-weight:400">$${mp.toLocaleString()}</span>`;
+  });
 }
 
 function modalSelectColor(i, name, el) {
@@ -256,12 +305,14 @@ function modalSelectColor(i, name, el) {
   document.querySelectorAll('#modalColors .modal-color-dot').forEach(d => d.classList.remove('selected'));
   el.classList.add('selected');
   document.getElementById('selectedColorName').textContent = name;
+  updateModalPrice();
 }
 
 function modalSelectMem(i, el) {
   modalMemIdx = i;
   document.querySelectorAll('#modalMemory .modal-mem-btn').forEach(d => d.classList.remove('selected'));
   el.classList.add('selected');
+  updateModalPrice();
 }
 
 // ——— PANIER ———
@@ -269,17 +320,17 @@ function addToCart(e, name, idx) {
   if (e) e.stopPropagation();
 
   const p = products[idx];
-  const color = p.colors.find(c => c.hex === selectedColors[idx]) || p.colors[0];
-  const mem = selectedMemory[idx] || p.memory[0];
+  const color = p.colors.find(c => c.hex === selectedColors[idx]) || p.colors[modalColorIdx] || p.colors[0];
+  const mem   = selectedMemory[idx] || p.memory[modalMemIdx] || p.memory[0];
+  const price = getProductPrice(p, mem, color.hex);
 
-  // Charger panier existant
   let cart = [];
   try { cart = JSON.parse(localStorage.getItem('aizentech_cart')) || []; } catch(e) { cart = []; }
 
-  // Vérifier si l'article existe déjà (même produit + couleur + mémoire)
   const existing = cart.find(i => i.idx === idx && i.memory === mem && i.colorHex === color.hex);
   if (existing) {
     existing.qty++;
+    existing.price = price; // mettre à jour le prix
   } else {
     cart.push({
       idx,
@@ -289,36 +340,35 @@ function addToCart(e, name, idx) {
       color: color.name,
       colorHex: color.hex,
       memory: mem,
-      price: p.price,
+      price,
       qty: 1
     });
   }
 
   localStorage.setItem('aizentech_cart', JSON.stringify(cart));
 
-  // Mettre à jour le compteur
   cartCount = cart.reduce((s, i) => s + i.qty, 0);
-  document.getElementById('cartCount').textContent = cartCount;
+  const el = document.getElementById('cartCount');
+  if (el) el.textContent = cartCount;
 
   const t = i18n[lang];
-  document.getElementById('toastMsg').textContent = `${name} (${mem}) — ${t.add_cart}`;
+  const toastMsgEl = document.getElementById('toastMsg');
+  if (toastMsgEl) toastMsgEl.textContent = `${name} (${mem}) — ${t.add_cart}`;
   showToast();
+}
+
+function buyNow(name, idx) {
+  addToCart(null, name, idx);
+  window.location.href = 'panier.html';
 }
 
 function toggleCart() {
   window.location.href = 'panier.html';
 }
 
-function toggleCart() {
-  const t = i18n[lang];
-  document.getElementById('toastMsg').textContent = cartCount === 0
-    ? t.cart_empty
-    : cartCount + ' ' + t.cart_items;
-  showToast();
-}
-
 function showToast() {
   const toast = document.getElementById('toast');
+  if (!toast) return;
   toast.classList.add('show');
   clearTimeout(toastTimeout);
   toastTimeout = setTimeout(() => toast.classList.remove('show'), 2800);
