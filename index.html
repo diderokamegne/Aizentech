@@ -8,21 +8,20 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="index.html" class="logo">Aizen<span>Tech</span></a>
   <button class="nav-hamburger" id="navHamburger" onclick="toggleMobileNav()" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
   <div class="nav-links" id="navLinks">
-    <a href="index.html" class="active">Accueil</a>
+    <a href="index.html">Accueil</a>
     <a href="index.html#products">Téléphones</a>
     <a href="index.html#brands">Marques</a>
     <a href="index.html#promo">Promotions</a>
     <a href="reparation.html">Réparation</a>
     <a href="contact.html">Contact</a>
     <a href="troc.html">♻️ Troc</a>
-     <a href="cgv.html">Cgv</a>
+    <a href="cgv.html">CGV</a>
   </div>
   <div class="nav-right">
     <div class="lang-toggle">
@@ -30,38 +29,29 @@
       <button class="lang-btn" onclick="setLang('en')">EN</button>
     </div>
     <a href="panier.html" class="cart-btn">
-      🛒 Panier
+      🛒 <span data-key="nav_cart">Panier</span>
       <div class="cart-count" id="cartCount">0</div>
     </a>
   </div>
 </nav>
 
-<!-- SOLDES FLASH EN HAUT -->
+<!-- SOLDES FLASH -->
 <div class="flash-banner" id="promo">
   <div class="flash-banner-inner">
     <div class="flash-left">
       <div class="flash-badge">⚡ SOLDES FLASH</div>
       <div class="flash-text">
         <h2 data-key="promo_title">Soldes flash — jusqu'à <span>40% de réduction</span></h2>
-        <p data-key="promo_desc">Profitez de prix exceptionnels sur une sélection de smartphones premium.</p>
+        <p data-key="promo_desc">Profitez de prix exceptionnels sur smartphones premium.</p>
       </div>
     </div>
     <div class="flash-right">
       <div class="flash-countdown">
-        <div class="flash-count-block">
-          <span class="flash-count-num" id="cd-h">08</span>
-          <span class="flash-count-label" data-key="cd_hours">Heures</span>
-        </div>
+        <div class="flash-count-block"><span class="flash-count-num" id="cd-h">08</span><span class="flash-count-label" data-key="cd_hours">Heures</span></div>
         <div class="flash-sep">:</div>
-        <div class="flash-count-block">
-          <span class="flash-count-num" id="cd-m">34</span>
-          <span class="flash-count-label" data-key="cd_min">Min</span>
-        </div>
+        <div class="flash-count-block"><span class="flash-count-num" id="cd-m">34</span><span class="flash-count-label" data-key="cd_min">Min</span></div>
         <div class="flash-sep">:</div>
-        <div class="flash-count-block">
-          <span class="flash-count-num" id="cd-s">12</span>
-          <span class="flash-count-label" data-key="cd_sec">Sec</span>
-        </div>
+        <div class="flash-count-block"><span class="flash-count-num" id="cd-s">12</span><span class="flash-count-label" data-key="cd_sec">Sec</span></div>
       </div>
       <a href="#products" class="btn-primary flash-cta" data-key="promo_cta">Profiter de l'offre</a>
     </div>
@@ -71,28 +61,27 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-content">
-    <div class="hero-badge" data-key="hero_badge">Nouveautés 2026 disponibles</div>
+    <div class="hero-badge" data-key="hero_badge">✨ Nouveautés 2026 disponibles</div>
     <h1 data-key="hero_title">Le meilleur prix pour votre <em>prochain</em> smartphone</h1>
-    <p class="hero-intro">Bienvenue chez <strong>AizenTech</strong>, votre spécialiste en téléphonie à Libreville depuis 2018. Découvrez nos services :</p>
-    
+    <p class="hero-intro">Bienvenue chez <strong>AizenTech</strong>, votre spécialiste en téléphonie à Libreville depuis 2018.</p>
     <div class="hero-actions">
       <a href="#products" class="btn-primary" data-key="hero_cta1">Voir les offres</a>
       <a href="reparation.html" class="btn-secondary" data-key="hero_cta2">Service réparation</a>
     </div>
   </div>
   <div class="hero-visual">
-    <a href="#products" class="hero-phone-img hero-phone-link" onclick="event.preventDefault();filterByBrand('Apple')">
-      <img src="image/17 PM2.JPG" alt="iPhone 17 Pro Max">
+    <a href="#products" class="hero-phone-img" onclick="event.preventDefault();filterByBrand('Apple')">
+      <img src="image/17 PM2.JPG" alt="iPhone 17 Pro Max" onerror="this.src='https://via.placeholder.com/100x200/EEF2FF/2563EB?text=iPhone'">
       <div class="phone-price-tag">$1,199</div>
       <div class="phone-hover-label">Apple →</div>
     </a>
-    <a href="#products" class="hero-phone-img hero-phone-link large" onclick="event.preventDefault();filterByBrand('Samsung')">
-      <img src="image/S 26 ultra.JPG" alt="Samsung S26 Ultra">
+    <a href="#products" class="hero-phone-img large" onclick="event.preventDefault();filterByBrand('Samsung')">
+      <img src="image/S 26 ultra.JPG" alt="Samsung S26 Ultra" onerror="this.src='https://via.placeholder.com/120x240/EEF2FF/2563EB?text=Samsung'">
       <div class="phone-price-tag">$1,099</div>
       <div class="phone-hover-label">Samsung →</div>
     </a>
-    <a href="#products" class="hero-phone-img hero-phone-link" onclick="event.preventDefault();filterByBrand('Google')">
-      <img src="image/g 10 pro.JPG" alt="Pixel 10 pro">
+    <a href="#products" class="hero-phone-img" onclick="event.preventDefault();filterByBrand('Google')">
+      <img src="image/g 10 pro.JPG" alt="Pixel 10 Pro" onerror="this.src='https://via.placeholder.com/100x200/EEF2FF/2563EB?text=Pixel'">
       <div class="phone-price-tag">$499</div>
       <div class="phone-hover-label">Google →</div>
     </a>
@@ -126,22 +115,10 @@
 <!-- FEATURES -->
 <div class="features">
   <div class="features-inner">
-    <div class="feature-item">
-      <div class="feature-icon">🚚</div>
-      <div><div class="feature-title" data-key="feat1_title">Livraison offerte</div><div class="feature-desc" data-key="feat1_desc">Gratuite à partir de 100€. Express 24h disponible.</div></div>
-    </div>
-    <div class="feature-item">
-      <div class="feature-icon">🔒</div>
-      <div><div class="feature-title" data-key="feat2_title">Paiement sécurisé</div><div class="feature-desc" data-key="feat2_desc">Mobile Money, CB, PayPal et paiement en plusieurs fois.</div></div>
-    </div>
-    <div class="feature-item">
-      <div class="feature-icon">↩️</div>
-      <div><div class="feature-title" data-key="feat3_title">Retour 30 jours</div><div class="feature-desc" data-key="feat3_desc">Pas satisfait ? Retournez votre produit facilement.</div></div>
-    </div>
-    <div class="feature-item">
-      <div class="feature-icon">💬</div>
-      <div><div class="feature-title" data-key="feat4_title">Support 24/7</div><div class="feature-desc" data-key="feat4_desc">Notre équipe disponible à tout moment pour vous aider.</div></div>
-    </div>
+    <div class="feature-item"><div class="feature-icon">🚚</div><div><div class="feature-title" data-key="feat1_title">Livraison offerte</div><div class="feature-desc" data-key="feat1_desc">Gratuite à partir de 100€. Express 24h disponible.</div></div></div>
+    <div class="feature-item"><div class="feature-icon">🔒</div><div><div class="feature-title" data-key="feat2_title">Paiement sécurisé</div><div class="feature-desc" data-key="feat2_desc">Mobile Money, CB et paiement en plusieurs fois.</div></div></div>
+    <div class="feature-item"><div class="feature-icon">↩️</div><div><div class="feature-title" data-key="feat3_title">Retour 30 jours</div><div class="feature-desc" data-key="feat3_desc">Pas satisfait ? Retournez votre produit facilement.</div></div></div>
+    <div class="feature-item"><div class="feature-icon">💬</div><div><div class="feature-title" data-key="feat4_title">Support 24/7</div><div class="feature-desc" data-key="feat4_desc">Notre équipe disponible à tout moment.</div></div></div>
   </div>
 </div>
 
@@ -177,7 +154,7 @@
       <ul>
         <li><a href="index.html#products" data-key="footer_c1_l1">Téléphones neufs</a></li>
         <li><a href="index.html#products" data-key="footer_c1_l2">Reconditionnés</a></li>
-        <li><a href="index.html#products" data-key="footer_c1_l3">Accessoires</a></li>
+        <li><a href="troc.html">♻️ Troc</a></li>
         <li><a href="index.html#promo" data-key="footer_c1_l4">Promotions</a></li>
       </ul>
     </div>
@@ -187,16 +164,16 @@
         <li><a href="contact.html" data-key="footer_c2_l1">FAQ</a></li>
         <li><a href="contact.html" data-key="footer_c2_l2">Livraison</a></li>
         <li><a href="contact.html" data-key="footer_c2_l3">Retours</a></li>
-        <li><a href="contact.html" data-key="footer_c2_l4">Garantie</a></li>
+        <li><a href="reparation.html" data-key="footer_c2_l4">Réparation</a></li>
         <li><a href="cgv.html">CGV</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4 data-key="footer_col3">Contact</h4>
+      <h4>Contact</h4>
       <ul>
         <li><a href="contact.html">Nous trouver</a></li>
         <li><a href="tel:+241062282798">062 28 27 98</a></li>
-        <li><a href="/cdn-cgi/l/email-protection#096d606d6c7b666268646c6e676c38496e64686065276a6664">Email</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#fe9a979a9b8c91959f939b99909bcfbe99939f9792d09d9193">Email</a></li>
         <li><a href="https://wa.me/241062282798">WhatsApp</a></li>
       </ul>
     </div>
@@ -205,40 +182,24 @@
     <span data-key="footer_copy">© 2025 AizenTech. Tous droits réservés.</span>
     <span class="footer-legal-links">
       <a href="cgv.html">CGV</a> ·
-      <a href="cgv.html#privacy">Confidentialité</a> ·
-      <a href="cgv.html#cookies">Cookies</a>
+      <a href="cgv.html">Confidentialité</a> ·
+      <a href="cgv.html">Cookies</a>
     </span>
   </div>
 </footer>
 
-<!-- TOAST -->
-<div class="toast" id="toast">
-  <div class="toast-dot"></div>
-  <span id="toastMsg"></span>
-</div>
+<div class="toast" id="toast"><div class="toast-dot"></div><span id="toastMsg"></span></div>
 
-<!-- MODAL PRODUIT -->
 <div class="modal-overlay" id="productModal" onclick="if(event.target===this)closeModal()">
   <div class="modal" id="modalContent"></div>
 </div>
 
-<!-- WHATSAPP -->
-<a href="https://wa.me/241062282798" class="whatsapp-float" target="_blank">
-  💬 WhatsApp
-</a>
+<a href="https://wa.me/241062282798" class="whatsapp-float" target="_blank">💬 WhatsApp</a>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="i18n.js"></script>
 <script src="products.js"></script>
 <script src="script.js"></script>
 <script>
-  function filterByBrand(brand) {
-    activeFilter = brand;
-    document.querySelectorAll('.filter-tab').forEach(b => {
-      b.classList.toggle('active', b.textContent === brand);
-    });
-    renderProducts();
-    document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
-  }
-
-  function toggleMobileNav() {
-    const nav = document.getElementById('navLinks');
+function filterByBrand(brand) {
+  activeFilter = brand;
+  document.querySelectorAll('.filter-tab').forEach(b => b.classList.toggle('activ
