@@ -303,3 +303,7 @@ const filterCategories = {
   fr: ['Tous', 'Apple', 'Samsung', 'Google', 'Xiaomi', 'OnePlus', 'Sony', 'Motorola', 'Promo'],
   en: ['All', 'Apple', 'Samsung', 'Google', 'Xiaomi', 'OnePlus', 'Sony', 'Motorola', 'Sale'],
 };
+// Multi-images par produit (tableau d'images)
+// Format: images: ['img1.jpg', 'img2.jpg', ...]
+// Si absent, on utilise img seul
+// Les images supplémentaires sont affichées dans le modal comme miniatures
