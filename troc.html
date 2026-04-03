@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AizenTech — Troc de Téléphone</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo">Aizen<span>Tech</span></a>
+  <button class="nav-hamburger" id="navHamburger" onclick="toggleMobileNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Accueil</a>
+    <a href="index.html#products">Téléphones</a>
+    <a href="index.html#brands">Marques</a>
+    <a href="index.html#promo">Promotions</a>
+    <a href="reparation.html">Réparation</a>
+    <a href="contact.html">Contact</a>
+    <a href="troc.html" class="active">♻️Troc</a>
+    <a href="cgv.html">Cgv</a>
+  </div>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+    <a href="panier.html" class="cart-btn">
+      🛒 Panier
+      <div class="cart-count" id="cartCount">0</div>
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="troc-hero">
+  <div class="hero-badge" style="color:white;border-color:rgba(255,255,255,0.3);background:rgba(255,255,255,0.1);margin-bottom:14px">♻️ Service Troc AizenTech</div>
+  <h1>Échangez votre <span>ancien téléphone</span></h1>
+  <p>Envoyez-nous les photos de votre appareil, choisissez le téléphone que vous souhaitez et nous gérons le troc. Simple, rapide et honnête.</p>
+  <div class="troc-steps">
+    <div class="troc-step">📸 1. Photographiez votre téléphone</div>
+    <div class="troc-step">📋 2. Décrivez son état</div>
+    <div class="troc-step">📱 3. Choisissez votre nouveau téléphone</div>
+    <div class="troc-step">💬 4. On vous répond sous 2h</div>
+  </div>
+</div>
+
+<!-- FORM -->
+<div class="troc-layout">
+
+  <!-- COLONNE GAUCHE : VOTRE TÉLÉPHONE -->
+  <div>
+
+    <!-- PHOTOS -->
+    <div class="troc-card" style="margin-bottom:14px">
+      <div class="troc-card-header">
+        <div class="troc-card-icon" style="background:#FEF3C7">📸</div>
+        <div>
+          <div class="troc-card-title">Photos de votre téléphone</div>
+          <div class="troc-card-subtitle">Jusqu'à 6 photos — plusieurs angles recommandés</div>
+        </div>
+      </div>
+      <div class="troc-card-body">
+        <div class="troc-info-banner">
+          <div class="troc-info-icon">💡</div>
+          <div class="troc-info-text">
+            <strong>Pour une estimation juste :</strong> Photographiez l'écran allumé, l'écran éteint, le dos, les bords et toute rayure ou casse. Plus les photos sont claires, meilleure sera notre offre.
+          </div>
+        </div>
+
+        <div class="upload-zone" id="uploadZone" onclick="document.getElementById('photoInput').click()" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event)">
+          <div class="upload-zone-icon">📷</div>
+          <div class="upload-zone-text">Cliquez ou glissez vos photos ici</div>
+          <div class="upload-zone-hint">JPG, PNG, HEIC — max 10MB par photo</div>
+          <input type="file" id="photoInput" accept="image/*" multiple onchange="handlePhotoInput(event)">
+        </div>
+
+        <div class="photo-grid" id="photoGrid" style="display:none"></div>
+
+        <div id="photoCount" style="font-size:11px;color:var(--text3);text-align:center;margin-top:4px"></div>
+      </div>
+    </div>
+
+    <!-- INFOS APPAREIL -->
+    <div class="troc-card">
+      <div class="troc-card-header">
+        <div class="troc-card-icon" style="background:#EDE9FE">📱</div>
+        <div>
+          <div class="troc-card-title">Votre appareil actuel</div>
+          <div class="troc-card-subtitle">Informations sur le téléphone à troquer</div>
+        </div>
+      </div>
+      <div class="troc-card-body">
+
+        <div class="troc-field-group">
+          <label class="troc-label">Marque et modèle <span class="req">*</span></label>
+          <input class="troc-input" type="text" id="myPhone" placeholder="Ex: iPhone 14 Pro, Samsung S23 Ultra...">
+        </div>
+
+        <div class="troc-field-group">
+          <label class="troc-label">Capacité de stockage</label>
+          <select class="troc-input" id="myStorage">
+            <option value="">-- Sélectionner --</option>
+            <option>64 Go</option>
+            <option>128 Go</option>
+            <option>256 Go</option>
+            <option>512 Go</option>
+            <option>1 To</option>
+          </select>
+        </div>
+
+        <div class="troc-field-group">
+          <label class="troc-label">Couleur</label>
+          <input class="troc-input" type="text" id="myColor" placeholder="Ex: Blanc, Noir, Bleu Titane...">
+        </div>
+
+        <div class="troc-field-group">
+          <label class="troc-label">État de l'écran <span class="req">*</span></label>
+          <div class="condition-pills" id="screenCondition">
+            <div class="condition-pill" onclick="selectCondition('screen','Parfait')">✨ Parfait</div>
+            <div class="condition-pill" onclick="selectCondition('screen','Micro-rayures')">🔍 Micro-rayures</div>
+            <div class="condition-pill" onclick="selectCondition('screen','Rayures visibles')">😕 Rayures</div>
+            <div class="condition-pill" onclick="selectCondition('screen','Cassé/Fissuré')">💔 Cassé</div>
+          </div>
+        </div>
+
+        <div class="troc-field-group">
+          <label class="troc-label">État général du dos / châssis <span class="req">*</span></label>
+          <div class="condition-pills" id="bodyCondition">
+            <div class="condition-pill" onclick="selectCondition('body','Parfait')">✨ Parfait</div>
+            <div class="condition-pill" onclick="selectCondition('body','Bon état')">👍 Bon état</div>
+            <div class="condition-pill" onclick="selectCondition('body','Rayures/Bosses')">😕 Rayures</div>
+            <div class="condition-pill" onclick="selectCondition('body','Très abîmé')">💔 Abîmé</div>
+          </div>
+        </div>
+
+        <div class="troc-field-group">
+          <label class="troc-label">Autonomie de la batterie</label>
+          <select class="troc-input" id="myBattery">
+            <option value="">-- Sélectionner --</option>
+            <option>+90% (quasi-neuf)</option>
+            <option>80-90% (bonne)</option>
+            <option>70-80% (correcte)</option>
+            <option>Moins de 70% (faible)</option>
+            <option>Je ne sais pas</option>
+          </select>
+        </div>
+
+        <div class="troc-field-group">
+          <label class="troc-label">Accessoires inclus</label>
+          <div class="condition-pills" id="accessories" style="flex-wrap:wrap">
+            <div class="condition-pill" onclick="toggleAccessory(this)">📦 Boîte d'origine</div>
+            <div class="condition-pill" onclick="toggleAccessory(this)">🔌 Chargeur</div>
+            <div class="condition-pill" onclick="toggleAccessory(this)">🎧 Écouteurs</div>
+            <div class="condition-pill" onclick="toggleAccessory(this)">📱 Coque</div>
+            <div class="condition-pill" onclick="toggleAccessory(this)">🖊️ Stylet S Pen</div>
+          </div>
+        </div>
+
+        <div class="troc-field-group">
+          <label class="troc-label">Problèmes connus (optionnel)</label>
+          <textarea class="troc-input troc-textarea" id="myProblems" placeholder="Ex: Bouton home un peu lent, micro légèrement grésillant, petite fissure coin bas gauche..."></textarea>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- COLONNE DROITE : TÉLÉPHONE SOUHAITÉ + CONTACT -->
+  <div>
+
+    <!-- TÉLÉPHONE DÉSIRÉ -->
+    <div class="troc-card" style="margin-bottom:14px">
+      <div class="troc-card-header">
+        <div class="troc-card-icon" style="background:#DCFCE7">🆕</div>
+        <div>
+          <div class="troc-card-title">Téléphone souhaité</div>
+          <div class="troc-card-subtitle">Quel téléphone voulez-vous en échange ?</div>
+        </div>
+      </div>
+      <div class="troc-card-body">
+
+        <div class="troc-field-group">
+          <label class="troc-label">Type de téléphone <span class="req">*</span></label>
+          <div class="phone-type-toggle">
+            <button class="phone-type-btn selected" id="typeNeuf" onclick="selectType('neuf')">
+              <span class="type-icon">✨</span>
+              Neuf
+            </button>
+            <button class="phone-type-btn" id="typeRecond" onclick="selectType('reconditionne')">
+              <span class="type-icon">♻️</span>
+              Reconditionné
+            </button>
+          </div>
+        </div>
+
+        <div class="troc-field-group">
+          <label class="troc-label">Modèle souhaité <span class="req">*</span></label>
+          <input class="troc-input" type="text" id="wantedPhone" placeholder="Ex: iPhone 16 Pro Max, Samsung S25 Ultra...">
+        </div>
+
+        <div class="troc-field-group">
+          <label class="troc-label">Stockage souhaité</label>
+          <select class="troc-input" id="wantedStorage">
+            <option value="">-- Pas de préférence --</option>
+            <option>128 Go</option>
+            <option>256 Go</option>
+            <option>512 Go</option>
+            <option>1 To</option>
+          </select>
+        </div>
+
+        <div class="troc-field-group">
+          <label class="troc-label">Couleur souhaitée</label>
+          <input class="troc-input" type="text" id="wantedColor" placeholder="Ex: Titane naturel, Noir, Blanc... (optionnel)">
+        </div>
+
+        <div class="troc-field-group">
+          <label class="troc-label">Budget complémentaire (si différence de prix)</label>
+          <select class="troc-input" id="budget">
+            <option value="">-- Sélectionner --</option>
+            <option>Pas de budget complémentaire</option>
+            <option>Jusqu'à 50 000 FCFA</option>
+            <option>Jusqu'à 100 000 FCFA</option>
+            <option>Jusqu'à 200 000 FCFA</option>
+            <option>Jusqu'à 300 000 FCFA</option>
+            <option>Plus de 300 000 FCFA</option>
+          </select>
+        </div>
+
+        <div class="troc-field-group">
+          <label class="troc-label">Remarques sur le téléphone souhaité</label>
+          <textarea class="troc-input troc-textarea" id="wantedNotes" placeholder="Version 5G obligatoire, double SIM, couleur flexible, peu importe la marque tant que..."></textarea>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- COORDONNÉES -->
+    <div class="troc-card">
+      <div class="troc-card-header">
+        <div class="troc-card-icon" style="background:#FEE2E2">👤</div>
+        <div>
+          <div class="troc-card-title">Vos coordonnées</div>
+          <div class="troc-card-subtitle">Pour vous recontacter avec notre offre</div>
+        </div>
+      </div>
+      <div class="troc-card-body">
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+          <div class="troc-field-group">
+            <label class="troc-label">Prénom <span class="req">*</span></label>
+            <input class="troc-input" type="text" id="trocFirstName" placeholder="Jean">
+          </div>
+          <div class="troc-field-group">
+            <label class="troc-label">Nom</label>
+            <input class="troc-input" type="text" id="trocLastName" placeholder="Dupont">
+          </div>
+        </div>
+
+        <div class="troc-field-group">
+          <label class="troc-label">WhatsApp / Téléphone <span class="req">*</span></label>
+          <input class="troc-input" type="tel" id="trocPhone" placeholder="+241 06 XX XX XX">
+        </div>
+
+        <div class="troc-field-group">
+          <label class="troc-label">Quartier / Zone à Libreville</label>
+          <input class="troc-input" type="text" id="trocZone" placeholder="Ex: Akanda, Libreville Centre, Owendo...">
+        </div>
+
+        <div class="troc-field-group">
+          <label class="troc-label">Mode de remise préféré</label>
+          <select class="troc-input" id="trocDelivery">
+            <option value="">-- Sélectionner --</option>
+            <option>En boutique (Libreville)</option>
+            <option>Livraison à domicile</option>
+            <option>Point de rencontre neutre</option>
+          </select>
+        </div>
+
+        <!-- Récap -->
+        <div class="troc-summary" id="trocSummary">
+          <div style="font-size:11px;font-weight:700;color:var(--text2);margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px">📋 Récapitulatif</div>
+          <div class="troc-summary-row">
+            <span class="label">Votre téléphone</span>
+            <span class="val" id="summMyPhone">—</span>
+          </div>
+          <div class="troc-summary-row">
+            <span class="label">État écran</span>
+            <span class="val" id="summScreen">—</span>
+          </div>
+          <div class="troc-summary-row">
+            <span class="label">État général</span>
+            <span class="val" id="summBody">—</span>
+          </div>
+          <div class="troc-summary-row">
+            <span class="label">Téléphone voulu</span>
+            <span class="val" id="summWanted">—</span>
+          </div>
+          <div class="troc-summary-row">
+            <span class="label">Type</span>
+            <span class="val" id="summType">Neuf</span>
+          </div>
+        </div>
+
+        <button class="troc-submit-btn" onclick="submitTroc()">
+          💬 Envoyer la demande de troc sur WhatsApp
+        </button>
+
+        <p style="font-size:11px;color:var(--text3);text-align:center;margin-top:10px;line-height:1.6">
+          Votre demande sera envoyée directement sur WhatsApp.<br>
+          Nous vous répondons avec une estimation sous <strong>2 heures</strong>.
+        </p>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">Aizen<span>Tech</span></a>
+      <p>Votre spécialiste en téléphonie depuis 2018. Qualité et confiance garanties.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Boutique</h4>
+      <ul>
+        <li><a href="index.html#products">Téléphones neufs</a></li>
+        <li><a href="index.html#products">Reconditionnés</a></li>
+        <li><a href="troc.html">Troc</a></li>
+        <li><a href="index.html#promo">Promotions</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="reparation.html">Réparation</a></li>
+        <li><a href="troc.html">Échange / Troc</a></li>
+        <li><a href="contact.html">Livraison</a></li>
+        <li><a href="cgv.html">Garantie</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="contact.html">Nous trouver</a></li>
+        <li><a href="tel:+241062282798">062 28 27 98</a></li>
+        <li><a href="mailto:diderokamegne1@gmail.com">Email</a></li>
+        <li><a href="https://wa.me/241062282798">WhatsApp</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 AizenTech. Tous droits réservés.</span>
+    <span class="footer-legal-links">
+      <a href="cgv.html">CGV</a> ·
+      <a href="cgv.html">Confidentialité</a>
+    </span>
+  </div>
+</footer>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <div class="toast-dot"></div>
+  <span id="toastMsg"></span>
+</div>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/241062282798" class="whatsapp-float" target="_blank">💬 WhatsApp</a>
+
+<script src="i18n.js"></script>
+<script src="products.js"></script>
+<script src="script.js"></script>
+<script>
+// ===== TROC LOGIC =====
+let uploadedPhotos = [];
+let selectedScreenCond = '';
+let selectedBodyCond = '';
+let selectedType = 'neuf';
+let selectedAccessories = [];
+
+function toggleMobileNav() {
+  const nav = document.getElementById('navLinks');
+  const btn = document.getElementById('navHamburger');
+  nav.classList.toggle('open');
+  btn.classList.toggle('open');
+}
+
+function setLangTroc(l) {
+  lang = l;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent.toLowerCase() === l));
+}
+
+// --- Photos ---
+function handleDragOver(e) {
+  e.preventDefault();
+  document.getElementById('uploadZone').classList.add('dragover');
+}
+function handleDragLeave(e) {
+  document.getElementById('uploadZone').classList.remove('dragover');
+}
+function handleDrop(e) {
+  e.preventDefault();
+  document.getElementById('uploadZone').classList.remove('dragover');
+  const files = Array.from(e.dataTransfer.files).filter(f => f.type.startsWith('image/'));
+  addPhotos(files);
+}
+function handlePhotoInput(e) {
+  addPhotos(Array.from(e.target.files));
+  e.target.value = '';
+}
+function addPhotos(files) {
+  files.forEach(file => {
+    if (uploadedPhotos.length >= 6) return;
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      uploadedPhotos.push({ name: file.name, dataUrl: ev.target.result });
+      renderPhotos();
+    };
+    reader.readAsDataURL(file);
+  });
+}
+function removePhoto(i) {
+  uploadedPhotos.splice(i, 1);
+  renderPhotos();
+}
+function renderPhotos() {
+  const grid = document.getElementById('photoGrid');
+  const count = document.getElementById('photoCount');
+  if (uploadedPhotos.length === 0) {
+    grid.style.display = 'none';
+    count.textContent = '';
+    return;
+  }
+  grid.style.display = 'grid';
+  grid.innerHTML = uploadedPhotos.map((p,i) => `
+    <div class="photo-thumb">
+      <img src="${p.dataUrl}" alt="Photo ${i+1}">
+      <button class="photo-remove" onclick="removePhoto(${i})">✕</button>
+    </div>
+  `).join('');
+  count.textContent = `${uploadedPhotos.length}/6 photo${uploadedPhotos.length > 1 ? 's' : ''} ajoutée${uploadedPhotos.length > 1 ? 's' : ''}`;
+}
+
+// --- Conditions ---
+function selectCondition(type, val) {
+  const id = type === 'screen' ? 'screenCondition' : 'bodyCondition';
+  document.querySelectorAll(`#${id} .condition-pill`).forEach(p => p.classList.remove('selected'));
+  event.target.classList.add('selected');
+  if (type === 'screen') selectedScreenCond = val;
+  else selectedBodyCond = val;
+  updateSummary();
+}
+
+// --- Accessories ---
+function toggleAccessory(el) {
+  el.classList.toggle('selected');
+  const txt = el.textContent.trim();
+  if (el.classList.contains('selected')) {
+    if (!selectedAccessories.includes(txt)) selectedAccessories.push(txt);
+  } else {
+    selectedAccessories = selectedAccessories.filter(a => a !== txt);
+  }
+}
+
+// --- Type ---
+function selectType(type) {
+  selectedType = type;
+  document.getElementById('typeNeuf').classList.toggle('selected', type === 'neuf');
+  document.getElementById('typeRecond').classList.toggle('selected', type === 'reconditionne');
+  document.getElementById('summType').textContent = type === 'neuf' ? '✨ Neuf' : '♻️ Reconditionné';
+}
+
+// --- Live summary ---
+function updateSummary() {
+  const myPhone = document.getElementById('myPhone').value.trim();
+  const wantedPhone = document.getElementById('wantedPhone').value.trim();
+  document.getElementById('summMyPhone').textContent = myPhone || '—';
+  document.getElementById('summScreen').textContent = selectedScreenCond || '—';
+  document.getElementById('summBody').textContent = selectedBodyCond || '—';
+  document.getElementById('summWanted').textContent = wantedPhone || '—';
+}
+['myPhone','wantedPhone'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) el.addEventListener('input', updateSummary);
+});
+
+// --- Submit ---
+function submitTroc() {
+  const firstName = document.getElementById('trocFirstName').value.trim();
+  const phone = document.getElementById('trocPhone').value.trim();
+  const myPhone = document.getElementById('myPhone').value.trim();
+  const wantedPhone = document.getElementById('wantedPhone').value.trim();
+
+  if (!firstName || !phone || !myPhone || !wantedPhone) {
+    showToast('⚠️ Remplissez les champs obligatoires (*)');
+    return;
+  }
+  if (!selectedScreenCond || !selectedBodyCond) {
+    showToast('⚠️ Indiquez l\'état de l\'écran et du châssis');
+    return;
+  }
+
+  const lastName = document.getElementById('trocLastName').value.trim();
+  const myStorage = document.getElementById('myStorage').value;
+  const myColor = document.getElementById('myColor').value.trim();
+  const myBattery = document.getElementById('myBattery').value;
+  const myProblems = document.getElementById('myProblems').value.trim();
+  const wantedStorage = document.getElementById('wantedStorage').value;
+  const wantedColor = document.getElementById('wantedColor').value.trim();
+  const wantedNotes = document.getElementById('wantedNotes').value.trim();
+  const budget = document.getElementById('budget').value;
+  const zone = document.getElementById('trocZone').value.trim();
+  const delivery = document.getElementById('trocDelivery').value;
+
+  const d = '──────────────────';
+  let msg = `♻️ *DEMANDE DE TROC — AizenTech*\n${d}\n\n`;
+
+  msg += `👤 *CLIENT*\n`;
+  msg += `• Nom : ${firstName} ${lastName}\n`;
+  msg += `• WhatsApp : ${phone}\n`;
+  if (zone) msg += `• Zone : ${zone}\n`;
+  msg += `\n`;
+
+  msg += `📱 *MON TÉLÉPHONE À TROQUER*\n`;
+  msg += `• Modèle : ${myPhone}\n`;
+  if (myStorage) msg += `• Stockage : ${myStorage}\n`;
+  if (myColor) msg += `• Couleur : ${myColor}\n`;
+  msg += `• État écran : ${selectedScreenCond}\n`;
+  msg += `• État châssis : ${selectedBodyCond}\n`;
+  if (myBattery) msg += `• Batterie : ${myBattery}\n`;
+  if (selectedAccessories.length > 0) msg += `• Accessoires : ${selectedAccessories.join(', ')}\n`;
+  if (myProblems) msg += `• Problèmes : ${myProblems}\n`;
+  msg += `• Photos envoyées : ${uploadedPhotos.length > 0 ? uploadedPhotos.length + ' photo(s) ci-dessus' : 'Aucune (à envoyer séparément)'}\n`;
+  msg += `\n`;
+
+  msg += `${d}\n\n`;
+
+  msg += `🆕 *TÉLÉPHONE SOUHAITÉ*\n`;
+  msg += `• Modèle : ${wantedPhone}\n`;
+  msg += `• Type : ${selectedType === 'neuf' ? '✨ Neuf' : '♻️ Reconditionné'}\n`;
+  if (wantedStorage) msg += `• Stockage : ${wantedStorage}\n`;
+  if (wantedColor) msg += `• Couleur : ${wantedColor}\n`;
+  if (budget) msg += `• Budget complémentaire : ${budget}\n`;
+  if (wantedNotes) msg += `• Remarques : ${wantedNotes}\n`;
+  msg += `\n`;
+
+  if (delivery) {
+    msg += `🚚 *REMISE SOUHAITÉE*\n• ${delivery}\n\n`;
+  }
+
+  msg += `_Demande envoyée via AizenTech Troc — ${new Date().toLocaleString('fr-FR')}_`;
+
+  const waUrl = `https://wa.me/241062282798?text=${encodeURIComponent(msg)}`;
+
+  // If photos exist, open WhatsApp first then show note
+  window.open(waUrl, '_blank');
+
+  if (uploadedPhotos.length > 0) {
+    setTimeout(() => {
+      showToast('📸 N\'oubliez pas d\'envoyer vos photos sur WhatsApp !');
+    }, 800);
+  } else {
+    showToast('✅ Demande de troc envoyée !');
+  }
+}
+
+// Toast
+let trocToastTimeout;
+function showToast(msg) {
+  document.getElementById('toastMsg').textContent = msg;
+  const toast = document.getElementById('toast');
+  toast.classList.add('show');
+  clearTimeout(trocToastTimeout);
+  trocToastTimeout = setTimeout(() => toast.classList.remove('show'), 3500);
+}
+
+// Cart count sync
+document.addEventListener('DOMContentLoaded', () => {
+  try {
+    const saved = JSON.parse(localStorage.getItem('aizentech_cart')) || [];
+    const count = saved.reduce((s, i) => s + i.qty, 0);
+    const el = document.getElementById('cartCount');
+    if (el) el.textContent = count;
+  } catch(e) {}
+});
+</script>
+</body>
+</html>
