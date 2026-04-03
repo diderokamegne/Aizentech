@@ -15,32 +15,29 @@
     <span></span><span></span><span></span>
   </button>
   <div class="nav-links" id="navLinks">
-    <a href="index.html" class="active">Accueil</a>
+    <a href="index.html">Accueil</a>
     <a href="index.html#products">Téléphones</a>
     <a href="index.html#brands">Marques</a>
     <a href="index.html#promo">Promotions</a>
     <a href="reparation.html">Réparation</a>
-    <a href="contact.html"class="active">Contact</a>
+    <a href="contact.html">Contact</a>
     <a href="troc.html">♻️ Troc</a>
-     <a href="cgv.html">Cgv</a>
+    <a href="cgv.html">CGV</a>
   </div>
   <div class="nav-right">
     <div class="lang-toggle">
       <button class="lang-btn active" onclick="setLang('fr')">FR</button>
       <button class="lang-btn" onclick="setLang('en')">EN</button>
     </div>
-    <a href="panier.html" class="cart-btn">
-      🛒 Panier
-      <div class="cart-count" id="cartCount">0</div>
-    </a>
+    <a href="panier.html" class="cart-btn">🛒 <span data-key="nav_cart">Panier</span><div class="cart-count" id="cartCount">0</div></a>
   </div>
 </nav>
 
 <!-- HEADER -->
 <div class="page-header">
-  <div class="hero-badge" style="display:inline-flex;margin-bottom:16px">📍 Libreville, Gabon</div>
-  <h1>Nous <span>Contacter</span></h1>
-  <p>Notre équipe est là pour vous. Répondons à toutes vos questions en moins de 2 heures.</p>
+  <div class="hero-badge" style="display:inline-flex;margin-bottom:16px" data-key="con_badge">📍 Libreville, Gabon</div>
+  <h1 data-key="con_title">Nous <span>Contacter</span></h1>
+  <p data-key="con_subtitle">Notre équipe est là pour vous. Répondons à toutes vos questions en moins de 2 heures.</p>
 </div>
 
 <div class="section">
@@ -49,70 +46,58 @@
     <!-- INFOS CONTACT -->
     <div>
       <div class="contact-info-card">
-        <h3 style="font-family:'Syne',sans-serif;font-size:18px;font-weight:700;margin-bottom:20px">Nos coordonnées</h3>
+        <h3 style="font-family:'Syne',sans-serif;font-size:18px;font-weight:700;margin-bottom:20px" data-key="con_coords_title">Nos coordonnées</h3>
 
         <div class="contact-method">
           <div class="contact-method-icon">📞</div>
           <div>
-            <div class="contact-method-label">Téléphone</div>
-            <div class="contact-method-value">
-              <a href="tel:+241062282798">+241 062 28 27 98</a>
-            </div>
+            <div class="contact-method-label" data-key="con_phone_label">Téléphone</div>
+            <div class="contact-method-value"><a href="tel:+241062282798">+241 062 28 27 98</a></div>
           </div>
         </div>
 
         <div class="contact-method">
           <div class="contact-method-icon">💬</div>
           <div>
-            <div class="contact-method-label">WhatsApp</div>
-            <div class="contact-method-value">
-              <a href="https://wa.me/241062282798" target="_blank">+241 062 28 27 98</a>
-            </div>
+            <div class="contact-method-label" data-key="con_wa_label">WhatsApp</div>
+            <div class="contact-method-value"><a href="https://wa.me/241062282798" target="_blank">+241 062 28 27 98</a></div>
           </div>
         </div>
 
         <div class="contact-method">
           <div class="contact-method-icon">📧</div>
           <div>
-            <div class="contact-method-label">Email</div>
-            <div class="contact-method-value">
-              <a href="diderokamegne1@gmail.com"><span class="__cf_email__" data-cfemail="5b3f323f3e2934303a363e3c353e6a1b3c363a323775383436">diderokamegne1@gmail.com</span></a>
-            </div>
+            <div class="contact-method-label" data-key="con_email_label">Email</div>
+            <div class="contact-method-value"><a href="mailto:diderokamegne1@gmail.com">diderokamegne1@gmail.com</a></div>
           </div>
         </div>
 
         <div class="contact-method">
           <div class="contact-method-icon">📍</div>
           <div>
-            <div class="contact-method-label">Adresse</div>
-            <div class="contact-method-value">Libreville, Gabon</div>
+            <div class="contact-method-label" data-key="con_addr_label">Adresse</div>
+            <div class="contact-method-value" data-key="con_addr_val">Libreville, Gabon</div>
           </div>
         </div>
       </div>
 
       <!-- HORAIRES -->
       <div class="contact-info-card" style="margin-top:20px">
-        <h3 style="font-family:'Syne',sans-serif;font-size:18px;font-weight:700;margin-bottom:16px">🕐 Horaires d'ouverture</h3>
+        <h3 style="font-family:'Syne',sans-serif;font-size:18px;font-weight:700;margin-bottom:16px" data-key="con_hours_title">🕐 Horaires d'ouverture</h3>
         <table class="hours-table">
-          <tr><td>Lundi – Vendredi</td><td>08h00 – 19h00</td></tr>
-          <tr><td>Samedi</td><td>09h00 – 18h00</td></tr>
-          <tr><td>Dimanche</td><td>10h00 – 15h00</td></tr>
+          <tr><td data-key="con_hours_wday">Lundi – Vendredi</td><td data-key="con_hours_wday_val">08h00 – 19h00</td></tr>
+          <tr><td data-key="con_hours_sat">Samedi</td><td data-key="con_hours_sat_val">09h00 – 18h00</td></tr>
+          <tr><td data-key="con_hours_sun">Dimanche</td><td data-key="con_hours_sun_val">10h00 – 15h00</td></tr>
         </table>
       </div>
 
       <!-- RÉSEAUX SOCIAUX -->
       <div class="contact-info-card" style="margin-top:20px">
-        <h3 style="font-family:'Syne',sans-serif;font-size:18px;font-weight:700;margin-bottom:16px">🌐 Réseaux sociaux</h3>
+        <h3 style="font-family:'Syne',sans-serif;font-size:18px;font-weight:700;margin-bottom:16px" data-key="con_social_title">🌐 Réseaux sociaux</h3>
         <div style="display:flex;gap:10px;flex-wrap:wrap">
-          <a href="https://wa.me/241062282798" target="_blank" style="display:flex;align-items:center;gap:6px;background:#25D366;color:white;border-radius:8px;padding:8px 14px;font-size:13px;font-weight:500;text-decoration:none">
-            💬 WhatsApp
-          </a>
-          <a href="/cdn-cgi/l/email-protection#e98d808d8c9b868288848c8e878cd8a98e84888085c78a8684" style="display:flex;align-items:center;gap:6px;background:#EA4335;color:white;border-radius:8px;padding:8px 14px;font-size:13px;font-weight:500;text-decoration:none">
-            📧 Gmail
-          </a>
-          <a href="tel:+241062282798" style="display:flex;align-items:center;gap:6px;background:var(--surface3);color:var(--text);border:1px solid var(--border);border-radius:8px;padding:8px 14px;font-size:13px;font-weight:500;text-decoration:none">
-            📞 Appeler
-          </a>
+          <a href="https://wa.me/241062282798" target="_blank" style="display:flex;align-items:center;gap:6px;background:#25D366;color:white;border-radius:8px;padding:8px 14px;font-size:13px;font-weight:500;text-decoration:none">💬 WhatsApp</a>
+          <a href="mailto:diderokamegne1@gmail.com" style="display:flex;align-items:center;gap:6px;background:#EA4335;color:white;border-radius:8px;padding:8px 14px;font-size:13px;font-weight:500;text-decoration:none">📧 Gmail</a>
+          <a href="tel:+241062282798" style="display:flex;align-items:center;gap:6px;background:var(--surface3);color:var(--text);border:1px solid var(--border);border-radius:8px;padding:8px 14px;font-size:13px;font-weight:500;text-decoration:none">📞 Appeler</a>
         </div>
       </div>
     </div>
@@ -120,7 +105,7 @@
     <!-- FORMULAIRE -->
     <div>
       <div class="contact-form">
-        <div class="form-title">Envoyez-nous un message</div>
+        <div class="form-title" data-key="con_form_title">Envoyez-nous un message</div>
 
         <div id="formSuccess" style="display:none;background:rgba(0,230,118,0.1);border:1px solid rgba(0,230,118,0.3);border-radius:10px;padding:16px;margin-bottom:20px;color:var(--green);font-size:14px">
           ✅ Votre message a bien été envoyé ! Nous vous répondrons dans les 2 heures.
@@ -128,27 +113,27 @@
 
         <div class="form-row">
           <div class="form-group">
-            <label class="form-label" for="firstName">Prénom *</label>
+            <label class="form-label" for="firstName" data-key="con_form_firstname">Prénom *</label>
             <input class="form-input" type="text" id="firstName" placeholder="Didero">
           </div>
           <div class="form-group">
-            <label class="form-label" for="lastName">Nom *</label>
+            <label class="form-label" for="lastName" data-key="con_form_lastname">Nom *</label>
             <input class="form-input" type="text" id="lastName" placeholder="Kamegne">
           </div>
         </div>
 
         <div class="form-group">
-          <label class="form-label" for="email">Email *</label>
+          <label class="form-label" for="email" data-key="con_form_email">Email *</label>
           <input class="form-input" type="email" id="email" placeholder="votre@email.com">
         </div>
 
         <div class="form-group">
-          <label class="form-label" for="phone">Téléphone</label>
+          <label class="form-label" for="phone" data-key="con_form_phone">Téléphone</label>
           <input class="form-input" type="tel" id="phone" placeholder="+241 06 XX XX XX">
         </div>
 
         <div class="form-group">
-          <label class="form-label" for="subject">Sujet *</label>
+          <label class="form-label" for="subject" data-key="con_form_subject">Sujet *</label>
           <select class="form-input" id="subject">
             <option value="">-- Choisissez un sujet --</option>
             <option value="achat">Achat / Commande</option>
@@ -162,18 +147,16 @@
         </div>
 
         <div class="form-group">
-          <label class="form-label" for="phone_model">Modèle de téléphone concerné (optionnel)</label>
+          <label class="form-label" for="phone_model" data-key="con_form_model">Modèle de téléphone concerné (optionnel)</label>
           <input class="form-input" type="text" id="phone_model" placeholder="Ex: iPhone 16 Pro Max, Samsung S25...">
         </div>
 
         <div class="form-group">
-          <label class="form-label" for="message">Message *</label>
+          <label class="form-label" for="message" data-key="con_form_message">Message *</label>
           <textarea class="form-input" id="message" rows="5" placeholder="Décrivez votre demande en détail..."></textarea>
         </div>
 
-        <button class="form-submit" onclick="submitForm()">
-          📨 Envoyer le message
-        </button>
+        <button class="form-submit" onclick="submitForm()" data-key="con_form_submit">📨 Envoyer le message</button>
 
         <p style="font-size:12px;color:var(--text2);margin-top:12px;text-align:center">
           Ou contactez-nous directement :
@@ -185,39 +168,37 @@
 
   </div>
 
-  <!-- MAP PLACEHOLDER -->
+  <!-- MAP -->
   <div class="map-placeholder" style="margin-top:32px">
     <div class="map-emoji">📍</div>
-    <h3>Notre boutique — Libreville, Gabon</h3>
-    <p style="margin-bottom:16px">Venez nous rendre visite pour un essai, une réparation ou simplement un conseil.</p>
-    <a href="https://maps.google.com/?q=Libreville+Gabon" target="_blank" class="btn-primary" style="display:inline-block">
-      🗺️ Voir sur 
-    </a>
+    <h3 data-key="con_map_title">Notre boutique — Libreville, Gabon</h3>
+    <p style="margin-bottom:16px" data-key="con_map_desc">Venez nous rendre visite pour un essai, une réparation ou simplement un conseil.</p>
+    <a href="https://maps.google.com/?q=Libreville+Gabon" target="_blank" class="btn-primary" style="display:inline-block" data-key="con_map_btn">🗺️ Voir sur Google Maps</a>
   </div>
 
-  <!-- FAQ RAPIDE -->
+  <!-- FAQ -->
   <div style="margin-top:40px">
-    <h2 style="font-family:'Syne',sans-serif;font-size:24px;font-weight:700;margin-bottom:24px">Questions fréquentes</h2>
+    <h2 style="font-family:'Syne',sans-serif;font-size:24px;font-weight:700;margin-bottom:24px" data-key="con_faq_title">Questions fréquentes</h2>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px">
 
       <div style="background:var(--surface2);border:1px solid var(--border);border-radius:14px;padding:20px">
-        <div style="font-weight:600;margin-bottom:8px">⏱️ Quel est le délai de réparation ?</div>
-        <div style="font-size:13px;color:var(--text2)">La plupart des réparations courantes (écran, batterie) sont effectuées en 30 minutes à 2 heures. Les réparations complexes peuvent prendre 24-48h.</div>
+        <div style="font-weight:600;margin-bottom:8px" data-key="con_faq1_q">⏱️ Quel est le délai de réparation ?</div>
+        <div style="font-size:13px;color:var(--text2)" data-key="con_faq1_a">La plupart des réparations courantes (écran, batterie) sont effectuées en 30 minutes à 2 heures. Les réparations complexes peuvent prendre 24-48h.</div>
       </div>
 
       <div style="background:var(--surface2);border:1px solid var(--border);border-radius:14px;padding:20px">
-        <div style="font-weight:600;margin-bottom:8px">🛡️ Quelle garantie sur les réparations ?</div>
-        <div style="font-size:13px;color:var(--text2)">Toutes nos réparations sont garanties 6 mois pièces et main d'œuvre. Si le problème réapparaît, nous le réparons gratuitement.</div>
+        <div style="font-weight:600;margin-bottom:8px" data-key="con_faq2_q">🛡️ Quelle garantie sur les réparations ?</div>
+        <div style="font-size:13px;color:var(--text2)" data-key="con_faq2_a">Toutes nos réparations sont garanties 6 mois pièces et main d'œuvre. Si le problème réapparaît, nous le réparons gratuitement.</div>
       </div>
 
       <div style="background:var(--surface2);border:1px solid var(--border);border-radius:14px;padding:20px">
-        <div style="font-weight:600;margin-bottom:8px">💳 Quels modes de paiement acceptez-vous ?</div>
-        <div style="font-size:13px;color:var(--text2)">Espèces, Mobile Money (Airtel Money, Moov Money), virement bancaire. Paiement en plusieurs fois disponible sur demande.</div>
+        <div style="font-weight:600;margin-bottom:8px" data-key="con_faq3_q">💳 Quels modes de paiement acceptez-vous ?</div>
+        <div style="font-size:13px;color:var(--text2)" data-key="con_faq3_a">Espèces, Mobile Money (Airtel Money, Moov Money), virement bancaire. Paiement en plusieurs fois disponible sur demande.</div>
       </div>
 
       <div style="background:var(--surface2);border:1px solid var(--border);border-radius:14px;padding:20px">
-        <div style="font-weight:600;margin-bottom:8px">🚚 Livrez-vous à domicile ?</div>
-        <div style="font-size:13px;color:var(--text2)">Oui, nous livrons à Libreville et dans les environs. Délai de 24-48h. Contactez-nous pour les détails et tarifs de livraison.</div>
+        <div style="font-weight:600;margin-bottom:8px" data-key="con_faq4_q">🚚 Livrez-vous à domicile ?</div>
+        <div style="font-size:13px;color:var(--text2)" data-key="con_faq4_a">Oui, nous livrons à Libreville et dans les environs. Délai de 24-48h. Contactez-nous pour les détails et tarifs de livraison.</div>
       </div>
 
     </div>
@@ -230,15 +211,15 @@
   <div class="footer-inner">
     <div class="footer-brand">
       <a href="index.html" class="logo">Aizen<span>Tech</span></a>
-      <p>Votre spécialiste en téléphonie depuis 2018. Qualité et confiance garanties.</p>
+      <p data-key="footer_about">Votre spécialiste en téléphonie depuis 2018. Qualité et confiance garanties.</p>
     </div>
     <div class="footer-col">
-      <h4>Boutique</h4>
+      <h4 data-key="footer_col1">Boutique</h4>
       <ul>
-        <li><a href="index.html#products">Téléphones neufs</a></li>
-        <li><a href="index.html#products">Reconditionnés</a></li>
-        <li><a href="index.html#products">Accessoires</a></li>
-        <li><a href="index.html#products">Promotions</a></li>
+        <li><a href="index.html#products" data-key="footer_c1_l1">Téléphones neufs</a></li>
+        <li><a href="index.html#products" data-key="footer_c1_l2">Reconditionnés</a></li>
+        <li><a href="index.html#products" data-key="footer_c1_l3">Accessoires</a></li>
+        <li><a href="index.html#promo" data-key="footer_c1_l4">Promotions</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -255,33 +236,24 @@
       <ul>
         <li><a href="contact.html">Nous trouver</a></li>
         <li><a href="tel:+241062282798">062 28 27 98</a></li>
-        <li><a href="/cdn-cgi/l/email-protection#4f2b262b2a3d20242e222a28212a7e0f28222e2623612c2022">Email</a></li>
+        <li><a href="mailto:diderokamegne1@gmail.com">Email</a></li>
         <li><a href="https://wa.me/241062282798">WhatsApp</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2025 AizenTech. Tous droits réservés.</span>
-    <span>CGV · Confidentialité · Cookies</span>
+    <span data-key="footer_copy">© 2025 AizenTech. Tous droits réservés.</span>
+    <span data-key="footer_legal">CGV · Confidentialité · Cookies</span>
   </div>
 </footer>
 
-<!-- TOAST -->
-<div class="toast" id="toast" style="border-color:var(--green)">
-  <div class="toast-dot"></div>
-  <span id="toastMsg"></span>
-</div>
+<div class="toast" id="toast" style="border-color:var(--green)"><div class="toast-dot"></div><span id="toastMsg"></span></div>
+<a href="https://wa.me/241062282798" class="whatsapp-float" target="_blank">💬 WhatsApp</a>
 
-<!-- WHATSAPP -->
-<a href="https://wa.me/241062282798" class="whatsapp-float" target="_blank">
-  💬 WhatsApp
-</a>
-
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="i18n.js"></script>
+<script src="i18n.js"></script>
 <script src="products.js"></script>
 <script src="script.js"></script>
 <script>
-// Pré-remplissage depuis la page réparation
 window.addEventListener('DOMContentLoaded', () => {
   const params = new URLSearchParams(window.location.search);
   const service = params.get('service');
@@ -297,17 +269,17 @@ function submitForm() {
   const firstName = document.getElementById('firstName').value.trim();
   const email = document.getElementById('email').value.trim();
   const message = document.getElementById('message').value.trim();
-
   if (!firstName || !email || !message) {
     alert('Veuillez remplir les champs obligatoires (prénom, email, message).');
     return;
   }
-
-  // Construire un lien mailto de secours
   const subject = encodeURIComponent(`Message de ${firstName} — AizenTech`);
-  const body = encodeURIComponent(
-    `Prénom: ${firstName}\nEmail: ${email}\n\n${message}`
-  );
-  window.location.href = `mailto:diderokamegne1@gmail.com?subject=${subject}&body=${body}`;
-
-  document.getElementById('formSuc
+  const body = encodeURIComponent(message);
+  document.getElementById('formSuccess').style.display = 'block';
+  setTimeout(() => {
+    window.location.href = `mailto:diderokamegne1@gmail.com?subject=${subject}&body=${body}`;
+  }, 800);
+}
+</script>
+</body>
+</html>
