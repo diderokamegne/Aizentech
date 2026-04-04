@@ -446,7 +446,7 @@ const products = [
   // ══════ XIAOMI — Redmi Note 8 (2019) → Xiaomi 15 Ultra (2026) ══════
 
   // 2026
-  { brand:'Xiaomi', name:'Xiaomi 15 Ultra', cat:'Xiaomi', img:'image/Xiaomi 14 Ultra.JPG',
+  { brand:'Xiaomi', name:'Xiaomi 15 Ultra', cat:'Xiaomi', img:'image/xiaomi 15pro.JPG',
     colors:[{name:'Black',hex:'#1C1C1E',priceBonus:0},{name:'White',hex:'#F2F2F7',priceBonus:0},{name:'Titanium',hex:'#9E9E9E',priceBonus:40}],
     memory:['256 Go','512 Go','1 To'], memoryPrices:{'256 Go':899,'512 Go':1049,'1 To':1249},
     price:899, oldPrice:null,
@@ -454,7 +454,7 @@ const products = [
     badge:'new', rating:4.8, reviews:432, stock:'in',
     desc:"Xiaomi 15 Ultra — 200MP Leica, 6000mAh et charge 120W. Le flagship ultime." },
 
-  { brand:'Xiaomi', name:'Redmi Note 14 Pro', cat:'Xiaomi', img:'image/Redmi Note 13 Pro.JPG',
+  { brand:'Xiaomi', name:'Redmi Note 14 Pro', cat:'Xiaomi', img:'image/redmi 14pro.JPG',
     colors:[{name:'Midnight Black',hex:'#1C1C1E',priceBonus:0},{name:'Moonlight White',hex:'#F2F2F7',priceBonus:0},{name:'Aurora Purple',hex:'#9B59B6',priceBonus:0}],
     memory:['128 Go','256 Go','512 Go'], memoryPrices:{'128 Go':299,'256 Go':369,'512 Go':449},
     price:299, oldPrice:399,
@@ -463,7 +463,7 @@ const products = [
     desc:"Redmi Note 14 Pro — 200MP, charge 90W et 5G. Le milieu de gamme imbattable." },
 
   // 2025
-  { brand:'Xiaomi', name:'Xiaomi 14 Ultra', cat:'Xiaomi', img:'image/Xiaomi 14 Ultra.JPG',
+  { brand:'Xiaomi', name:'Xiaomi 14 Ultra', cat:'Xiaomi', img:'image/xiaomi 14ultra.JPG',
     colors:[{name:'Black',hex:'#1C1C1E',priceBonus:0},{name:'White',hex:'#F2F2F7',priceBonus:0},{name:'Titanium',hex:'#9E9E9E',priceBonus:30}],
     memory:['256 Go','512 Go','1 To'], memoryPrices:{'256 Go':799,'512 Go':929,'1 To':1099},
     price:799, oldPrice:null,
@@ -471,7 +471,7 @@ const products = [
     badge:null, rating:4.6, reviews:654, stock:'in',
     desc:"Collaboration Leica pour une photographie exceptionnelle. Le flagship Xiaomi le plus complet." },
 
-  { brand:'Xiaomi', name:'Redmi Note 13 Pro', cat:'Xiaomi', img:'image/Redmi Note 13 Pro.JPG',
+  { brand:'Xiaomi', name:'Redmi Note 13 Pro', cat:'Xiaomi', img:'image/redmi note13pro.JPG',
     colors:[{name:'Midnight Black',hex:'#1C1C1E',priceBonus:0},{name:'Arctic White',hex:'#F2F2F7',priceBonus:0},{name:'Coral Purple',hex:'#9B59B6',priceBonus:0},{name:'Ocean Teal',hex:'#20B2AA',priceBonus:0}],
     memory:['128 Go','256 Go'], memoryPrices:{'128 Go':329,'256 Go':399},
     price:329, oldPrice:399,
@@ -480,7 +480,7 @@ const products = [
     desc:"Caméra 200MP à prix abordable. AMOLED magnifique et charge rapide 67W." },
 
   // 2024
-  { brand:'Xiaomi', name:'Xiaomi 13 Ultra', cat:'Xiaomi', img:'image/Xiaomi 14 Ultra.JPG',
+  { brand:'Xiaomi', name:'Xiaomi 13 Ultra', cat:'Xiaomi', img:'image/xiaomi 13ultra.JPG',
     colors:[{name:'Black',hex:'#1C1C1E',priceBonus:0},{name:'White',hex:'#F2F2F7',priceBonus:0},{name:'Green',hex:'#4A7C59',priceBonus:0}],
     memory:['256 Go','512 Go'], memoryPrices:{'256 Go':649,'512 Go':799},
     price:649, oldPrice:999,
@@ -488,7 +488,7 @@ const products = [
     badge:'sale', rating:4.5, reviews:1890, stock:'in',
     desc:"Xiaomi 13 Ultra avec caméra Leica 4 modules et design en céramique." },
 
-  { brand:'Xiaomi', name:'Redmi Note 12 Pro', cat:'Xiaomi', img:'image/Redmi Note 13 Pro.JPG',
+  { brand:'Xiaomi', name:'Redmi Note 12 Pro', cat:'Xiaomi', img:'image/redmi note12pro.JPG',
     colors:[{name:'Midnight Black',hex:'#1C1C1E',priceBonus:0},{name:'Sky Blue',hex:'#87CEEB',priceBonus:0},{name:'Forest Green',hex:'#4A7C59',priceBonus:0}],
     memory:['128 Go','256 Go'], memoryPrices:{'128 Go':249,'256 Go':309},
     price:249, oldPrice:349,
@@ -497,7 +497,7 @@ const products = [
     desc:"Redmi Note 12 Pro — rapport qualité/prix imbattable avec AMOLED 120Hz." },
 
   // 2021
-  { brand:'Xiaomi', name:'Redmi Note 10 Pro', cat:'Xiaomi', img:'image/Redmi Note 13 Pro.JPG',
+  { brand:'Xiaomi', name:'Redmi Note 10 Pro', cat:'Xiaomi', img:'image/redmi note10pro.JPG',
     colors:[{name:'Onyx Gray',hex:'#4A4A4A',priceBonus:0},{name:'Glacier Blue',hex:'#87CEEB',priceBonus:0},{name:'Vintage Bronze',hex:'#8B6F47',priceBonus:0}],
     memory:['64 Go','128 Go'], memoryPrices:{'64 Go':149,'128 Go':189},
     price:149, oldPrice:279,
@@ -506,7 +506,7 @@ const products = [
     desc:"Redmi Note 10 Pro avec Super AMOLED 120Hz et caméra 108MP pour un prix mini." },
 
   // 2019
-  { brand:'Xiaomi', name:'Redmi Note 8 Pro', cat:'Xiaomi', img:'image/Redmi Note 13 Pro.JPG',
+  { brand:'Xiaomi', name:'Redmi Note 8 Pro', cat:'Xiaomi', img:'image/redmi note8pro.JPG',
     colors:[{name:'Mineral Grey',hex:'#808080',priceBonus:0},{name:'Forest Green',hex:'#4A7C59',priceBonus:0},{name:'Pearl White',hex:'#F2F2F7',priceBonus:0}],
     memory:['64 Go','128 Go'], memoryPrices:{'64 Go':99,'128 Go':129},
     price:99, oldPrice:199,
