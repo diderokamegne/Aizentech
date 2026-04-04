@@ -526,7 +526,7 @@ const products = [
     desc:"Charge 100W, caméra Hasselblad et la meilleure batterie du marché." },
 
   // 2025
-  { brand:'OnePlus', name:'OnePlus 12', cat:'OnePlus', img:'image/OnePlus 13.JPG',
+  { brand:'OnePlus', name:'OnePlus 12', cat:'OnePlus', img:'image/one plus12.JPG',
     colors:[{name:'Flowy Emerald',hex:'#4A7C59',priceBonus:0},{name:'Silky Black',hex:'#1C1C1E',priceBonus:0}],
     memory:['256 Go','512 Go'], memoryPrices:{'256 Go':749,'512 Go':879},
     price:749, oldPrice:899,
@@ -534,7 +534,7 @@ const products = [
     badge:'sale', rating:4.6, reviews:1120, stock:'in',
     desc:"OnePlus 12 avec charge 100W, Hasselblad Periscope et AMOLED LTPO 120Hz." },
 
-  { brand:'OnePlus', name:'OnePlus Nord 4', cat:'OnePlus', img:'image/OnePlus 13.JPG',
+  { brand:'OnePlus', name:'OnePlus Nord 4', cat:'OnePlus', img:'image/one plusnord4.JPG',
     colors:[{name:'Mercurial Silver',hex:'#D0D0D0',priceBonus:0},{name:'Obsidian Midnight',hex:'#1C1C1E',priceBonus:0},{name:'Oasis Green',hex:'#4A7C59',priceBonus:0}],
     memory:['128 Go','256 Go','512 Go'], memoryPrices:{'128 Go':399,'256 Go':479,'512 Go':579},
     price:399, oldPrice:499,
@@ -543,7 +543,7 @@ const products = [
     desc:"OnePlus Nord 4 en métal unibody avec charge 100W et 5G abordable." },
 
   // 2024
-  { brand:'OnePlus', name:'OnePlus 11', cat:'OnePlus', img:'image/OnePlus 13.JPG',
+  { brand:'OnePlus', name:'OnePlus 11', cat:'OnePlus', img:'image/one plus11.JPG',
     colors:[{name:'Titan Black',hex:'#1C1C1E',priceBonus:0},{name:'Eternal Green',hex:'#4A7C59',priceBonus:0}],
     memory:['128 Go','256 Go'], memoryPrices:{'128 Go':549,'256 Go':649},
     price:549, oldPrice:799,
@@ -552,7 +552,7 @@ const products = [
     desc:"OnePlus 11 avec charge SuperVOOC 100W et Hasselblad Natural Color Calibration." },
 
   // 2022
-  { brand:'OnePlus', name:'OnePlus 10 Pro', cat:'OnePlus', img:'image/OnePlus 13.JPG',
+  { brand:'OnePlus', name:'OnePlus 10 Pro', cat:'OnePlus', img:'image/one plus10pro.JPG',
     colors:[{name:'Volcanic Black',hex:'#1C1C1E',priceBonus:0},{name:'Emerald Forest',hex:'#4A7C59',priceBonus:0}],
     memory:['128 Go','256 Go'], memoryPrices:{'128 Go':349,'256 Go':449},
     price:349, oldPrice:899,
@@ -561,7 +561,7 @@ const products = [
     desc:"OnePlus 10 Pro avec charge rapide 80W, caméra Hasselblad et design ultra premium." },
 
   // 2019
-  { brand:'OnePlus', name:'OnePlus 7 Pro', cat:'OnePlus', img:'image/OnePlus 13.JPG',
+  { brand:'OnePlus', name:'OnePlus 7 Pro', cat:'OnePlus', img:'image/one plus7pro.JPG',
     colors:[{name:'Mirror Gray',hex:'#808080',priceBonus:0},{name:'Nebula Blue',hex:'#2E5F8A',priceBonus:0},{name:'Almond',hex:'#E8D5B0',priceBonus:0}],
     memory:['128 Go','256 Go'], memoryPrices:{'128 Go':179,'256 Go':219},
     price:179, oldPrice:649,
@@ -570,7 +570,7 @@ const products = [
     desc:"OnePlus 7 Pro, l'un des premiers écrans 90Hz. Reconditionné à petit prix." },
 
   // 2018
-  { brand:'OnePlus', name:'OnePlus 6T', cat:'OnePlus', img:'image/OnePlus 13.JPG',
+  { brand:'OnePlus', name:'OnePlus 6T', cat:'OnePlus', img:'image/one plus6T.JPG',
     colors:[{name:'Mirror Black',hex:'#1C1C1E',priceBonus:0},{name:'Midnight Black',hex:'#2C2C2C',priceBonus:0}],
     memory:['128 Go','256 Go'], memoryPrices:{'128 Go':129,'256 Go':159},
     price:129, oldPrice:549,
@@ -581,7 +581,7 @@ const products = [
   // ══════ SONY — Xperia 1 II (2020) → Xperia 1 VII (2026) ══════
 
   // 2026
-  { brand:'Sony', name:'Xperia 1 VII', cat:'Sony', img:'image/Xperia 1 VI.JPG',
+  { brand:'Sony', name:'Xperia 1 VII', cat:'Sony', img:'image/xperia 1 VII.JPG',
     colors:[{name:'Black',hex:'#1C1C1E',priceBonus:0},{name:'Platinum Silver',hex:'#D0D0D0',priceBonus:0},{name:'Forest Green',hex:'#4A7C59',priceBonus:50}],
     memory:['256 Go','512 Go'], memoryPrices:{'256 Go':1299,'512 Go':1499},
     price:1299, oldPrice:null,
@@ -598,7 +598,7 @@ const products = [
     badge:null, rating:4.6, reviews:321, stock:'low',
     desc:"Xperia 1 VI — 4K HDR, Zeiss et audio Hi-Res. Pour les créatifs exigeants." },
 
-  { brand:'Sony', name:'Xperia 5 V', cat:'Sony', img:'image/Xperia 1 VI.JPG',
+  { brand:'Sony', name:'Xperia 5 V', cat:'Sony', img:'image/Xperia 5 V.JPG',
     colors:[{name:'Black',hex:'#1C1C1E',priceBonus:0},{name:'Platinum Silver',hex:'#D0D0D0',priceBonus:0},{name:'Blue',hex:'#2E5F8A',priceBonus:0}],
     memory:['128 Go','256 Go'], memoryPrices:{'128 Go':799,'256 Go':949},
     price:799, oldPrice:999,
@@ -607,7 +607,7 @@ const products = [
     desc:"Xperia 5 V compact — Zeiss 3 capteurs, OLED 120Hz et batterie 5000mAh." },
 
   // 2024
-  { brand:'Sony', name:'Xperia 1 V', cat:'Sony', img:'image/Xperia 1 VI.JPG',
+  { brand:'Sony', name:'Xperia 1 V', cat:'Sony', img:'image/Xperia 1 V.JPG',
     colors:[{name:'Black',hex:'#1C1C1E',priceBonus:0},{name:'Platinum Silver',hex:'#D0D0D0',priceBonus:0},{name:'Khaki Green',hex:'#7A8B6F',priceBonus:0}],
     memory:['256 Go','512 Go'], memoryPrices:{'256 Go':899,'512 Go':1099},
     price:899, oldPrice:1399,
@@ -616,7 +616,7 @@ const products = [
     desc:"Xperia 1 V avec capteur Exmor T et écran 4K OLED unique sur le marché." },
 
   // 2022
-  { brand:'Sony', name:'Xperia 1 IV', cat:'Sony', img:'image/Xperia 1 VI.JPG',
+  { brand:'Sony', name:'Xperia 1 IV', cat:'Sony', img:'image/Xperia 1 IV.JPG',
     colors:[{name:'Black',hex:'#1C1C1E',priceBonus:0},{name:'White',hex:'#F2F2F7',priceBonus:0},{name:'Purple',hex:'#9B59B6',priceBonus:0}],
     memory:['256 Go','512 Go'], memoryPrices:{'256 Go':649,'512 Go':849},
     price:649, oldPrice:1299,
@@ -625,78 +625,13 @@ const products = [
     desc:"Xperia 1 IV — zoom optique continu 85-125mm et vidéo 4K 120fps." },
 
   // 2020
-  { brand:'Sony', name:'Xperia 1 II', cat:'Sony', img:'image/Xperia 1 VI.JPG',
+  { brand:'Sony', name:'Xperia 1 II', cat:'Sony', img:'image/Xperia 1 II.JPG',
     colors:[{name:'Black',hex:'#1C1C1E',priceBonus:0},{name:'White',hex:'#F2F2F7',priceBonus:0},{name:'Purple',hex:'#9B59B6',priceBonus:0}],
     memory:['128 Go','256 Go'], memoryPrices:{'128 Go':299,'256 Go':399},
     price:299, oldPrice:1099,
     specs:{Écran:'6.5" 4K OLED 60Hz',Puce:'Snapdragon 865',Caméra:'12 MP Zeiss Triple',Batterie:'4000 mAh',OS:'Android 10','5G':'Oui'},
     badge:'sale', rating:4.3, reviews:2800, stock:'low',
     desc:"Xperia 1 II — premier Sony 5G avec écran 4K et caméra Zeiss." },
-
-  // ══════ MOTOROLA — Moto G7 (2019) → Edge 60 Ultra (2026) ══════
-
-  // 2026
-  { brand:'Motorola', name:'Motorola Edge 60 Ultra', cat:'Motorola', img:'image/Motorola Edge 50 Ultra.JPG',
-    colors:[{name:'Midnight Blue',hex:'#1A2F5A',priceBonus:0},{name:'Sand',hex:'#C8A870',priceBonus:0},{name:'Vegan Leather',hex:'#8B6F47',priceBonus:50}],
-    memory:['256 Go','512 Go'], memoryPrices:{'256 Go':799,'512 Go':949},
-    price:799, oldPrice:null,
-    specs:{Écran:'6.7" pOLED 165Hz',Puce:'Snapdragon 8 Elite Gen 2',Caméra:'200 MP',Batterie:'5000 mAh',OS:'Android 16','5G':'Oui'},
-    badge:'new', rating:4.5, reviews:234, stock:'in',
-    desc:"Motorola Edge 60 Ultra — 200MP, cuir végétal et charge sans fil 50W." },
-
-  { brand:'Motorola', name:'Moto G85 5G', cat:'Motorola', img:'image/Motorola Edge 50 Ultra.JPG',
-    colors:[{name:'Cobalt Blue',hex:'#2E5F8A',priceBonus:0},{name:'Olive Green',hex:'#6B8E23',priceBonus:0},{name:'Caramel Latte',hex:'#C8A870',priceBonus:0}],
-    memory:['128 Go','256 Go'], memoryPrices:{'128 Go':249,'256 Go':299},
-    price:249, oldPrice:329,
-    specs:{Écran:'6.67" pOLED 120Hz',Puce:'Snapdragon 6 Gen 3',Caméra:'50 MP OIS',Batterie:'5000 mAh',OS:'Android 15','5G':'Oui'},
-    badge:'sale', rating:4.4, reviews:654, stock:'in',
-    desc:"Moto G85 5G — pOLED 120Hz, OIS 50MP et charge 33W. Rapport qualité/prix excellent." },
-
-  // 2025
-  { brand:'Motorola', name:'Motorola Edge 50 Ultra', cat:'Motorola', img:'image/Motorola Edge 50 Ultra.JPG',
-    colors:[{name:'Forest Grey',hex:'#5A6B5A',priceBonus:0},{name:'Peach Fuzz',hex:'#FFBBA0',priceBonus:0},{name:'Nordic Wood',hex:'#8B6F47',priceBonus:50}],
-    memory:['256 Go','512 Go'], memoryPrices:{'256 Go':699,'512 Go':849},
-    price:699, oldPrice:849,
-    specs:{Écran:'6.7" pOLED 165Hz',Puce:'Snapdragon 8s Gen 3',Caméra:'50 MP',Batterie:'4500 mAh',OS:'Android 14','5G':'Oui'},
-    badge:'sale', rating:4.4, reviews:412, stock:'in',
-    desc:"Design en vrai bois, écran 165Hz ultra-fluide et charge sans fil 50W." },
-
-  { brand:'Motorola', name:'Moto G54 5G', cat:'Motorola', img:'image/Motorola Edge 50 Ultra.JPG',
-    colors:[{name:'Midnight Blue',hex:'#1A2F5A',priceBonus:0},{name:'Mint Green',hex:'#B5D5C4',priceBonus:0},{name:'Pearl White',hex:'#F2F2F7',priceBonus:0}],
-    memory:['128 Go','256 Go'], memoryPrices:{'128 Go':199,'256 Go':249},
-    price:199, oldPrice:279,
-    specs:{Écran:'6.5" IPS LCD 120Hz',Puce:'Dimensity 7020',Caméra:'50 MP',Batterie:'6000 mAh',OS:'Android 13','5G':'Oui'},
-    badge:'sale', rating:4.3, reviews:890, stock:'in',
-    desc:"Moto G54 5G — batterie 6000mAh, 5G et caméra 50MP. Champion d'autonomie." },
-
-  // 2023
-  { brand:'Motorola', name:'Motorola Edge 40 Pro', cat:'Motorola', img:'image/Motorola Edge 50 Ultra.JPG',
-    colors:[{name:'Interstellar Black',hex:'#1C1C1E',priceBonus:0},{name:'Lunar Blue',hex:'#2E5F8A',priceBonus:0}],
-    memory:['256 Go'], memoryPrices:{'256 Go':449},
-    price:449, oldPrice:799,
-    specs:{Écran:'6.67" pOLED 165Hz',Puce:'Snapdragon 8 Gen 2',Caméra:'50 MP',Batterie:'4600 mAh',OS:'Android 13','5G':'Oui'},
-    badge:'sale', rating:4.4, reviews:1600, stock:'in',
-    desc:"Edge 40 Pro avec Snapdragon 8 Gen 2, charge 125W et écran 165Hz." },
-
-  // 2021
-  { brand:'Motorola', name:'Moto G Power (2021)', cat:'Motorola', img:'image/Motorola Edge 50 Ultra.JPG',
-    colors:[{name:'Flash Gray',hex:'#808080',priceBonus:0},{name:'Polar Silver',hex:'#D0D0D0',priceBonus:0}],
-    memory:['64 Go','128 Go'], memoryPrices:{'64 Go':99,'128 Go':129},
-    price:99, oldPrice:199,
-    specs:{Écran:'6.6" IPS LCD 60Hz',Puce:'Snapdragon 662',Caméra:'48 MP Triple',Batterie:'5000 mAh',OS:'Android 10','5G':'Non'},
-    badge:'sale', rating:4.2, reviews:6700, stock:'in',
-    desc:"Moto G Power 2021 — triple caméra 48MP et batterie 5000mAh. Autonomie record." },
-
-  // 2019
-  { brand:'Motorola', name:'Moto G7 Power', cat:'Motorola', img:'image/Motorola Edge 50 Ultra.JPG',
-    colors:[{name:'Ceramic Black',hex:'#1C1C1E',priceBonus:0},{name:'Ice Violet',hex:'#C9B8D8',priceBonus:0}],
-    memory:['32 Go','64 Go'], memoryPrices:{'32 Go':59,'64 Go':79},
-    price:59, oldPrice:249,
-    specs:{Écran:'6.2" IPS LCD',Puce:'Snapdragon 632',Caméra:'12 MP',Batterie:'5000 mAh',OS:'Android 9','5G':'Non'},
-    badge:'sale', rating:4.1, reviews:9800, stock:'low',
-    desc:"Moto G7 Power — batterie 5000mAh et TurboPower. L'entrée de gamme longue durée." },
-
-];
 
 // ── Calcul du prix selon mémoire + couleur
 function getProductPrice(product, memory, colorHex) {
