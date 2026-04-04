@@ -219,7 +219,7 @@ const products = [
     badge:'new', rating:4.9, reviews:876, stock:'in',
     desc:"Flagship ultime 2026 — S Pen intégré, zoom 200MP, IA Galaxy et batterie 5500mAh." },
 
-  { brand:'Samsung', name:'Galaxy S26+', cat:'Samsung', img:'image/s 26+.JPG',
+  { brand:'Samsung', name:'Galaxy S26+', cat:'Samsung', img:'image/s26+.JPG',
     colors:[{name:'Navy',hex:'#1A2F5A',priceBonus:0},{name:'Silver Shadow',hex:'#D4D2CC',priceBonus:0},{name:'Mint',hex:'#B5D5C4',priceBonus:0}],
     memory:['256 Go','512 Go'], memoryPrices:{'256 Go':899,'512 Go':1049},
     price:899, oldPrice:null,
@@ -244,7 +244,7 @@ const products = [
     badge:'sale', rating:4.8, reviews:1892, stock:'in',
     desc:"Galaxy S25 Ultra avec S Pen intégré, zoom 200MP et Galaxy AI." },
 
-  { brand:'Samsung', name:'Galaxy S25+', cat:'Samsung',  img:'image/s25 +.JPG',
+  { brand:'Samsung', name:'Galaxy S25+', cat:'Samsung',  img:'image/s25+.JPG',
     colors:[{name:'Icy Blue',hex:'#B8D4E8',priceBonus:0},{name:'Mint',hex:'#B5D5C4',priceBonus:0},{name:'Navy',hex:'#2C3E6B',priceBonus:0},{name:'Silver Shadow',hex:'#D4D2CC',priceBonus:0}],
     memory:['256 Go','512 Go'], memoryPrices:{'256 Go':899,'512 Go':1049},
     price:899, oldPrice:999,
@@ -277,7 +277,7 @@ const products = [
     badge:'sale', rating:4.8, reviews:3120, stock:'in',
     desc:"Galaxy S24 Ultra en titane avec S Pen, 200MP et Galaxy AI. Le meilleur Samsung." },
 
-  { brand:'Samsung', name:'Galaxy S24+', cat:'Samsung', img:'image/s 24+.JPG',
+  { brand:'Samsung', name:'Galaxy S24+', cat:'Samsung', img:'image/s24+.JPG',
     colors:[{name:'Onyx Black',hex:'#1C1C1E',priceBonus:0},{name:'Marble Gray',hex:'#808080',priceBonus:0},{name:'Cobalt Violet',hex:'#7B68A0',priceBonus:0}],
     memory:['256 Go','512 Go'], memoryPrices:{'256 Go':749,'512 Go':899},
     price:749, oldPrice:999,
@@ -346,7 +346,7 @@ const products = [
     desc:"Galaxy S20 FE — l'édition fan. Snapdragon 865, 5G et AMOLED 120Hz à petit prix." },
 
   // 2019
-  { brand:'Samsung', name:'Galaxy S10+', cat:'Samsung', img:'image/s 10+.JPG',
+  { brand:'Samsung', name:'Galaxy S10+', cat:'Samsung', img:'image/s10+.JPG',
     colors:[{name:'Prism Black',hex:'#1C1C1E',priceBonus:0},{name:'Prism White',hex:'#F2F2F7',priceBonus:0},{name:'Prism Green',hex:'#4A7C59',priceBonus:0}],
     memory:['128 Go','512 Go'], memoryPrices:{'128 Go':199,'512 Go':299},
     price:199, oldPrice:999,
