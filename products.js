@@ -632,6 +632,7 @@ const products = [
     specs:{Écran:'6.5" 4K OLED 60Hz',Puce:'Snapdragon 865',Caméra:'12 MP Zeiss Triple',Batterie:'4000 mAh',OS:'Android 10','5G':'Oui'},
     badge:'sale', rating:4.3, reviews:2800, stock:'low',
     desc:"Xperia 1 II — premier Sony 5G avec écran 4K et caméra Zeiss." },
+  ];
 
 // ── Calcul du prix selon mémoire + couleur
 function getProductPrice(product, memory, colorHex) {
