@@ -355,7 +355,7 @@ const products = [
     desc:"Galaxy S10+ avec triple caméra, lecteur d'empreintes dans l'écran et Infinity-O." },
 
   // 2018
-  { brand:'Samsung', name:'Galaxy S9+', cat:'Samsung', img:'image/s 9+.JPG',
+  { brand:'Samsung', name:'Galaxy S9+', cat:'Samsung', img:'image/s9plus.JPG',
     colors:[{name:'Midnight Black',hex:'#1C1C1E',priceBonus:0},{name:'Coral Blue',hex:'#2E5F8A',priceBonus:0},{name:'Lilac Purple',hex:'#C9B8D8',priceBonus:0},{name:'Titanium Gray',hex:'#808080',priceBonus:0}],
     memory:['64 Go','128 Go','256 Go'], memoryPrices:{'64 Go':129,'128 Go':159,'256 Go':199},
     price:129, oldPrice:849,
