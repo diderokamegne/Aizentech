@@ -244,7 +244,7 @@ const products = [
     badge:'sale', rating:4.8, reviews:1892, stock:'in',
     desc:"Galaxy S25 Ultra avec S Pen intégré, zoom 200MP et Galaxy AI." },
 
-  { brand:'Samsung', name:'Galaxy S25+', cat:'Samsung', img:'image/s25 +.JPG',
+  { brand:'Samsung', name:'Galaxy S25+', cat:'Samsung',  img:'image/s25 +.JPG',
     colors:[{name:'Icy Blue',hex:'#B8D4E8',priceBonus:0},{name:'Mint',hex:'#B5D5C4',priceBonus:0},{name:'Navy',hex:'#2C3E6B',priceBonus:0},{name:'Silver Shadow',hex:'#D4D2CC',priceBonus:0}],
     memory:['256 Go','512 Go'], memoryPrices:{'256 Go':899,'512 Go':1049},
     price:899, oldPrice:999,
@@ -311,7 +311,7 @@ const products = [
     desc:"Galaxy S23 compact et performant avec Snapdragon 8 Gen 2 et Nightography 50MP." },
 
   // 2022
-  { brand:'Samsung', name:'Galaxy S22 Ultra', cat:'Samsung', img:'image/s25 ultra.JPG',
+  { brand:'Samsung', name:'Galaxy S22 Ultra', cat:'Samsung', img:'image/s 22 ultra.JPG',
     colors:[{name:'Phantom Black',hex:'#1C1C1E',priceBonus:0},{name:'Phantom White',hex:'#F2F2F7',priceBonus:0},{name:'Burgundy',hex:'#800020',priceBonus:0},{name:'Green',hex:'#4A7C59',priceBonus:0}],
     memory:['128 Go','256 Go','512 Go','1 To'], memoryPrices:{'128 Go':549,'256 Go':649,'512 Go':849,'1 To':1049},
     price:549, oldPrice:1199,
@@ -319,7 +319,7 @@ const products = [
     badge:'sale', rating:4.6, reviews:7800, stock:'in',
     desc:"Galaxy S22 Ultra, héritier du Note avec S Pen, zoom 100x et 5000mAh." },
 
-  { brand:'Samsung', name:'Galaxy A54 5G', cat:'Samsung', img:'image/S25 plus.JPG',
+  { brand:'Samsung', name:'Galaxy A54 5G', cat:'Samsung', img:'image/a 54.JPG',
     colors:[{name:'Awesome Black',hex:'#1C1C1E',priceBonus:0},{name:'Awesome White',hex:'#F2F2F7',priceBonus:0},{name:'Awesome Violet',hex:'#9B59B6',priceBonus:0},{name:'Awesome Lime',hex:'#B5D4C4',priceBonus:0}],
     memory:['128 Go','256 Go'], memoryPrices:{'128 Go':349,'256 Go':429},
     price:349, oldPrice:449,
@@ -328,7 +328,7 @@ const products = [
     desc:"Galaxy A54 5G — milieu de gamme parfait. AMOLED 120Hz, OIS et 5G abordable." },
 
   // 2021
-  { brand:'Samsung', name:'Galaxy S21 Ultra', cat:'Samsung', img:'image/s25 ultra.JPG',
+  { brand:'Samsung', name:'Galaxy S21 Ultra', cat:'Samsung', img:'image/s 21 ultra.JPG',
     colors:[{name:'Phantom Black',hex:'#1C1C1E',priceBonus:0},{name:'Phantom Silver',hex:'#D0D0D0',priceBonus:0},{name:'Phantom Brown',hex:'#8B6F47',priceBonus:0},{name:'Phantom Navy',hex:'#2C3E6B',priceBonus:0}],
     memory:['128 Go','256 Go','512 Go'], memoryPrices:{'128 Go':399,'256 Go':499,'512 Go':699},
     price:399, oldPrice:1199,
@@ -337,7 +337,7 @@ const products = [
     desc:"Galaxy S21 Ultra avec zoom 10x, S Pen compatible et Space Zoom 100x." },
 
   // 2020
-  { brand:'Samsung', name:'Galaxy S20 FE 5G', cat:'Samsung', img:'image/S25 plus.JPG',
+  { brand:'Samsung', name:'Galaxy S20 FE 5G', cat:'Samsung', img:'image/s 20 fe.JPG',
     colors:[{name:'Cloud Navy',hex:'#2C3E6B',priceBonus:0},{name:'Cloud Lavender',hex:'#C9B8D8',priceBonus:0},{name:'Cloud Mint',hex:'#B5D5C4',priceBonus:0},{name:'Cloud Red',hex:'#C0392B',priceBonus:0}],
     memory:['128 Go','256 Go'], memoryPrices:{'128 Go':249,'256 Go':299},
     price:249, oldPrice:649,
@@ -346,7 +346,7 @@ const products = [
     desc:"Galaxy S20 FE — l'édition fan. Snapdragon 865, 5G et AMOLED 120Hz à petit prix." },
 
   // 2019
-  { brand:'Samsung', name:'Galaxy S10+', cat:'Samsung', img:'image/S25 plus.JPG',
+  { brand:'Samsung', name:'Galaxy S10+', cat:'Samsung', img:'image/s 10+.JPG',
     colors:[{name:'Prism Black',hex:'#1C1C1E',priceBonus:0},{name:'Prism White',hex:'#F2F2F7',priceBonus:0},{name:'Prism Green',hex:'#4A7C59',priceBonus:0}],
     memory:['128 Go','512 Go'], memoryPrices:{'128 Go':199,'512 Go':299},
     price:199, oldPrice:999,
@@ -355,7 +355,7 @@ const products = [
     desc:"Galaxy S10+ avec triple caméra, lecteur d'empreintes dans l'écran et Infinity-O." },
 
   // 2018
-  { brand:'Samsung', name:'Galaxy S9+', cat:'Samsung', img:'image/S25 plus.JPG',
+  { brand:'Samsung', name:'Galaxy S9+', cat:'Samsung', img:'image/s 9+.JPG',
     colors:[{name:'Midnight Black',hex:'#1C1C1E',priceBonus:0},{name:'Coral Blue',hex:'#2E5F8A',priceBonus:0},{name:'Lilac Purple',hex:'#C9B8D8',priceBonus:0},{name:'Titanium Gray',hex:'#808080',priceBonus:0}],
     memory:['64 Go','128 Go','256 Go'], memoryPrices:{'64 Go':129,'128 Go':159,'256 Go':199},
     price:129, oldPrice:849,
