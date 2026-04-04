@@ -219,7 +219,7 @@ const products = [
     badge:'new', rating:4.9, reviews:876, stock:'in',
     desc:"Flagship ultime 2026 — S Pen intégré, zoom 200MP, IA Galaxy et batterie 5500mAh." },
 
-  { brand:'Samsung', name:'Galaxy S26+', cat:'Samsung', img:'image/S25 plus.JPG',
+  { brand:'Samsung', name:'Galaxy S26+', cat:'Samsung', img:'image/s 26+.JPG',
     colors:[{name:'Navy',hex:'#1A2F5A',priceBonus:0},{name:'Silver Shadow',hex:'#D4D2CC',priceBonus:0},{name:'Mint',hex:'#B5D5C4',priceBonus:0}],
     memory:['256 Go','512 Go'], memoryPrices:{'256 Go':899,'512 Go':1049},
     price:899, oldPrice:null,
@@ -227,7 +227,7 @@ const products = [
     badge:'new', rating:4.8, reviews:432, stock:'in',
     desc:"Galaxy S26+ avec Snapdragon 8 Elite Gen 2 et IA Galaxy de nouvelle génération." },
 
-  { brand:'Samsung', name:'Galaxy Z Fold 7', cat:'Samsung', img:'image/fold 6.JPG',
+  { brand:'Samsung', name:'Galaxy Z Fold 7', cat:'Samsung', img:'image/z fold 7.JPG',
     colors:[{name:'Black',hex:'#1C1C1E',priceBonus:0},{name:'Silver',hex:'#C8C6C0',priceBonus:0}],
     memory:['256 Go','512 Go','1 To'], memoryPrices:{'256 Go':1899,'512 Go':2099,'1 To':2399},
     price:1899, oldPrice:null,
@@ -244,7 +244,7 @@ const products = [
     badge:'sale', rating:4.8, reviews:1892, stock:'in',
     desc:"Galaxy S25 Ultra avec S Pen intégré, zoom 200MP et Galaxy AI." },
 
-  { brand:'Samsung', name:'Galaxy S25+', cat:'Samsung', img:'image/S25 plus.JPG',
+  { brand:'Samsung', name:'Galaxy S25+', cat:'Samsung', img:'image/s25 +.JPG',
     colors:[{name:'Icy Blue',hex:'#B8D4E8',priceBonus:0},{name:'Mint',hex:'#B5D5C4',priceBonus:0},{name:'Navy',hex:'#2C3E6B',priceBonus:0},{name:'Silver Shadow',hex:'#D4D2CC',priceBonus:0}],
     memory:['256 Go','512 Go'], memoryPrices:{'256 Go':899,'512 Go':1049},
     price:899, oldPrice:999,
@@ -252,7 +252,7 @@ const products = [
     badge:'sale', rating:4.7, reviews:876, stock:'in',
     desc:"Grand écran, longue autonomie et performances haut de gamme. Meilleur rapport qualité/prix Samsung." },
 
-  { brand:'Samsung', name:'Galaxy Z Fold 6', cat:'Samsung', img:'image/fold 6.JPG',
+  { brand:'Samsung', name:'Galaxy Z Fold 6', cat:'Samsung', img:'image/z fold 6.JPG',
     colors:[{name:'Black',hex:'#1C1C1E',priceBonus:0},{name:'Silver',hex:'#C8C6C0',priceBonus:0},{name:'Blue',hex:'#3A5F8A',priceBonus:50}],
     memory:['256 Go','512 Go'], memoryPrices:{'256 Go':1799,'512 Go':1999},
     price:1799, oldPrice:1999,
@@ -269,7 +269,7 @@ const products = [
     desc:"Galaxy Z Flip 6 — flip phone tendance avec grand écran FlexWindow." },
 
   // 2024
-  { brand:'Samsung', name:'Galaxy S24 Ultra', cat:'Samsung', img:'image/s25 ultra.JPG',
+  { brand:'Samsung', name:'Galaxy S24 Ultra', cat:'Samsung', img:'image/s 24 ultra.JPG',
     colors:[{name:'Titanium Black',hex:'#2C2C2E',priceBonus:0},{name:'Titanium Gray',hex:'#808080',priceBonus:0},{name:'Titanium Violet',hex:'#7B68A0',priceBonus:0},{name:'Titanium Yellow',hex:'#C8A840',priceBonus:0}],
     memory:['256 Go','512 Go','1 To'], memoryPrices:{'256 Go':849,'512 Go':999,'1 To':1199},
     price:849, oldPrice:1299,
@@ -277,7 +277,7 @@ const products = [
     badge:'sale', rating:4.8, reviews:3120, stock:'in',
     desc:"Galaxy S24 Ultra en titane avec S Pen, 200MP et Galaxy AI. Le meilleur Samsung." },
 
-  { brand:'Samsung', name:'Galaxy S24+', cat:'Samsung', img:'image/S25 plus.JPG',
+  { brand:'Samsung', name:'Galaxy S24+', cat:'Samsung', img:'image/s 24+.JPG',
     colors:[{name:'Onyx Black',hex:'#1C1C1E',priceBonus:0},{name:'Marble Gray',hex:'#808080',priceBonus:0},{name:'Cobalt Violet',hex:'#7B68A0',priceBonus:0}],
     memory:['256 Go','512 Go'], memoryPrices:{'256 Go':749,'512 Go':899},
     price:749, oldPrice:999,
@@ -285,7 +285,7 @@ const products = [
     badge:'sale', rating:4.7, reviews:1870, stock:'in',
     desc:"Galaxy S24+ grand format avec Galaxy AI et Snapdragon 8 Gen 3." },
 
-  { brand:'Samsung', name:'Galaxy Z Fold 5', cat:'Samsung', img:'image/fold 6.JPG',
+  { brand:'Samsung', name:'Galaxy Z Fold 5', cat:'Samsung', img:'image/fold 5.JPG',
     colors:[{name:'Icy Blue',hex:'#B8D4E8',priceBonus:0},{name:'Phantom Black',hex:'#1C1C1E',priceBonus:0},{name:'Cream',hex:'#F5F0E8',priceBonus:0}],
     memory:['256 Go','512 Go','1 To'], memoryPrices:{'256 Go':1399,'512 Go':1599,'1 To':1899},
     price:1399, oldPrice:1799,
@@ -294,7 +294,7 @@ const products = [
     desc:"Galaxy Z Fold 5 plus fin et léger, charnière améliorée et cover plus grand." },
 
   // 2023
-  { brand:'Samsung', name:'Galaxy S23 Ultra', cat:'Samsung', img:'image/s25 ultra.JPG',
+  { brand:'Samsung', name:'Galaxy S23 Ultra', cat:'Samsung', img:'image/s 23 ultra.JPG',
     colors:[{name:'Phantom Black',hex:'#1C1C1E',priceBonus:0},{name:'Cream',hex:'#F5F0E8',priceBonus:0},{name:'Green',hex:'#4A7C59',priceBonus:0},{name:'Lavender',hex:'#C9B8D8',priceBonus:0}],
     memory:['256 Go','512 Go','1 To'], memoryPrices:{'256 Go':699,'512 Go':849,'1 To':1049},
     price:699, oldPrice:1199,
@@ -302,7 +302,7 @@ const products = [
     badge:'sale', rating:4.7, reviews:5600, stock:'in',
     desc:"Galaxy S23 Ultra avec S Pen, 200MP et zoom 100x. Le pro ultime à prix réduit." },
 
-  { brand:'Samsung', name:'Galaxy S23', cat:'Samsung', img:'image/S25 plus.JPG',
+  { brand:'Samsung', name:'Galaxy S23', cat:'Samsung', img:'image/s 23.JPG',
     colors:[{name:'Phantom Black',hex:'#1C1C1E',priceBonus:0},{name:'Cream',hex:'#F5F0E8',priceBonus:0},{name:'Green',hex:'#4A7C59',priceBonus:0},{name:'Lavender',hex:'#C9B8D8',priceBonus:0}],
     memory:['128 Go','256 Go'], memoryPrices:{'128 Go':499,'256 Go':599},
     price:499, oldPrice:799,
