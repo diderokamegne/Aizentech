@@ -8,7 +8,7 @@ const products = [
   // ══════ APPLE — XR (2018) → iPhone 17 (2026) ══════
 
   // 2026
-  { brand:'Apple', name:'iPhone 17 Pro Max', cat:'Apple', img:'image/17 PM2.JPG',
+  { brand:'Apple', name:'iPhone 17 Pro Max', cat:'Apple', img:'image/17 pro max.JPG',
     colors:[{name:'Titane naturel',hex:'#C9BFB0',priceBonus:0},{name:'Titane noir',hex:'#3A3A3C',priceBonus:0},{name:'Titane blanc',hex:'#EAE5DA',priceBonus:0},{name:'Titane désert',hex:'#C49A6C',priceBonus:20}],
     memory:['256 Go','512 Go','1 To'], memoryPrices:{'256 Go':1199,'512 Go':1349,'1 To':1549},
     price:1199, oldPrice:null,
@@ -16,7 +16,7 @@ const products = [
     badge:'new', rating:4.9, reviews:2341, stock:'in',
     desc:"L'iPhone le plus avancé. Puce A19 Pro, caméra ProRAW et écran ProMotion 120Hz." },
 
-  { brand:'Apple', name:'iPhone 17 Pro', cat:'Apple', img:'image/17 PM2.JPG',
+  { brand:'Apple', name:'iPhone 17 Pro', cat:'Apple', img:'image/17 pro.JPG',
     colors:[{name:'Titane naturel',hex:'#C9BFB0',priceBonus:0},{name:'Titane noir',hex:'#3A3A3C',priceBonus:0},{name:'Titane blanc',hex:'#EAE5DA',priceBonus:0},{name:'Titane désert',hex:'#C49A6C',priceBonus:20}],
     memory:['256 Go','512 Go','1 To'], memoryPrices:{'256 Go':999,'512 Go':1149,'1 To':1349},
     price:999, oldPrice:null,
@@ -24,7 +24,7 @@ const products = [
     badge:'new', rating:4.9, reviews:1540, stock:'in',
     desc:"iPhone 17 Pro compact et ultra-puissant. Puce A19 Pro et Dynamic Island." },
 
-  { brand:'Apple', name:'iPhone 17', cat:'Apple', img:'image/17 PM2.JPG',
+  { brand:'Apple', name:'iPhone 17 AIR', cat:'Apple', img:'image/17 AIR.JPG',
     colors:[{name:'Noir',hex:'#1D1D1F',priceBonus:0},{name:'Blanc',hex:'#F5F0E8',priceBonus:0},{name:'Rose',hex:'#F2A7B0',priceBonus:0},{name:'Bleu',hex:'#AECAD6',priceBonus:0},{name:'Vert sauge',hex:'#B4C4B2',priceBonus:0}],
     memory:['128 Go','256 Go','512 Go'], memoryPrices:{'128 Go':799,'256 Go':899,'512 Go':1099},
     price:799, oldPrice:null,
@@ -33,7 +33,7 @@ const products = [
     desc:"iPhone 17 avec puce A19, Dynamic Island et caméra 48MP améliorée." },
 
   // 2025
-  { brand:'Apple', name:'iPhone 16 Pro Max', cat:'Apple', img:'image/16 PM.JPG',
+  { brand:'Apple', name:'iPhone 16 Pro Max', cat:'Apple', img:'image/16 pro max.JPG',
     colors:[{name:'Titane naturel',hex:'#C9BFB0',priceBonus:0},{name:'Titane noir',hex:'#3A3A3C',priceBonus:0},{name:'Titane blanc',hex:'#EAE5DA',priceBonus:0},{name:'Titane désert',hex:'#C49A6C',priceBonus:10}],
     memory:['256 Go','512 Go','1 To'], memoryPrices:{'256 Go':1099,'512 Go':1249,'1 To':1449},
     price:1099, oldPrice:null,
@@ -41,7 +41,7 @@ const products = [
     badge:null, rating:4.9, reviews:4521, stock:'in',
     desc:"iPhone 16 Pro Max avec Dynamic Island, puce A18 Pro et zoom optique 5x." },
 
-  { brand:'Apple', name:'iPhone 16 Pro', cat:'Apple', img:'image/16 PM.JPG',
+  { brand:'Apple', name:'iPhone 16 Pro', cat:'Apple', img:'image/16 pro.JPG',
     colors:[{name:'Titane naturel',hex:'#C9BFB0',priceBonus:0},{name:'Titane noir',hex:'#3A3A3C',priceBonus:0},{name:'Titane blanc',hex:'#EAE5DA',priceBonus:0},{name:'Titane désert',hex:'#C49A6C',priceBonus:10}],
     memory:['128 Go','256 Go','512 Go','1 To'], memoryPrices:{'128 Go':999,'256 Go':1099,'512 Go':1299,'1 To':1499},
     price:999, oldPrice:null,
@@ -57,7 +57,7 @@ const products = [
     badge:null, rating:4.7, reviews:1123, stock:'in',
     desc:"Grand écran et longue autonomie avec puce A18. L'iPhone 16 Plus." },
 
-  { brand:'Apple', name:'iPhone 16', cat:'Apple', img:'image/16 plus.JPG',
+  { brand:'Apple', name:'iPhone 16', cat:'Apple', img:'image/16.JPG',
     colors:[{name:'Noir',hex:'#1D1D1F',priceBonus:0},{name:'Blanc',hex:'#F5F0E8',priceBonus:0},{name:'Rose',hex:'#F2A7B0',priceBonus:0},{name:'Bleu azur',hex:'#AECAD6',priceBonus:0},{name:'Vert sauge',hex:'#B4C4B2',priceBonus:0}],
     memory:['128 Go','256 Go','512 Go'], memoryPrices:{'128 Go':799,'256 Go':909,'512 Go':1129},
     price:799, oldPrice:899,
@@ -66,7 +66,7 @@ const products = [
     desc:"iPhone 16 avec puce A18, Dynamic Island et mode cinématique amélioré." },
 
   // 2024
-  { brand:'Apple', name:'iPhone 15 Pro Max', cat:'Apple', img:'image/16 PM.JPG',
+  { brand:'Apple', name:'iPhone 15 Pro Max', cat:'Apple', img:'image/15 pro max.JPG',
     colors:[{name:'Titane naturel',hex:'#C9BFB0',priceBonus:0},{name:'Titane noir',hex:'#3A3A3C',priceBonus:0},{name:'Titane blanc',hex:'#EAE5DA',priceBonus:0},{name:'Titane bleu',hex:'#4A6FA5',priceBonus:0}],
     memory:['256 Go','512 Go','1 To'], memoryPrices:{'256 Go':899,'512 Go':1049,'1 To':1249},
     price:899, oldPrice:1099,
@@ -74,7 +74,7 @@ const products = [
     badge:'sale', rating:4.8, reviews:5621, stock:'in',
     desc:"iPhone 15 Pro Max en titane, zoom 5x et puce A17 Pro. Excellent rapport qualité/prix." },
 
-  { brand:'Apple', name:'iPhone 15 Pro', cat:'Apple', img:'image/16 PM.JPG',
+  { brand:'Apple', name:'iPhone 15 Pro', cat:'Apple', img:'image/15 pro.JPG',
     colors:[{name:'Titane naturel',hex:'#C9BFB0',priceBonus:0},{name:'Titane noir',hex:'#3A3A3C',priceBonus:0},{name:'Titane blanc',hex:'#EAE5DA',priceBonus:0},{name:'Titane bleu',hex:'#4A6FA5',priceBonus:0}],
     memory:['128 Go','256 Go','512 Go','1 To'], memoryPrices:{'128 Go':799,'256 Go':899,'512 Go':1099,'1 To':1299},
     price:799, oldPrice:999,
@@ -82,7 +82,7 @@ const products = [
     badge:'sale', rating:4.8, reviews:4320, stock:'in',
     desc:"iPhone 15 Pro en titane avec bouton Action, USB-C et puce A17 Pro." },
 
-  { brand:'Apple', name:'iPhone 15 Plus', cat:'Apple', img:'image/15 simple.JPG',
+  { brand:'Apple', name:'iPhone 15 Plus', cat:'Apple', img:'image/15 plus.JPG',
     colors:[{name:'Noir',hex:'#1D1D1F',priceBonus:0},{name:'Jaune',hex:'#F9E379',priceBonus:0},{name:'Rose',hex:'#F2A7B0',priceBonus:0},{name:'Vert',hex:'#B5D4C4',priceBonus:0},{name:'Bleu',hex:'#A8C5D8',priceBonus:0}],
     memory:['128 Go','256 Go'], memoryPrices:{'128 Go':749,'256 Go':879},
     price:749, oldPrice:899,
@@ -90,7 +90,7 @@ const products = [
     badge:'sale', rating:4.7, reviews:2100, stock:'in',
     desc:"Grand écran 6.7\", Dynamic Island et USB-C pour l'iPhone 15 Plus." },
 
-  { brand:'Apple', name:'iPhone 15', cat:'Apple', img:'image/15 simple.JPG',
+  { brand:'Apple', name:'iPhone 15', cat:'Apple', img:'image/15.JPG',
     colors:[{name:'Noir',hex:'#1D1D1F',priceBonus:0},{name:'Jaune',hex:'#F9E379',priceBonus:0},{name:'Rose',hex:'#F2A7B0',priceBonus:0},{name:'Vert',hex:'#B5D4C4',priceBonus:0},{name:'Bleu',hex:'#A8C5D8',priceBonus:0}],
     memory:['128 Go','256 Go'], memoryPrices:{'128 Go':699,'256 Go':829},
     price:699, oldPrice:799,
@@ -99,7 +99,7 @@ const products = [
     desc:"iPhone 15 avec Dynamic Island, 48MP et charge USB-C." },
 
   // 2023
-  { brand:'Apple', name:'iPhone 14 Pro Max', cat:'Apple', img:'image/16 PM.JPG',
+  { brand:'Apple', name:'iPhone 14 Pro Max', cat:'Apple', img:'image/14 pro max.JPG',
     colors:[{name:'Noir sidéral',hex:'#2C2C2C',priceBonus:0},{name:'Argent',hex:'#E8E8E8',priceBonus:0},{name:'Or',hex:'#C9A96E',priceBonus:0},{name:'Violet intense',hex:'#6E6589',priceBonus:0}],
     memory:['128 Go','256 Go','512 Go','1 To'], memoryPrices:{'128 Go':699,'256 Go':799,'512 Go':999,'1 To':1199},
     price:699, oldPrice:1099,
@@ -107,7 +107,7 @@ const products = [
     badge:'sale', rating:4.7, reviews:7842, stock:'in',
     desc:"iPhone 14 Pro Max avec Dynamic Island, A16 Bionic et écran ProMotion always-on." },
 
-  { brand:'Apple', name:'iPhone 14 Pro', cat:'Apple', img:'image/16 PM.JPG',
+  { brand:'Apple', name:'iPhone 14 Pro', cat:'Apple', img:'image/14 pro.JPG',
     colors:[{name:'Noir sidéral',hex:'#2C2C2C',priceBonus:0},{name:'Argent',hex:'#E8E8E8',priceBonus:0},{name:'Or',hex:'#C9A96E',priceBonus:0},{name:'Violet intense',hex:'#6E6589',priceBonus:0}],
     memory:['128 Go','256 Go','512 Go','1 To'], memoryPrices:{'128 Go':599,'256 Go':699,'512 Go':899,'1 To':1099},
     price:599, oldPrice:999,
@@ -115,7 +115,7 @@ const products = [
     badge:'sale', rating:4.7, reviews:6210, stock:'in',
     desc:"iPhone 14 Pro avec Dynamic Island, écran always-on et caméra 48MP." },
 
-  { brand:'Apple', name:'iPhone 14 Plus', cat:'Apple', img:'image/16 plus.JPG',
+  { brand:'Apple', name:'iPhone 14 Plus', cat:'Apple', img:'image/14 plus.JPG',
     colors:[{name:'Minuit',hex:'#1D1D1F',priceBonus:0},{name:'Lumière stellaire',hex:'#F5F0E8',priceBonus:0},{name:'Bleu',hex:'#A8C5D8',priceBonus:0},{name:'Violet',hex:'#C9B8D8',priceBonus:0},{name:'Rouge',hex:'#C0392B',priceBonus:0}],
     memory:['128 Go','256 Go','512 Go'], memoryPrices:{'128 Go':549,'256 Go':649,'512 Go':849},
     price:549, oldPrice:799,
@@ -123,7 +123,7 @@ const products = [
     badge:'sale', rating:4.6, reviews:3100, stock:'in',
     desc:"Grand écran 6.7\" et autonomie record pour l'iPhone 14 Plus." },
 
-  { brand:'Apple', name:'iPhone 14', cat:'Apple', img:'image/15 simple.JPG',
+  { brand:'Apple', name:'iPhone 14', cat:'Apple', img:'image/14.JPG',
     colors:[{name:'Minuit',hex:'#1D1D1F',priceBonus:0},{name:'Lumière stellaire',hex:'#F5F0E8',priceBonus:0},{name:'Bleu',hex:'#A8C5D8',priceBonus:0},{name:'Violet',hex:'#C9B8D8',priceBonus:0},{name:'Rouge',hex:'#C0392B',priceBonus:0}],
     memory:['128 Go','256 Go','512 Go'], memoryPrices:{'128 Go':499,'256 Go':599,'512 Go':799},
     price:499, oldPrice:699,
@@ -132,7 +132,7 @@ const products = [
     desc:"iPhone 14 avec détection de collision, SOS satellite et excellente autonomie." },
 
   // 2022
-  { brand:'Apple', name:'iPhone 13 Pro Max', cat:'Apple', img:'image/15 simple.JPG',
+  { brand:'Apple', name:'iPhone 13 Pro Max', cat:'Apple', img:'image/13 pro max.JPG',
     colors:[{name:'Graphite',hex:'#4A4A4A',priceBonus:0},{name:'Or',hex:'#C9A96E',priceBonus:0},{name:'Argent',hex:'#E8E8E8',priceBonus:0},{name:'Bleu Alpin',hex:'#5B7FA6',priceBonus:0},{name:'Vert Alpin',hex:'#4A7C59',priceBonus:0}],
     memory:['128 Go','256 Go','512 Go','1 To'], memoryPrices:{'128 Go':449,'256 Go':549,'512 Go':749,'1 To':949},
     price:449, oldPrice:1099,
@@ -140,7 +140,7 @@ const products = [
     badge:'sale', rating:4.7, reviews:9123, stock:'in',
     desc:"iPhone 13 Pro Max avec ProMotion 120Hz, zoom 3x et macro. Excellent reconditionné." },
 
-  { brand:'Apple', name:'iPhone 13', cat:'Apple', img:'image/15 simple.JPG',
+  { brand:'Apple', name:'iPhone 13', cat:'Apple', img:'image/13.JPG',
     colors:[{name:'Minuit',hex:'#1D1D1F',priceBonus:0},{name:'Lumière stellaire',hex:'#F5F0E8',priceBonus:0},{name:'Bleu',hex:'#A8C5D8',priceBonus:0},{name:'Rose',hex:'#F2A7B0',priceBonus:0},{name:'Vert',hex:'#B5D4C4',priceBonus:0},{name:'Rouge',hex:'#C0392B',priceBonus:0}],
     memory:['128 Go','256 Go','512 Go'], memoryPrices:{'128 Go':349,'256 Go':449,'512 Go':649},
     price:349, oldPrice:699,
@@ -148,7 +148,7 @@ const products = [
     badge:'sale', rating:4.6, reviews:11200, stock:'in',
     desc:"iPhone 13 — puce A15, mode Cinématique et autonomie +2.5h. Best-seller reconditionné." },
 
-  { brand:'Apple', name:'iPhone 13 mini', cat:'Apple', img:'image/15 simple.JPG',
+  { brand:'Apple', name:'iPhone 13 mini', cat:'Apple', img:'image/13 mini.JPG',
     colors:[{name:'Minuit',hex:'#1D1D1F',priceBonus:0},{name:'Lumière stellaire',hex:'#F5F0E8',priceBonus:0},{name:'Bleu',hex:'#A8C5D8',priceBonus:0},{name:'Rose',hex:'#F2A7B0',priceBonus:0},{name:'Vert',hex:'#B5D4C4',priceBonus:0}],
     memory:['128 Go','256 Go','512 Go'], memoryPrices:{'128 Go':299,'256 Go':399,'512 Go':599},
     price:299, oldPrice:599,
@@ -157,7 +157,7 @@ const products = [
     desc:"Le plus compact des iPhones modernes. Format mini avec toute la puissance A15." },
 
   // 2021
-  { brand:'Apple', name:'iPhone 12 Pro Max', cat:'Apple', img:'image/15 simple.JPG',
+  { brand:'Apple', name:'iPhone 12 Pro Max', cat:'Apple', img:'image/12 pro max.JPG',
     colors:[{name:'Graphite',hex:'#4A4A4A',priceBonus:0},{name:'Or',hex:'#C9A96E',priceBonus:0},{name:'Argent',hex:'#E8E8E8',priceBonus:0},{name:'Bleu pacifique',hex:'#2E5F8A',priceBonus:0}],
     memory:['128 Go','256 Go','512 Go'], memoryPrices:{'128 Go':349,'256 Go':449,'512 Go':649},
     price:349, oldPrice:1099,
@@ -165,7 +165,7 @@ const products = [
     badge:'sale', rating:4.6, reviews:8700, stock:'in',
     desc:"iPhone 12 Pro Max — premier iPhone 5G avec design plat et scanner LiDAR." },
 
-  { brand:'Apple', name:'iPhone 12', cat:'Apple', img:'image/15 simple.JPG',
+  { brand:'Apple', name:'iPhone 12', cat:'Apple', img:'image/12 .JPG',
     colors:[{name:'Noir',hex:'#1D1D1F',priceBonus:0},{name:'Blanc',hex:'#F5F0E8',priceBonus:0},{name:'Bleu',hex:'#A8C5D8',priceBonus:0},{name:'Vert',hex:'#B5D4C4',priceBonus:0},{name:'Rouge',hex:'#C0392B',priceBonus:0},{name:'Violet',hex:'#C9B8D8',priceBonus:0}],
     memory:['64 Go','128 Go','256 Go'], memoryPrices:{'64 Go':249,'128 Go':299,'256 Go':399},
     price:249, oldPrice:799,
@@ -174,7 +174,7 @@ const products = [
     desc:"iPhone 12 avec design plat emblématique, puce A14 et 5G. Best-seller reconditionné." },
 
   // 2020
-  { brand:'Apple', name:'iPhone 11 Pro Max', cat:'Apple', img:'image/15 simple.JPG',
+  { brand:'Apple', name:'iPhone 11 Pro Max', cat:'Apple', img:'image/11 pro max.JPG',
     colors:[{name:'Gris sidéral',hex:'#4A4A4A',priceBonus:0},{name:'Or',hex:'#C9A96E',priceBonus:0},{name:'Argent',hex:'#E8E8E8',priceBonus:0},{name:'Vert nuit',hex:'#3A5240',priceBonus:0}],
     memory:['64 Go','256 Go','512 Go'], memoryPrices:{'64 Go':199,'256 Go':279,'512 Go':379},
     price:199, oldPrice:1099,
@@ -182,7 +182,7 @@ const products = [
     badge:'sale', rating:4.5, reviews:12300, stock:'in',
     desc:"iPhone 11 Pro Max avec triple caméra et grande autonomie. Excellent reconditionné." },
 
-  { brand:'Apple', name:'iPhone 11', cat:'Apple', img:'image/15 simple.JPG',
+  { brand:'Apple', name:'iPhone 11', cat:'Apple', img:'image/11.JPG',
     colors:[{name:'Noir',hex:'#1D1D1F',priceBonus:0},{name:'Blanc',hex:'#F5F0E8',priceBonus:0},{name:'Vert',hex:'#B5D4C4',priceBonus:0},{name:'Jaune',hex:'#F9E379',priceBonus:0},{name:'Violet',hex:'#C9B8D8',priceBonus:0},{name:'Rouge',hex:'#C0392B',priceBonus:0}],
     memory:['64 Go','128 Go','256 Go'], memoryPrices:{'64 Go':149,'128 Go':189,'256 Go':249},
     price:149, oldPrice:699,
@@ -191,7 +191,7 @@ const products = [
     desc:"iPhone 11 toujours performant avec puce A13 Bionic. Ultra-abordable en reconditionné." },
 
   // 2019
-  { brand:'Apple', name:'iPhone XS Max', cat:'Apple', img:'image/15 simple.JPG',
+  { brand:'Apple', name:'iPhone XS Max', cat:'Apple', img:'image/xs max.JPG',
     colors:[{name:'Gris sidéral',hex:'#4A4A4A',priceBonus:0},{name:'Or',hex:'#C9A96E',priceBonus:0},{name:'Argent',hex:'#E8E8E8',priceBonus:0}],
     memory:['64 Go','256 Go','512 Go'], memoryPrices:{'64 Go':129,'256 Go':169,'512 Go':219},
     price:129, oldPrice:1099,
@@ -200,7 +200,7 @@ const products = [
     desc:"iPhone XS Max avec grand écran OLED et Face ID. Reconditionné à prix mini." },
 
   // 2018
-  { brand:'Apple', name:'iPhone XR', cat:'Apple', img:'image/15 simple.JPG',
+  { brand:'Apple', name:'iPhone XR', cat:'Apple', img:'image/xr.JPG',
     colors:[{name:'Noir',hex:'#1D1D1F',priceBonus:0},{name:'Blanc',hex:'#F5F0E8',priceBonus:0},{name:'Bleu',hex:'#A8C5D8',priceBonus:0},{name:'Jaune',hex:'#F9E379',priceBonus:0},{name:'Corail',hex:'#FF7F7F',priceBonus:0},{name:'Rouge',hex:'#C0392B',priceBonus:0}],
     memory:['64 Go','128 Go','256 Go'], memoryPrices:{'64 Go':99,'128 Go':119,'256 Go':149},
     price:99, oldPrice:749,
