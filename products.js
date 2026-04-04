@@ -646,6 +646,6 @@ function getProductPrice(product, memory, colorHex) {
 
 // ── Catégories de filtres
 const filterCategories = {
-  fr: ['Tous', 'Apple', 'Samsung', 'Google', 'Xiaomi', 'OnePlus', 'Sony', 'Motorola', 'Promo'],
-  en: ['All', 'Apple', 'Samsung', 'Google', 'Xiaomi', 'OnePlus', 'Sony', 'Motorola', 'Sale'],
+  fr: ['Tous', 'Apple', 'Samsung', 'Google', 'Xiaomi', 'OnePlus', 'Sony', 'Promo'],
+  en: ['All', 'Apple', 'Samsung', 'Google', 'Xiaomi', 'OnePlus', 'Sony', 'Sale'],
 };
