@@ -366,7 +366,7 @@ const products = [
   // ══════ GOOGLE — Pixel 3a (2019) → Pixel 10 (2026) ══════
 
   // 2026
-  { brand:'Google', name:'Pixel 10 Pro', cat:'Google', img:'image/g 10 pro.JPG',
+  { brand:'Google', name:'Pixel 10 Pro', cat:'Google', img:'image/pixel 10 pro.JPG',
     colors:[{name:'Obsidian',hex:'#1C1C1E',priceBonus:0},{name:'Porcelain',hex:'#EDE9E3',priceBonus:0},{name:'Hazel',hex:'#7A8B6F',priceBonus:0},{name:'Rose Quartz',hex:'#E8C4C4',priceBonus:0}],
     memory:['128 Go','256 Go','1 To'], memoryPrices:{'128 Go':799,'256 Go':899,'1 To':1099},
     price:799, oldPrice:null,
@@ -374,7 +374,7 @@ const products = [
     badge:'new', rating:4.8, reviews:1204, stock:'in',
     desc:"Pixel 10 Pro avec Tensor G5 et IA Gemini Ultra. 7 ans de mises à jour garanties." },
 
-  { brand:'Google', name:'Pixel 10', cat:'Google', img:'image/g 10 pro.JPG',
+  { brand:'Google', name:'Pixel 10', cat:'Google', img:'image/pixel 10.JPG',
     colors:[{name:'Obsidian',hex:'#1C1C1E',priceBonus:0},{name:'Porcelain',hex:'#EDE9E3',priceBonus:0},{name:'Peony',hex:'#F4A0B5',priceBonus:0}],
     memory:['128 Go','256 Go'], memoryPrices:{'128 Go':599,'256 Go':699},
     price:599, oldPrice:null,
@@ -383,7 +383,7 @@ const products = [
     desc:"Pixel 10 avec Tensor G5, IA Gemini et la meilleure caméra entrée de gamme Pixel." },
 
   // 2025
-  { brand:'Google', name:'Pixel 9 Pro', cat:'Google', img:'image/ pixel 9 pro.JPG',
+  { brand:'Google', name:'Pixel 9 Pro', cat:'Google', img:'image/pixel 9pro.JPG',
     colors:[{name:'Obsidian',hex:'#1C1C1E',priceBonus:0},{name:'Porcelain',hex:'#EDE9E3',priceBonus:0},{name:'Hazel',hex:'#7A8B6F',priceBonus:0},{name:'Rose Quartz',hex:'#E8C4C4',priceBonus:0}],
     memory:['128 Go','256 Go','1 To'], memoryPrices:{'128 Go':699,'256 Go':799,'1 To':999},
     price:699, oldPrice:null,
@@ -400,7 +400,7 @@ const products = [
     desc:"Meilleur Pixel accessible — excellente autonomie et caméra IA remarquable." },
 
   // 2024
-  { brand:'Google', name:'Pixel 8 Pro', cat:'Google', img:'image/ pixel 9 pro.JPG',
+  { brand:'Google', name:'Pixel 8 Pro', cat:'Google', img:'image/pixel 8pro.JPG',
     colors:[{name:'Obsidian',hex:'#1C1C1E',priceBonus:0},{name:'Porcelain',hex:'#EDE9E3',priceBonus:0},{name:'Bay',hex:'#5B7FA6',priceBonus:0}],
     memory:['128 Go','256 Go','1 To'], memoryPrices:{'128 Go':599,'256 Go':699,'1 To':899},
     price:599, oldPrice:999,
@@ -408,7 +408,7 @@ const products = [
     badge:'sale', rating:4.7, reviews:2100, stock:'in',
     desc:"Pixel 8 Pro avec Tensor G3, température de surface et 7 ans de mises à jour." },
 
-  { brand:'Google', name:'Pixel 8a', cat:'Google', img:'image/pixel 9a.JPG',
+  { brand:'Google', name:'Pixel 8a', cat:'Google', img:'image/pixel 8a.JPG',
     colors:[{name:'Obsidian',hex:'#1C1C1E',priceBonus:0},{name:'Porcelain',hex:'#EDE9E3',priceBonus:0},{name:'Aloe',hex:'#7FBF7F',priceBonus:0},{name:'Bay',hex:'#5B7FA6',priceBonus:0}],
     memory:['128 Go','256 Go'], memoryPrices:{'128 Go':399,'256 Go':499},
     price:399, oldPrice:549,
@@ -417,7 +417,7 @@ const products = [
     desc:"Pixel 8a avec Tensor G3 et Magic Eraser IA à prix abordable." },
 
   // 2023
-  { brand:'Google', name:'Pixel 7 Pro', cat:'Google', img:'image/ pixel 9 pro.JPG',
+  { brand:'Google', name:'Pixel 7 Pro', cat:'Google', img:'image/pixel 7pro.JPG',
     colors:[{name:'Obsidian',hex:'#1C1C1E',priceBonus:0},{name:'Snow',hex:'#F2F2F7',priceBonus:0},{name:'Hazel',hex:'#7A8B6F',priceBonus:0}],
     memory:['128 Go','256 Go','512 Go'], memoryPrices:{'128 Go':449,'256 Go':549,'512 Go':749},
     price:449, oldPrice:899,
@@ -426,7 +426,7 @@ const products = [
     desc:"Pixel 7 Pro avec Tensor G2, zoom optique 5x et design aluminium recyclé." },
 
   // 2022
-  { brand:'Google', name:'Pixel 6a', cat:'Google', img:'image/pixel 9a.JPG',
+  { brand:'Google', name:'Pixel 6a', cat:'Google', img:'image/pixel 6a.JPG',
     colors:[{name:'Chalk',hex:'#E8E4DC',priceBonus:0},{name:'Charcoal',hex:'#3C3C3C',priceBonus:0},{name:'Sage',hex:'#8FAF8F',priceBonus:0}],
     memory:['128 Go'], memoryPrices:{'128 Go':249},
     price:249, oldPrice:449,
@@ -435,7 +435,7 @@ const products = [
     desc:"Pixel 6a — Pixel accessible avec Tensor G1 et 5 ans de mises à jour." },
 
   // 2019
-  { brand:'Google', name:'Pixel 3a', cat:'Google', img:'image/pixel 9a.JPG',
+  { brand:'Google', name:'Pixel 3a', cat:'Google', img:'image/pixel 3a.JPG',
     colors:[{name:'Just Black',hex:'#1C1C1E',priceBonus:0},{name:'Clearly White',hex:'#F2F2F7',priceBonus:0},{name:'Purple-ish',hex:'#C9B8D8',priceBonus:0}],
     memory:['64 Go'], memoryPrices:{'64 Go':99},
     price:99, oldPrice:399,
